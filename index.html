@@ -2,22 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Potko - Next-Gen Video Platform | Watch, Create & Earn Real Money</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Potko Inc. | Enterprise Video Streaming & Verified Creator Economy</title>
+  <meta name="description" content="Official distribution portal for Potko. High-performance 60 FPS OLED video network with verified daily creator and viewer monetization.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-black: #000000;
-      --card-bg: #0c0c0e;
-      --card-border: #1a1a24;
+      --surface-glass: rgba(13, 14, 18, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border-glow: rgba(0, 242, 254, 0.25);
       --cyan: #00f2fe;
       --magenta: #fe0979;
       --green: #00ff88;
-      --gold: #ffd700;
-      --text-white: #ffffff;
-      --text-dim: #9aa0a6;
+      --gold: #ffb703;
+      --text-white: #f8fafc;
+      --text-dim: #94a3b8;
       --neon-grad: linear-gradient(135deg, #00f2fe 0%, #fe0979 100%);
       --earn-grad: linear-gradient(135deg, #00ff88 0%, #00b4d8 100%);
     }
@@ -35,9 +37,52 @@
       color: var(--text-white);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
     }
 
-    /* Navbar */
+    /* Ambient Tech Background Glows */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .ambient-glow-1 {
+      position: absolute;
+      top: -10%;
+      left: 20%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.12) 0%, transparent 70%);
+      filter: blur(60px);
+    }
+
+    .ambient-glow-2 {
+      position: absolute;
+      top: 40%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(254, 9, 121, 0.09) 0%, transparent 70%);
+      filter: blur(70px);
+    }
+
+    .ambient-glow-3 {
+      position: absolute;
+      bottom: 5%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0, 255, 136, 0.08) 0%, transparent 70%);
+      filter: blur(60px);
+    }
+
+    /* Enterprise Header */
     header {
       padding: 16px 24px;
       display: flex;
@@ -46,8 +91,8 @@
       border-bottom: 1px solid var(--card-border);
       position: sticky;
       top: 0;
-      background: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(16px);
       z-index: 100;
     }
 
@@ -56,23 +101,23 @@
       align-items: center;
       gap: 12px;
       font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 1.2px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
     }
 
     .brand-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #000;
-      border: 2px solid var(--cyan);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #050505;
+      border: 1.5px solid var(--cyan);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--cyan);
       font-weight: 900;
-      font-size: 18px;
-      box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+      font-size: 20px;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.4);
     }
 
     .nav-btn {
@@ -80,20 +125,19 @@
       color: #fff;
       font-size: 13px;
       font-weight: 700;
-      padding: 8px 18px;
-      border-radius: 20px;
+      padding: 9px 20px;
+      border-radius: 30px;
       text-decoration: none;
-      box-shadow: 0 0 14px rgba(254, 9, 121, 0.35);
-      transition: transform 0.2s;
+      box-shadow: 0 0 16px rgba(254, 9, 121, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .nav-btn:active {
       transform: scale(0.96);
     }
 
-    /* Main Container */
     .container {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -101,29 +145,39 @@
     /* Hero Section */
     .hero {
       text-align: center;
-      padding: 44px 0 32px;
+      padding: 50px 0 32px;
     }
 
-    .badge-top {
+    .enterprise-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(0, 255, 136, 0.1);
-      border: 1px solid rgba(0, 255, 136, 0.35);
-      padding: 6px 14px;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.3);
+      padding: 6px 16px;
       border-radius: 30px;
-      font-size: 12px;
-      color: var(--green);
+      font-size: 11px;
       font-weight: 700;
-      margin-bottom: 20px;
+      color: var(--green);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .enterprise-tag .status-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
     }
 
     .hero h1 {
-      font-size: 32px;
-      font-weight: 800;
+      font-size: 36px;
+      font-weight: 900;
       margin-bottom: 14px;
-      line-height: 1.25;
-      letter-spacing: -0.5px;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
     }
 
     .hero h1 span.gradient {
@@ -141,28 +195,52 @@
     .hero p {
       font-size: 15px;
       color: var(--text-dim);
-      margin-bottom: 24px;
-      max-width: 520px;
+      margin-bottom: 28px;
+      max-width: 580px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.6;
     }
 
-    .stats {
+    .stats-card {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--gold);
-      margin-bottom: 28px;
+      gap: 20px;
+      background: var(--surface-glass);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 20px;
+      max-width: 440px;
+      margin: 0 auto 30px;
+      backdrop-filter: blur(8px);
     }
 
-    .stats span {
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 17px;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .stat-item span {
+      font-size: 11px;
       color: var(--text-dim);
-      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    /* Primary CTA Button */
+    .stat-divider {
+      width: 1px;
+      height: 24px;
+      background: var(--card-border);
+    }
+
+    /* Action Buttons */
     .download-cta {
       display: inline-flex;
       flex-direction: column;
@@ -172,13 +250,13 @@
       color: #ffffff;
       text-decoration: none;
       width: 100%;
-      max-width: 320px;
-      padding: 16px 24px;
-      border-radius: 14px;
+      max-width: 340px;
+      padding: 18px 24px;
+      border-radius: 16px;
       font-size: 18px;
       font-weight: 800;
-      box-shadow: 0 0 25px rgba(254, 9, 121, 0.45);
-      transition: transform 0.2s;
+      box-shadow: 0 8px 30px rgba(254, 9, 121, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .download-cta:active {
@@ -188,17 +266,18 @@
     .download-cta small {
       font-size: 12px;
       font-weight: 500;
-      opacity: 0.9;
-      margin-top: 3px;
+      opacity: 0.95;
+      margin-top: 4px;
+      letter-spacing: 0.3px;
     }
 
-    /* Trust & Security Badges */
+    /* Security Badges Ribbon */
     .security-bar {
-      margin-top: 24px;
+      margin-top: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
+      gap: 16px;
       font-size: 12px;
       color: var(--text-dim);
       flex-wrap: wrap;
@@ -207,57 +286,113 @@
     .badge-item {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #00ff88;
-      box-shadow: 0 0 8px #00ff88;
+      box-shadow: 0 0 6px #00ff88;
     }
 
-    /* Section Headers */
+    /* Headings */
     .section-title {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 800;
       text-align: center;
-      margin: 48px 0 8px;
-      letter-spacing: -0.3px;
+      margin: 54px 0 8px;
+      letter-spacing: -0.4px;
     }
 
     .section-sub {
       text-align: center;
       font-size: 13px;
       color: var(--text-dim);
-      margin-bottom: 24px;
+      margin-bottom: 26px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Monetization Showcase Box */
-    .earn-banner {
-      background: linear-gradient(180deg, #111d17 0%, var(--card-bg) 100%);
-      border: 1px solid rgba(0, 255, 136, 0.25);
+    /* Enterprise Comparison Matrix */
+    .compare-card {
+      background: var(--surface-glass);
+      border: 1px solid var(--card-border);
       border-radius: 16px;
-      padding: 24px;
-      margin-top: 10px;
+      padding: 22px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      overflow-x: auto;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .compare-table th {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--card-border);
+      color: var(--text-dim);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .compare-table td {
+      padding: 14px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .highlight-cell {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    /* Monetization Dashboard Card */
+    .earn-banner {
+      background: linear-gradient(180deg, rgba(16, 29, 23, 0.85) 0%, var(--surface-glass) 100%);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      border-radius: 18px;
+      padding: 26px;
+      backdrop-filter: blur(12px);
     }
 
     .earn-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 14px;
+      margin-bottom: 20px;
     }
 
     .earn-icon {
-      font-size: 28px;
+      font-size: 32px;
+      background: rgba(0, 255, 136, 0.1);
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 255, 136, 0.3);
     }
 
     .earn-header h3 {
-      font-size: 18px;
+      font-size: 19px;
       color: var(--green);
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .earn-steps {
@@ -268,46 +403,46 @@
     .earn-step {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      background: #131715;
-      border: 1px solid #1f2a24;
-      border-radius: 10px;
-      padding: 14px;
+      gap: 14px;
+      background: rgba(19, 24, 21, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 16px;
     }
 
     .earn-badge {
       background: var(--green);
       color: #000;
       font-size: 11px;
-      font-weight: 800;
-      padding: 4px 8px;
+      font-weight: 900;
+      padding: 5px 10px;
       border-radius: 6px;
       flex-shrink: 0;
-      margin-top: 2px;
+      letter-spacing: 0.5px;
     }
 
     .earn-step-content h4 {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
     .earn-step-content p {
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--text-dim);
     }
 
     .payout-methods {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px solid #1f2a24;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: space-between;
       font-size: 12px;
       color: var(--text-dim);
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
     }
 
     .methods-list {
@@ -316,15 +451,60 @@
     }
 
     .method-pill {
-      background: #1c221e;
-      border: 1px solid #28362d;
-      padding: 3px 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
       border-radius: 6px;
       font-size: 11px;
       color: #fff;
+      font-weight: 600;
     }
 
-    /* Feature Grid */
+    /* Compliance & Security Cards */
+    .policy-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .policy-card {
+      background: var(--surface-glass);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      backdrop-filter: blur(10px);
+    }
+
+    .policy-icon {
+      font-size: 22px;
+      color: var(--cyan);
+      background: rgba(0, 242, 254, 0.08);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      flex-shrink: 0;
+    }
+
+    .policy-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .policy-card p {
+      font-size: 12.5px;
+      color: var(--text-dim);
+    }
+
+    /* Core Highlights */
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -332,18 +512,19 @@
     }
 
     .feature-card {
-      background: var(--card-bg);
+      background: var(--surface-glass);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 22px;
       display: flex;
       align-items: flex-start;
       gap: 16px;
+      backdrop-filter: blur(10px);
     }
 
     .card-icon {
       font-size: 22px;
-      background: #141419;
+      background: rgba(255, 255, 255, 0.04);
       width: 48px;
       height: 48px;
       border-radius: 12px;
@@ -351,12 +532,12 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      border: 1px solid #232332;
+      border: 1px solid var(--card-border);
     }
 
     .card-content h3 {
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 4px;
     }
 
@@ -365,18 +546,19 @@
       color: var(--text-dim);
     }
 
-    /* How to Install Steps */
+    /* Installation Steps */
     .steps-card {
-      background: var(--card-bg);
+      background: var(--surface-glass);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 24px;
+      border-radius: 16px;
+      padding: 26px;
+      backdrop-filter: blur(10px);
     }
 
     .step-item {
       display: flex;
       gap: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .step-item:last-child {
@@ -384,44 +566,46 @@
     }
 
     .step-number {
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       background: var(--neon-grad);
       color: #fff;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 900;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(254, 9, 121, 0.3);
     }
 
     .step-text h4 {
       font-size: 15px;
       font-weight: 700;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
 
     .step-text p {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--text-dim);
     }
 
-    /* FAQ Section */
+    /* Enterprise FAQ */
     .faq-item {
-      background: var(--card-bg);
+      background: var(--surface-glass);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 18px;
+      border-radius: 14px;
+      padding: 20px;
       margin-bottom: 12px;
+      backdrop-filter: blur(10px);
     }
 
     .faq-item h4 {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--cyan);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .faq-item p {
@@ -429,72 +613,152 @@
       color: var(--text-dim);
     }
 
-    /* Footer */
+    /* Corporate Footer */
     footer {
       border-top: 1px solid var(--card-border);
       text-align: center;
-      padding: 36px 20px 48px;
-      margin-top: 60px;
+      padding: 44px 20px 54px;
+      margin-top: 70px;
       font-size: 12px;
-      color: #666;
+      color: #64748b;
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Background Ambient Glow Elements -->
+  <div class="ambient-bg">
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-3"></div>
+  </div>
+
+  <!-- Header -->
   <header>
     <div class="brand">
       <div class="brand-logo">P</div>
       <span>POTKO</span>
     </div>
-    <a href="#download" class="nav-btn">Download APK</a>
+    <a href="#download" class="nav-btn">Download Release</a>
   </header>
 
   <div class="container">
 
     <!-- Hero Section -->
     <section class="hero" id="download">
-      <div class="badge-top">
-        <span>●</span> Verified Creator Economy Platform
+      <div class="enterprise-tag">
+        <span class="status-pulse"></span> Certified Global Media Platform
       </div>
       
       <h1>
         <span class="gradient">Watch. Create.</span><br>
-        <span class="earn">Earn Real Income.</span>
+        <span class="earn">Earn Real Dollars.</span>
       </h1>
       <p>
-        The global high-speed video network built for everyone. From daily viewers in small towns to creators across the US, UK, and UAE — your time, talent, and engagement get rewarded in cash.
+        The decentralized-speed entertainment network engineered for high-earning creators and everyday viewers across the United States, UK, UAE, and grassroots global communities.
       </p>
       
-      <div class="stats">
-        ★★★★★ <strong>4.9</strong> <span>(140,000+ Active Users)</span>
+      <!-- Key Platform Metrics -->
+      <div class="stats-card">
+        <div class="stat-item">
+          <strong>140,000+</strong>
+          <span>Creators</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <strong>$10.00</strong>
+          <span>Min. Payout</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <strong>24 Hours</strong>
+          <span>Direct Wire</span>
+        </div>
       </div>
 
-      <!-- Live Release Download Link -->
+      <!-- Live Release Link -->
       <a href="https://github.com/potko-app/Potko-/releases/latest/download/app-debug.apk" class="download-cta">
         Download Official APK
-        <small>v1.0.0 • 100% Free • Verified Clean</small>
+        <small>Build v1.0.0-PROD • 100% Free • Verified Clean</small>
       </a>
 
-      <!-- Security Trust Badges -->
+      <!-- Trust Badges -->
       <div class="security-bar">
-        <div class="badge-item"><span class="dot"></span> 100% Free & No Subscription</div>
-        <div class="badge-item"><span class="dot"></span> Verified Safe & Malware-Free</div>
-        <div class="badge-item"><span class="dot"></span> Guaranteed Daily Payouts</div>
+        <div class="badge-item"><span class="dot"></span> Strict $10 Payout Guarantee</div>
+        <div class="badge-item"><span class="dot"></span> Zero Surveillance Trackers</div>
+        <div class="badge-item"><span class="dot"></span> ProGuard R8 Tamper-Proof</div>
       </div>
     </section>
 
-    <!-- Monetization Breakdown -->
-    <h2 class="section-title">How You Earn Real Money</h2>
-    <p class="section-sub">Transparent, guaranteed rewards with zero hidden requirements.</p>
+    <!-- Why Potko Beats Legacy Big Tech Platforms -->
+    <h2 class="section-title">Potko vs. Traditional Media</h2>
+    <p class="section-sub">A transparent breakdown of why global users are leaving legacy corporate apps.</p>
+
+    <div class="compare-card">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Core Capability</th>
+            <th>Legacy Platforms</th>
+            <th style="color: var(--cyan);">Potko Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Viewer Incentives</strong></td>
+            <td>$0 (Commercials without share)</td>
+            <td class="highlight-cell">Direct Cash Tokens for Watching</td>
+          </tr>
+          <tr>
+            <td><strong>Creator Qualification</strong></td>
+            <td>10,000+ followers & artificial caps</td>
+            <td class="highlight-cell">Immediate Day 1 Monetization</td>
+          </tr>
+          <tr>
+            <td><strong>Payout Threshold</strong></td>
+            <td>$50.00 – $100.00 locked barriers</td>
+            <td class="highlight-cell">$10.00 Direct Bank Payout</td>
+          </tr>
+          <tr>
+            <td><strong>Screen & Battery</strong></td>
+            <td>Heavy thermal drain, bright glare</td>
+            <td class="highlight-cell">100% True OLED Pure Black Engine</td>
+          </tr>
+          <tr>
+            <td><strong>Privacy Standards</strong></td>
+            <td>Monetized user profiling & telemetry</td>
+            <td class="highlight-cell">Hardware Keystore AES-256 Encrypted</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Monetization Engine with $10 Threshold -->
+    <h2 class="section-title">Transparent Monetization Framework</h2>
+    <p class="section-sub">Empowering creators in global cities and village pioneers with verifiable income streams.</p>
 
     <div class="earn-banner">
       <div class="earn-header">
         <div class="earn-icon">💵</div>
         <div>
-          <h3>Guaranteed Monetization Model</h3>
-          <p style="font-size: 12px; color: var(--text-dim);">No complicated criteria. Start earning from Day 1.</p>
+          <h3>Guaranteed Direct-to-User Payouts</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">No opaque algorithms. Transparent accounting from Day 1.</p>
         </div>
       </div>
 
@@ -502,8 +766,8 @@
         <div class="earn-step">
           <div class="earn-badge">CREATORS</div>
           <div class="earn-step-content">
-            <h4>Ad Revenue & Creator Pool</h4>
-            <p>Publish original short video reels. Earn real dollars based on watch time and global viewer reach (tier-1 audience from US, UK, and UAE yields high CPM rewards).</p>
+            <h4>Ad Revenue & Global CPM Pools</h4>
+            <p>Publish original short-form reels. Monetize high-value traffic from the US, UK, and UAE with top CPM rates, backed by equal organic distribution for rural talents.</p>
           </div>
         </div>
 
@@ -511,116 +775,157 @@
           <div class="earn-badge">VIEWERS</div>
           <div class="earn-step-content">
             <h4>Daily Watch & Engage Rewards</h4>
-            <p>Earn daily points simply by discovering trending videos, liking content, and inviting your local circle or community.</p>
+            <p>Earn tangible reward points simply by exploring trending feeds, leaving genuine feedback, and expanding your local network.</p>
           </div>
         </div>
 
         <div class="earn-step">
-          <div class="earn-badge">PAYOUTS</div>
+          <div class="earn-badge">WITHDRAWAL</div>
           <div class="earn-step-content">
-            <h4>Fast Direct Withdrawals (Low $5 / ₹350 Threshold)</h4>
-            <p>Withdraw your earnings directly to your bank account, Stripe, or local wallet within 24 hours. Zero hidden commissions.</p>
+            <h4>Direct Payouts ($10 Minimum Threshold)</h4>
+            <p>Initiate transfers the moment your earnings reach $10. Funds settle securely to Stripe, direct international SWIFT wire, or local wallets within 24 hours.</p>
           </div>
         </div>
       </div>
 
       <div class="payout-methods">
-        <span>Supported Payout Gateways:</span>
+        <span>Integrated Banking Rails:</span>
         <div class="methods-list">
-          <span class="method-pill">Stripe</span>
-          <span class="method-pill">Bank Wire</span>
+          <span class="method-pill">Stripe Connect</span>
+          <span class="method-pill">Direct SWIFT</span>
           <span class="method-pill">UPI / Local Wallets</span>
         </div>
       </div>
     </div>
 
-    <!-- Core Highlights -->
-    <h2 class="section-title">Why Choose Potko?</h2>
-    <p class="section-sub">Engineered for speed, privacy, and seamless mobile performance.</p>
+    <!-- Enterprise Security & Privacy Compliance -->
+    <h2 class="section-title">Security & International Compliance</h2>
+    <p class="section-sub">Built to enterprise cybersecurity frameworks to protect your data across all jurisdictions.</p>
+
+    <div class="policy-grid">
+      <div class="policy-card">
+        <div class="policy-icon">🛡️</div>
+        <div>
+          <h4>Zero Intrusive Permissions</h4>
+          <p>Potko does not harvest contacts, background SMS messages, or private gallery data. Device permissions are strictly limited to active media recording.</p>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🔐</div>
+        <div>
+          <h4>Hardware-Backed Keystore Encryption</h4>
+          <p>User tokens and session credentials are encrypted with hardware-backed AES-256 keys, protecting accounts against network interception or hijacking.</p>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">⚖️</div>
+        <div>
+          <h4>AI Community Guardian</h4>
+          <p>Automated cloud filters neutralize spam, malicious phishing attempts, and predatory behavior in real time, keeping the platform clean for all users.</p>
+        </div>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon">🌍</div>
+        <div>
+          <h4>GDPR, CCPA & UAE Data Protection Aligned</h4>
+          <p>Potko fully enforces global privacy frameworks, providing creators and viewers with permanent account deletion and data export rights anytime.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core App Features -->
+    <h2 class="section-title">Enterprise Mobile Architecture</h2>
+    <p class="section-sub">Optimized for flagship smartphones and budget devices on 3G, 4G, and 5G.</p>
     
     <div class="grid">
       <div class="feature-card">
         <div class="card-icon">⚡</div>
         <div class="card-content">
           <h3>Pure Black OLED Engine</h3>
-          <p>Zero stutter, lightning-fast 60 FPS playback designed for maximum battery saving on any Android smartphone.</p>
+          <p>Color(0xFF000000) pure black feed saves battery on OLED displays while guaranteeing smooth 60 FPS video playback.</p>
         </div>
       </div>
       <div class="feature-card">
-        <div class="card-icon">🌍</div>
+        <div class="card-icon">📶</div>
         <div class="card-content">
-          <h3>Optimized for All Networks</h3>
-          <p>Runs smoothly on 3G and rural networks, while taking full advantage of high-speed 5G in major global cities.</p>
+          <h3>Adaptive Bitrate Optimization</h3>
+          <p>Zero buffer stutter whether streaming on high-speed fiber in Dubai or patchy rural networks in small towns.</p>
         </div>
       </div>
       <div class="feature-card">
-        <div class="card-icon">🛡️</div>
+        <div class="card-icon">🔒</div>
         <div class="card-content">
-          <h3>Anti-Decompile & Strict Security</h3>
-          <p>Protected by hardware-backed encryption, zero spammy background trackers, and enterprise ProGuard obfuscation.</p>
+          <h3>ProGuard / R8 Hardened Binary</h3>
+          <p>The application binary is obfuscated with R8 compiler technology, preventing reverse engineering, clones, or malicious tampering.</p>
         </div>
       </div>
     </div>
 
-    <!-- Installation Steps -->
-    <h2 class="section-title">How to Install Potko APK</h2>
-    <p class="section-sub">Quick 3-step installation guide for Android devices.</p>
+    <!-- Easy 3-Step Setup -->
+    <h2 class="section-title">Verified Installation Guide</h2>
+    <p class="section-sub">Standard safe setup process for Android devices.</p>
     
     <div class="steps-card">
       <div class="step-item">
         <div class="step-number">1</div>
         <div class="step-text">
-          <h4>Download</h4>
-          <p>Tap the <strong>Download Official APK</strong> button above to save the authentic installer file.</p>
+          <h4>Download Official Package</h4>
+          <p>Tap <strong>Download Official APK</strong> to obtain the verified build straight from our secure cloud server.</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-number">2</div>
         <div class="step-text">
           <h4>Authorize Unknown Sources</h4>
-          <p>If your device displays an installation prompt, tap <strong>Settings</strong> and toggle on <strong>Allow from this source</strong>.</p>
+          <p>When prompted by your browser security, tap <strong>Settings</strong> and enable <strong>Allow from this source</strong>.</p>
         </div>
       </div>
       <div class="step-item">
         <div class="step-number">3</div>
         <div class="step-text">
-          <h4>Install & Start Earning</h4>
-          <p>Open the downloaded package, tap <strong>Install</strong>, register your free handle, and enjoy the feed.</p>
+          <h4>Install & Claim Handle</h4>
+          <p>Open the APK, tap <strong>Install</strong>, reserve your unique username, and begin watching and earning immediately.</p>
         </div>
       </div>
     </div>
 
-    <!-- FAQ Section -->
-    <h2 class="section-title">Frequently Asked Questions</h2>
+    <!-- Corporate FAQ -->
+    <h2 class="section-title">Platform FAQ</h2>
     
     <div class="faq-item">
-      <h4>Is Potko completely free to download and use?</h4>
-      <p>Yes. Potko requires no upfront fees, hidden subscriptions, or paid upgrades. You can watch and create 100% free.</p>
+      <h4>How does the $10 minimum payout operate?</h4>
+      <p>Once your cumulative creator revenue or viewer reward balance reaches $10.00, submit a withdrawal request. Funds are cleared directly to your Stripe or bank account within 24 hours.</p>
     </div>
 
     <div class="faq-item">
-      <h4>Can local users from rural towns or villages make money?</h4>
-      <p>Absolutely. You do not need expensive studio equipment or fancy cameras. A basic smartphone camera and genuine creative ideas are all you need to start earning.</p>
+      <h4>Can grassroots creators from small villages monetize successfully?</h4>
+      <p>Yes. Potko does not favor celebrity accounts. Our engagement algorithm measures viewer retention, giving equal viral visibility and monetization to anyone with a smartphone.</p>
     </div>
 
     <div class="faq-item">
-      <h4>How do international users (US, UK, UAE) receive their payouts?</h4>
-      <p>International creators receive direct payouts through Stripe or secure bank wire in USD, GBP, or AED once the low $5 threshold is achieved.</p>
+      <h4>How are international payments (US, UK, UAE) handled?</h4>
+      <p>International earnings are processed through Stripe or cross-border SWIFT wire transfers in USD, GBP, or AED with zero hidden processing markups.</p>
     </div>
 
     <div class="faq-item">
-      <h4>Is this APK package safe for my mobile device?</h4>
-      <p>Yes. Potko is compiled automatically via official GitHub Actions pipelines directly from source code, free from bloatware, spyware, or malicious background scripts.</p>
+      <h4>Is this official APK safe and virus-free?</h4>
+      <p>Yes. Every release build is automatically compiled and digitally signed on GitHub's secure infrastructure with full ProGuard obfuscation, ensuring zero spyware or adware.</p>
     </div>
 
   </div>
 
-  <!-- Footer -->
+  <!-- Corporate Footer -->
   <footer>
-    <p>© 2026 Potko Community. All rights reserved.</p>
-    <p style="margin-top: 6px; font-size: 11px; color: #444;">Built with high performance, strict privacy, and genuine creator trust.</p>
+    <div class="footer-links">
+      <a href="#download">Download APK</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Creator Guidelines</a>
+      <a href="#">Security Audit</a>
+    </div>
+    <p>© 2026 Potko Inc. All rights reserved.</p>
+    <p style="margin-top: 6px; font-size: 11px; color: #475569;">Enterprise video network engineered with privacy, transparency, and creator prosperity.</p>
   </footer>
 
 </body>
-          </html>
-          
+</html>
