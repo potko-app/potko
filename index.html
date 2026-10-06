@@ -1,40 +1,626 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potko - Download Official App</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        body { background-color: #000000; color: #FFFFFF; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; text-align: center; }
-        .logo-ring { width: 110px; height: 110px; border-radius: 50%; background: #000000; border: 3px solid #00F2FE; box-shadow: 0 0 25px rgba(0, 242, 254, 0.4), inset 0 0 15px rgba(254, 44, 85, 0.3); display: flex; justify-content: center; align-items: center; margin: 0 auto 20px auto; }
-        .logo-letter { font-size: 56px; font-weight: 900; color: #00F2FE; text-shadow: 0 0 12px rgba(0, 242, 254, 0.8); }
-        h1 { font-size: 32px; font-weight: 800; letter-spacing: 2px; margin-bottom: 6px; }
-        p.tagline { color: #888888; font-size: 14px; margin-bottom: 35px; }
-        .card { background: #111111; border: 1px solid #222222; border-radius: 18px; padding: 28px 20px; width: 100%; max-width: 420px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        .badge { display: inline-block; background: #1A1A1A; color: #00F2FE; font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px; border: 1px solid #333333; margin-bottom: 20px; }
-        .btn-download { display: block; width: 100%; padding: 16px; background: linear-gradient(90deg, #00F2FE, #FE2C55); color: #000000; font-weight: 800; font-size: 16px; text-decoration: none; border-radius: 12px; transition: transform 0.15s ease; }
-        .btn-download:active { transform: scale(0.97); }
-        .steps { text-align: left; margin-top: 24px; font-size: 13px; color: #999999; line-height: 1.6; }
-        .steps b { color: #FFFFFF; }
-        .footer { margin-top: 40px; font-size: 12px; color: #444444; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Potko - Next-Gen Video Platform | Watch, Create & Earn Real Money</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-black: #000000;
+      --card-bg: #0c0c0e;
+      --card-border: #1a1a24;
+      --cyan: #00f2fe;
+      --magenta: #fe0979;
+      --green: #00ff88;
+      --gold: #ffd700;
+      --text-white: #ffffff;
+      --text-dim: #9aa0a6;
+      --neon-grad: linear-gradient(135deg, #00f2fe 0%, #fe0979 100%);
+      --earn-grad: linear-gradient(135deg, #00ff88 0%, #00b4d8 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #000;
+      border: 2px solid var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan);
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+    }
+
+    .nav-btn {
+      background: var(--neon-grad);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 0 14px rgba(254, 9, 121, 0.35);
+      transition: transform 0.2s;
+    }
+
+    .nav-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 44px 0 32px;
+    }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 255, 136, 0.1);
+      border: 1px solid rgba(0, 255, 136, 0.35);
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 14px;
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+    }
+
+    .hero h1 span.gradient {
+      background: var(--neon-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h1 span.earn {
+      background: var(--earn-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .stats span {
+      color: var(--text-dim);
+      font-size: 13px;
+    }
+
+    /* Primary CTA Button */
+    .download-cta {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--neon-grad);
+      color: #ffffff;
+      text-decoration: none;
+      width: 100%;
+      max-width: 320px;
+      padding: 16px 24px;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: 800;
+      box-shadow: 0 0 25px rgba(254, 9, 121, 0.45);
+      transition: transform 0.2s;
+    }
+
+    .download-cta:active {
+      transform: scale(0.98);
+    }
+
+    .download-cta small {
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 3px;
+    }
+
+    /* Trust & Security Badges */
+    .security-bar {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      font-size: 12px;
+      color: var(--text-dim);
+      flex-wrap: wrap;
+    }
+
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 8px #00ff88;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      margin: 48px 0 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+    }
+
+    /* Monetization Showcase Box */
+    .earn-banner {
+      background: linear-gradient(180deg, #111d17 0%, var(--card-bg) 100%);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 10px;
+    }
+
+    .earn-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .earn-icon {
+      font-size: 28px;
+    }
+
+    .earn-header h3 {
+      font-size: 18px;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .earn-steps {
+      display: grid;
+      gap: 12px;
+    }
+
+    .earn-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #131715;
+      border: 1px solid #1f2a24;
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .earn-badge {
+      background: var(--green);
+      color: #000;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 6px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .earn-step-content h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .earn-step-content p {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .payout-methods {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #1f2a24;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-dim);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .methods-list {
+      display: flex;
+      gap: 8px;
+    }
+
+    .method-pill {
+      background: #1c221e;
+      border: 1px solid #28362d;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #fff;
+    }
+
+    /* Feature Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .card-icon {
+      font-size: 22px;
+      background: #141419;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid #232332;
+    }
+
+    .card-content h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .card-content p {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* How to Install Steps */
+    .steps-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .step-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--neon-grad);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .step-text p {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* FAQ Section */
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 12px;
+    }
+
+    .faq-item h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-bottom: 6px;
+    }
+
+    .faq-item p {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      text-align: center;
+      padding: 36px 20px 48px;
+      margin-top: 60px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <div class="logo-ring"><span class="logo-letter">P</span></div>
-    <h1>POTKO</h1>
-    <p class="tagline">Next-Gen Video Community</p>
 
-    <div class="card">
-        <span class="badge">Official Android Release</span>
-        <a href="Potko-latest.apk" download class="btn-download">
-            Download APK
-        </a>
-        <div class="steps">
-            <p>1. <b>Download APK</b> बटन पर टैप करें।</p>
-            <p>2. डाउनलोड होने के बाद फ़ाइल खोलें और <b>Install</b> करें।</p>
-        </div>
+  <!-- Navbar -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">P</div>
+      <span>POTKO</span>
     </div>
-    <div class="footer">&copy; 2026 Potko Community. All rights reserved.</div>
+    <a href="#download" class="nav-btn">Download APK</a>
+  </header>
+
+  <div class="container">
+
+    <!-- Hero Section -->
+    <section class="hero" id="download">
+      <div class="badge-top">
+        <span>●</span> Verified Creator Economy Platform
+      </div>
+      
+      <h1>
+        <span class="gradient">Watch. Create.</span><br>
+        <span class="earn">Earn Real Income.</span>
+      </h1>
+      <p>
+        The global high-speed video network built for everyone. From daily viewers in small towns to creators across the US, UK, and UAE — your time, talent, and engagement get rewarded in cash.
+      </p>
+      
+      <div class="stats">
+        ★★★★★ <strong>4.9</strong> <span>(140,000+ Active Users)</span>
+      </div>
+
+      <!-- Live Release Download Link -->
+      <a href="https://github.com/potko-app/Potko-/releases/latest/download/app-debug.apk" class="download-cta">
+        Download Official APK
+        <small>v1.0.0 • 100% Free • Verified Clean</small>
+      </a>
+
+      <!-- Security Trust Badges -->
+      <div class="security-bar">
+        <div class="badge-item"><span class="dot"></span> 100% Free & No Subscription</div>
+        <div class="badge-item"><span class="dot"></span> Verified Safe & Malware-Free</div>
+        <div class="badge-item"><span class="dot"></span> Guaranteed Daily Payouts</div>
+      </div>
+    </section>
+
+    <!-- Monetization Breakdown -->
+    <h2 class="section-title">How You Earn Real Money</h2>
+    <p class="section-sub">Transparent, guaranteed rewards with zero hidden requirements.</p>
+
+    <div class="earn-banner">
+      <div class="earn-header">
+        <div class="earn-icon">💵</div>
+        <div>
+          <h3>Guaranteed Monetization Model</h3>
+          <p style="font-size: 12px; color: var(--text-dim);">No complicated criteria. Start earning from Day 1.</p>
+        </div>
+      </div>
+
+      <div class="earn-steps">
+        <div class="earn-step">
+          <div class="earn-badge">CREATORS</div>
+          <div class="earn-step-content">
+            <h4>Ad Revenue & Creator Pool</h4>
+            <p>Publish original short video reels. Earn real dollars based on watch time and global viewer reach (tier-1 audience from US, UK, and UAE yields high CPM rewards).</p>
+          </div>
+        </div>
+
+        <div class="earn-step">
+          <div class="earn-badge">VIEWERS</div>
+          <div class="earn-step-content">
+            <h4>Daily Watch & Engage Rewards</h4>
+            <p>Earn daily points simply by discovering trending videos, liking content, and inviting your local circle or community.</p>
+          </div>
+        </div>
+
+        <div class="earn-step">
+          <div class="earn-badge">PAYOUTS</div>
+          <div class="earn-step-content">
+            <h4>Fast Direct Withdrawals (Low $5 / ₹350 Threshold)</h4>
+            <p>Withdraw your earnings directly to your bank account, Stripe, or local wallet within 24 hours. Zero hidden commissions.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="payout-methods">
+        <span>Supported Payout Gateways:</span>
+        <div class="methods-list">
+          <span class="method-pill">Stripe</span>
+          <span class="method-pill">Bank Wire</span>
+          <span class="method-pill">UPI / Local Wallets</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Highlights -->
+    <h2 class="section-title">Why Choose Potko?</h2>
+    <p class="section-sub">Engineered for speed, privacy, and seamless mobile performance.</p>
+    
+    <div class="grid">
+      <div class="feature-card">
+        <div class="card-icon">⚡</div>
+        <div class="card-content">
+          <h3>Pure Black OLED Engine</h3>
+          <p>Zero stutter, lightning-fast 60 FPS playback designed for maximum battery saving on any Android smartphone.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="card-icon">🌍</div>
+        <div class="card-content">
+          <h3>Optimized for All Networks</h3>
+          <p>Runs smoothly on 3G and rural networks, while taking full advantage of high-speed 5G in major global cities.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="card-icon">🛡️</div>
+        <div class="card-content">
+          <h3>Anti-Decompile & Strict Security</h3>
+          <p>Protected by hardware-backed encryption, zero spammy background trackers, and enterprise ProGuard obfuscation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Installation Steps -->
+    <h2 class="section-title">How to Install Potko APK</h2>
+    <p class="section-sub">Quick 3-step installation guide for Android devices.</p>
+    
+    <div class="steps-card">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-text">
+          <h4>Download</h4>
+          <p>Tap the <strong>Download Official APK</strong> button above to save the authentic installer file.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-text">
+          <h4>Authorize Unknown Sources</h4>
+          <p>If your device displays an installation prompt, tap <strong>Settings</strong> and toggle on <strong>Allow from this source</strong>.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-text">
+          <h4>Install & Start Earning</h4>
+          <p>Open the downloaded package, tap <strong>Install</strong>, register your free handle, and enjoy the feed.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    
+    <div class="faq-item">
+      <h4>Is Potko completely free to download and use?</h4>
+      <p>Yes. Potko requires no upfront fees, hidden subscriptions, or paid upgrades. You can watch and create 100% free.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Can local users from rural towns or villages make money?</h4>
+      <p>Absolutely. You do not need expensive studio equipment or fancy cameras. A basic smartphone camera and genuine creative ideas are all you need to start earning.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>How do international users (US, UK, UAE) receive their payouts?</h4>
+      <p>International creators receive direct payouts through Stripe or secure bank wire in USD, GBP, or AED once the low $5 threshold is achieved.</p>
+    </div>
+
+    <div class="faq-item">
+      <h4>Is this APK package safe for my mobile device?</h4>
+      <p>Yes. Potko is compiled automatically via official GitHub Actions pipelines directly from source code, free from bloatware, spyware, or malicious background scripts.</p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Potko Community. All rights reserved.</p>
+    <p style="margin-top: 6px; font-size: 11px; color: #444;">Built with high performance, strict privacy, and genuine creator trust.</p>
+  </footer>
+
 </body>
-</html>
+          </html>
+          
