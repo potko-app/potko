@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://potko-app.github.io/potko/sitemap.xml
