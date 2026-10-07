@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Potko - Official App Download</title>
-<meta name="description" content="Official website of Potko. Download the latest Potko APK for Android.">
-<meta name="keywords" content="Potko, Potko App, Potko APK, Potko Download, Potko official">
-<link rel="canonical" href="https://potko-app.github.io/potko/">
+  <title>Potko - Official App Download</title>
+  <meta name="description" content="Official website of Potko. Download the latest Potko APK for Android.">
+  <meta name="keywords" content="Potko, Potko App, Potko APK, Potko Download, Potko official">
+  <link rel="canonical" href="https://potko-app.github.io/potko/">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +44,6 @@
       selection-color: #ffffff;
     }
 
-    /* Background Ambient Glows */
     .glow-bg {
       position: absolute;
       top: 0;
@@ -65,7 +64,6 @@
       z-index: 1;
     }
 
-    /* Navigation */
     header {
       padding: 24px 0;
       display: flex;
@@ -96,12 +94,19 @@
       letter-spacing: 0.5px;
     }
 
-    /* Hero Section */
+    /* Hero Glow & Creative Animated Background */
     .hero {
       text-align: center;
-      padding: 90px 0 60px;
-      max-width: 840px;
+      padding: 100px 20px 70px;
+      max-width: 900px;
       margin: 0 auto;
+      position: relative;
+      border-radius: 24px;
+      background: 
+        radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.22) 0%, rgba(0, 0, 0, 0.94) 80%),
+        linear-gradient(180deg, rgba(0,0,0,0.75) 0%, #000000 100%),
+        url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1600&auto=format&fit=crop') center top / cover no-repeat;
+      overflow: hidden;
       animation: fadeIn 0.8s ease-out;
     }
 
@@ -110,7 +115,8 @@
       align-items: center;
       gap: 8px;
       padding: 6px 16px;
-      background: var(--surface-1);
+      background: rgba(10, 10, 12, 0.85);
+      backdrop-filter: blur(8px);
       border: 1px solid var(--surface-border);
       border-radius: 30px;
       font-size: 13px;
@@ -148,7 +154,6 @@
       margin: 0 auto 36px;
     }
 
-    /* Main CTA Button */
     .cta-wrapper {
       display: flex;
       flex-direction: column;
@@ -156,6 +161,7 @@
       gap: 12px;
     }
 
+    /* Pulsing & Glowing Download CTA */
     .btn-download {
       display: inline-flex;
       align-items: center;
@@ -165,23 +171,25 @@
       color: #000000;
       font-size: 16px;
       font-weight: 700;
-      padding: 16px 36px;
+      padding: 16px 38px;
       border-radius: 14px;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 0 35px var(--accent-glow);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.35), 0 0 45px rgba(99, 102, 241, 0.3);
+      animation: buttonPulse 2.4s infinite ease-in-out;
     }
 
     .btn-download:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 0 50px rgba(99, 102, 241, 0.45);
-      background: #f1f5f9;
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.6), 0 0 60px rgba(99, 102, 241, 0.5);
+      background: #f8fafc;
     }
 
     .btn-download svg {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       fill: #000000;
+      animation: floatArrow 1.6s infinite ease-in-out;
     }
 
     .build-specs {
@@ -189,7 +197,20 @@
       color: var(--text-dim);
     }
 
-    /* Section Headings */
+    @keyframes buttonPulse {
+      0%, 100% {
+        box-shadow: 0 0 18px rgba(255, 255, 255, 0.25), 0 0 30px rgba(99, 102, 241, 0.25);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 55px rgba(99, 102, 241, 0.45);
+      }
+    }
+
+    @keyframes floatArrow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+
     .section-header {
       text-align: center;
       margin: 80px 0 40px;
@@ -209,7 +230,6 @@
       margin: 0 auto;
     }
 
-    /* Monetization Dashboard Card */
     .economy-box {
       background: var(--surface-1);
       border: 1px solid var(--surface-border);
@@ -289,7 +309,6 @@
       font-weight: 500;
     }
 
-    /* Grids: Features & Security */
     .grid, .policy-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -328,7 +347,6 @@
       line-height: 1.5;
     }
 
-    /* Setup Steps */
     .steps-card {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -372,7 +390,6 @@
       line-height: 1.5;
     }
 
-    /* FAQ */
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
@@ -398,38 +415,6 @@
       font-size: 13px;
       color: var(--text-muted);
       line-height: 1.5;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--surface-border);
-      padding: 50px 0 40px;
-      text-align: center;
-      background: var(--surface-1);
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 13px;
-      transition: color 0.2s ease;
-    }
-
-    .footer-links a:hover {
-      color: #ffffff;
-    }
-
-    footer p {
-      font-size: 12px;
-      color: var(--text-dim);
     }
 
     @keyframes fadeIn {
@@ -481,7 +466,7 @@
     <!-- Creator & Viewer Economy -->
     <div class="section-header">
       <h2 class="section-title">Transparent Financial Rails</h2>
-      <p class="section-sub">Low minimum thresholds with high-efficiency monetization networks for global and grassroots creators.</p>
+      <p class="section-sub">Low minimum thresholds with high-efficiency monetization networks for global and independent creators.</p>
     </div>
 
     <div class="economy-box">
@@ -490,7 +475,7 @@
           <div class="earn-badge">CREATORS</div>
           <div class="earn-step-content">
             <h4>Ad Revenue & Global CPM Pools</h4>
-            <p>Publish original short-form reels. Monetize high-value traffic from the US, UK, and UAE with top CPM rates, backed by equal organic distribution for rural talents.</p>
+            <p>Publish original short-form reels. Monetize high-value traffic from the US, UK, and UAE with top CPM rates, backed by equal organic distribution for independent creators worldwide.</p>
           </div>
         </div>
 
@@ -516,7 +501,7 @@
         <div class="methods-list">
           <span class="method-pill">Stripe Connect</span>
           <span class="method-pill">Direct SWIFT</span>
-          <span class="method-pill">UPI / Local Wallets</span>
+          <span class="method-pill">Global Payouts</span>
         </div>
       </div>
     </div>
@@ -565,7 +550,7 @@
       <div class="feature-card">
         <div class="card-icon">📶</div>
         <h3>Adaptive Bitrate Optimization</h3>
-        <p>Zero buffer stutter whether streaming on high-speed fiber in Dubai or patchy rural networks in small towns.</p>
+        <p>Zero buffer stutter whether streaming on high-speed fiber in Dubai or bandwidth-constrained mobile networks globally.</p>
       </div>
       <div class="feature-card">
         <div class="card-icon">🔒</div>
@@ -616,8 +601,7 @@
       </div>
 
       <div class="faq-item">
-        <h4>Can independent creators monetize globally?
-          ?</h4>
+        <h4>Can independent creators monetize globally?</h4>
         <p>Yes. Potko does not favor celebrity accounts. Our engagement algorithm measures viewer retention, giving equal viral visibility and monetization to anyone with a smartphone.</p>
       </div>
 
@@ -635,43 +619,42 @@
   </div>
 
   <!-- Legal & Trust Footer -->
-<footer style="margin-top: 80px; padding: 48px 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); background: #000000; text-align: center; color: #888888; font-size: 13px;">
-  <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center;">
-    
-    <!-- Trust & Verification Highlights -->
-    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; color: #aaaaaa;">
-      <span style="display: flex; align-items: center; gap: 6px;">
-        <span style="color: #10b981;">✔</span> VirusTotal Clean (0 Detections)
-      </span>
-      <span>•</span>
-      <span style="display: flex; align-items: center; gap: 6px;">
-        <span style="color: #6366f1;">🔒</span> SHA-256 Verified Binary
-      </span>
-      <span>•</span>
-      <span style="display: flex; align-items: center; gap: 6px;">
-        <span style="color: #3b82f6;">🛡️</span> GDPR & CCPA Compliant
-      </span>
-    </div>
+  <footer style="margin-top: 80px; padding: 48px 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); background: #000000; text-align: center; color: #888888; font-size: 13px;">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center;">
+      
+      <!-- Trust & Verification Highlights -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center; color: #aaaaaa;">
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <span style="color: #10b981;">✔</span> VirusTotal Clean (0 Detections)
+        </span>
+        <span>•</span>
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <span style="color: #6366f1;">🔒</span> SHA-256 Verified Binary
+        </span>
+        <span>•</span>
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <span style="color: #3b82f6;">🛡️</span> GDPR & CCPA Compliant
+        </span>
+      </div>
 
-    <!-- Legal Links -->
-    <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;">
-      <a href="#download" style="color: #f8fafc; text-decoration: none; font-weight: 500;">Download APK</a>
-      <a href="#privacy" style="color: #f8fafc; text-decoration: none; font-weight: 500;">Privacy Policy</a>
-      <a href="#terms" style="color: #f8fafc; text-decoration: none; font-weight: 500;">Terms of Service</a>
-      <a href="mailto:support@potko.app" style="color: #6366f1; text-decoration: none; font-weight: 500;">Contact Support</a>
-    </div>
+      <!-- Legal Links -->
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;">
+        <a href="#download" style="color: #f8fafc; text-decoration: none; font-weight: 500;">Download APK</a>
+        <a href="#privacy" style="color: #f8fafc; text-decoration: none; font-weight: 500;">Privacy Policy</a>
+        <a href="#terms" style="color: #f8fafc; text-decoration: none; font-weight: 500;">Terms of Service</a>
+        <a href="mailto:support@potko.app" style="color: #6366f1; text-decoration: none; font-weight: 500;">Contact Support</a>
+      </div>
 
-    <!-- Copyright & Disclaimer -->
-    <div style="line-height: 1.6; max-width: 700px; margin-top: 8px;">
-      <p style="margin: 0;">© 2026 Potko Inc. All rights reserved.</p>
-      <p style="margin: 6px 0 0; font-size: 11px; color: #666666;">
-        Potko is a privacy-first, decentralized creator ecosystem. Android is a trademark of Google LLC. APK builds are cryptographically signed and verified prior to release.
-      </p>
-    </div>
+      <!-- Copyright & Disclaimer -->
+      <div style="line-height: 1.6; max-width: 700px; margin-top: 8px;">
+        <p style="margin: 0;">© 2026 Potko Inc. All rights reserved.</p>
+        <p style="margin: 6px 0 0; font-size: 11px; color: #666666;">
+          Potko is a privacy-first, decentralized creator ecosystem. Android is a trademark of Google LLC. APK builds are cryptographically signed and verified prior to release.
+        </p>
+      </div>
 
-  </div>
-</footer>
-  
+    </div>
+  </footer>
 
 </body>
 </html>
