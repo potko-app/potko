@@ -11,12 +11,11 @@
   
   <style>
     :root {
-      /* Official Logo Colors */
       --bg-pure-black: #000000;
       --electric-cyan: #00f0ff;
       --neon-red: #ff0055;
-      --glass-bg: rgba(255, 255, 255, 0.02);
-      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-card: rgba(14, 14, 20, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.1);
       --text-main: #ffffff;
       --text-muted: #94a3b8;
     }
@@ -36,426 +35,417 @@
       line-height: 1.6;
     }
 
-    /* Electric Ambient Glows */
-    .ambient-glows {
+    /* Ambient Electric Aurora Waves */
+    .ambient-aurora {
       position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
       z-index: 0;
       overflow: hidden;
     }
-    
-    .glow-cyan, .glow-red {
+
+    .aurora-sphere-1 {
       position: absolute;
-      border-radius: 50%;
-      filter: blur(150px);
-      animation: pulseGlow 12s infinite alternate ease-in-out;
-    }
-    
-    .glow-cyan {
-      top: -10%; left: -10%; width: 55vw; height: 55vw;
-      background: radial-gradient(circle, rgba(0, 240, 255, 0.15), transparent 70%);
-    }
-    
-    .glow-red {
-      bottom: -10%; right: -10%; width: 60vw; height: 60vw;
-      background: radial-gradient(circle, rgba(255, 0, 85, 0.12), transparent 70%);
-      animation-duration: 15s;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.28) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(65px);
+      animation: floatA 8s infinite alternate ease-in-out;
     }
 
-    @keyframes pulseGlow {
-      0% { transform: scale(1) translate(0, 0); }
-      100% { transform: scale(1.1) translate(30px, 20px); }
+    .aurora-sphere-2 {
+      position: absolute;
+      top: 40%;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 0, 85, 0.22) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(75px);
+      animation: floatB 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes floatA {
+      0% { transform: translate(-50%, 0) scale(1); }
+      100% { transform: translate(-50%, 30px) scale(1.1); }
+    }
+
+    @keyframes floatB {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-30px) scale(1.08); }
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 18px;
       position: relative;
       z-index: 2;
     }
 
-    /* Header */
+    /* Clean Compact Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 30px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .logo {
-      font-size: 28px;
+      font-size: 22px;
       font-weight: 800;
       color: #fff;
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 12px;
-      letter-spacing: -0.5px;
+      gap: 10px;
     }
 
-    .logo-icon {
+    .logo-badge {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
-      background: var(--bg-pure-black);
-      border: 3px solid var(--electric-cyan);
-      border-radius: 10px;
+      width: 32px;
+      height: 32px;
+      background: #000;
+      border: 2.5px solid var(--electric-cyan);
+      border-radius: 8px;
       color: var(--electric-cyan);
+      font-weight: 800;
       position: relative;
-      overflow: hidden;
     }
-    
-    .logo-icon::after {
+
+    .logo-badge::after {
       content: '';
       position: absolute;
-      bottom: -10px; right: -10px;
-      width: 24px; height: 24px;
+      bottom: -5px;
+      right: -5px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
-      border: 3px solid var(--neon-red);
+      background: var(--neon-red);
+      box-shadow: 0 0 8px var(--neon-red);
     }
 
     .badge-stable {
-      background: rgba(0, 240, 255, 0.1);
-      border: 1px solid rgba(0, 240, 255, 0.3);
+      background: rgba(0, 240, 255, 0.12);
+      border: 1px solid rgba(0, 240, 255, 0.35);
       color: var(--electric-cyan);
       font-size: 11px;
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 20px;
       font-weight: 700;
-      letter-spacing: 0.5px;
     }
 
-    /* Hero Section */
+    /* Compact Hero - No Empty Gap */
     .hero {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
-      align-items: center;
-      min-height: 85vh;
-      padding: 60px 0;
+      text-align: center;
+      padding: 24px 8px 36px;
     }
 
-    .hero-content h1 {
-      font-size: clamp(42px, 5.5vw, 64px);
-      font-weight: 800;
-      line-height: 1.12;
-      margin-bottom: 24px;
-      letter-spacing: -1.5px;
-    }
-
-    .text-gradient {
-      background: linear-gradient(135deg, var(--electric-cyan) 0%, var(--neon-red) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 30px rgba(0, 240, 255, 0.3));
-    }
-
-    .hero-content p {
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 45px;
-      max-width: 520px;
-      line-height: 1.7;
-    }
-
-    .btn-primary {
-      position: relative;
+    .hero-pill {
       display: inline-flex;
       align-items: center;
-      gap: 14px;
-      background: var(--text-main);
-      color: var(--bg-pure-black);
-      font-size: 17px;
-      font-weight: 800;
-      padding: 18px 42px;
-      border-radius: 16px;
-      text-decoration: none;
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
-      transition: all 0.3s ease;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, var(--electric-cyan), #ffffff);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 0 45px rgba(0, 240, 255, 0.6), 0 0 30px rgba(255, 0, 85, 0.3);
-    }
-
-    .btn-primary:hover::before { opacity: 1; }
-
-    .btn-primary svg { transition: transform 0.3s ease; }
-    .btn-primary:hover svg { transform: translateY(-3px); }
-
-    .build-specs {
-      margin-top: 20px;
-      font-size: 13px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
       gap: 8px;
-      font-weight: 500;
-    }
-    .build-specs span {
-      display: inline-block; width: 6px; height: 6px; background: #10b981; border-radius: 50%;
-      box-shadow: 0 0 10px #10b981; animation: blink 2s infinite;
-    }
-
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-    /* Visual Side */
-    .hero-visual {
-      position: relative;
-      animation: floatMain 7s infinite ease-in-out;
-    }
-
-    .image-container {
-      position: relative;
-      border-radius: 32px;
-      padding: 2px;
-      background: linear-gradient(135deg, rgba(0, 240, 255, 0.5), rgba(255, 0, 85, 0.5));
-      box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(0, 240, 255, 0.2);
-    }
-
-    .image-container img {
-      width: 100%;
-      display: block;
-      border-radius: 30px;
-      background: var(--bg-pure-black);
-    }
-
-    .floating-card {
-      position: absolute;
-      bottom: 30px;
-      left: -40px;
-      background: rgba(5, 5, 5, 0.85);
-      backdrop-filter: blur(20px);
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(0, 240, 255, 0.3);
-      padding: 18px 24px;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.9), 0 0 20px rgba(0, 240, 255, 0.15);
-      animation: floatCard 5s infinite ease-in-out reverse;
+      border-radius: 30px;
+      font-size: 12px;
+      color: #e2e8f0;
+      margin-bottom: 14px;
     }
 
-    .card-icon {
-      width: 46px; height: 46px;
-      background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(0, 240, 255, 0.05));
-      border: 1px solid rgba(0, 240, 255, 0.4);
-      border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--electric-cyan);
-      font-size: 22px;
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10b981;
     }
 
-    @keyframes floatMain {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-    @keyframes floatCard {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(-2deg); }
-    }
-
-    /* Section Titles */
-    .section-title {
-      font-size: clamp(28px, 4vw, 38px);
-      text-align: center;
-      margin: 100px 0 50px;
+    .hero h1 {
+      font-size: clamp(32px, 6.5vw, 52px);
       font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
       letter-spacing: -1px;
     }
 
-    /* Privacy & Safety Grid */
+    .text-gradient {
+      background: linear-gradient(135deg, var(--electric-cyan) 10%, var(--neon-red) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.35));
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin: 0 auto 22px;
+      max-width: 560px;
+    }
+
+    /* Real Creator Money Earning Showcase */
+    .creator-showcase {
+      max-width: 480px;
+      margin: 0 auto 24px;
+      position: relative;
+      border-radius: 22px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--electric-cyan), var(--neon-red));
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.2);
+    }
+
+    .creator-showcase img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+      background: #000;
+    }
+
+    .floating-earning-pill {
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(5, 5, 10, 0.95);
+      border: 1px solid rgba(0, 240, 255, 0.4);
+      padding: 9px 20px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(0, 240, 255, 0.25);
+      white-space: nowrap;
+    }
+
+    .earning-dot {
+      width: 9px;
+      height: 9px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    /* Download CTA */
+    .cta-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn-download-glow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #ffffff;
+      color: #000000;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 15px 34px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(0, 240, 255, 0.35);
+      animation: pulseBtn 2.2s infinite ease-in-out;
+      transition: transform 0.2s ease;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .btn-download-glow:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 50px rgba(0, 240, 255, 0.55);
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { box-shadow: 0 0 18px rgba(255, 255, 255, 0.25), 0 0 30px rgba(0, 240, 255, 0.3); }
+      50% { box-shadow: 0 0 28px rgba(255, 255, 255, 0.45), 0 0 45px rgba(255, 0, 85, 0.4); }
+    }
+
+    .build-specs {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Headings */
+    .section-title {
+      font-size: clamp(22px, 5vw, 30px);
+      text-align: center;
+      margin: 45px 0 24px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+    }
+
+    /* Features Grid */
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 15px;
     }
 
     .feature-card {
-      background: var(--glass-bg);
+      background: var(--glass-card);
       border: 1px solid var(--glass-border);
-      backdrop-filter: blur(20px);
-      padding: 36px 30px;
-      border-radius: 24px;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.1), transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s ease;
+      backdrop-filter: blur(14px);
+      padding: 22px;
+      border-radius: 18px;
+      transition: all 0.3s ease;
     }
 
     .feature-card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(0, 240, 255, 0.3);
-      transform: translateY(-6px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.1);
+      border-color: rgba(0, 240, 255, 0.4);
+      transform: translateY(-3px);
     }
 
-    .feature-card:hover::before { opacity: 1; }
+    .feature-card.red-card:hover {
+      border-color: rgba(255, 0, 85, 0.4);
+    }
 
     .feature-card svg {
-      width: 36px; height: 36px;
+      width: 30px;
+      height: 30px;
       stroke: var(--electric-cyan);
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.4));
+    }
+
+    .feature-card.red-card svg {
+      stroke: var(--neon-red);
+      filter: drop-shadow(0 0 8px rgba(255, 0, 85, 0.4));
     }
 
     .feature-card h3 {
-      font-size: 19px;
+      font-size: 17px;
       font-weight: 700;
-      margin-bottom: 12px;
-      color: #fff;
+      margin-bottom: 6px;
+      color: #ffffff;
     }
 
     .feature-card p {
       color: var(--text-muted);
-      font-size: 14.5px;
-      line-height: 1.6;
+      font-size: 13.5px;
+      line-height: 1.55;
     }
 
-    /* Red highlight for alternate cards */
-    .feature-card.red-theme:hover {
-      border-color: rgba(255, 0, 85, 0.3);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 0, 85, 0.1);
-    }
-    .feature-card.red-theme svg { stroke: var(--neon-red); filter: drop-shadow(0 0 10px rgba(255, 0, 85, 0.5)); }
-    .feature-card.red-theme::before { background: radial-gradient(circle at 50% 0%, rgba(255, 0, 85, 0.1), transparent 70%); }
-
-    /* Installation Steps */
+    /* Steps */
     .steps-card {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 15px;
     }
 
     .step-item {
-      background: var(--glass-bg);
+      background: var(--glass-card);
       border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 24px;
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      padding: 18px;
       display: flex;
-      gap: 16px;
-      transition: border-color 0.3s;
-    }
-
-    .step-item:hover {
-      border-color: rgba(0, 240, 255, 0.3);
+      gap: 14px;
     }
 
     .step-number {
       flex-shrink: 0;
-      width: 36px; height: 36px;
-      background: rgba(0, 240, 255, 0.1);
-      border: 1px solid rgba(0, 240, 255, 0.3);
+      width: 32px;
+      height: 32px;
+      background: rgba(0, 240, 255, 0.15);
+      border: 1px solid rgba(0, 240, 255, 0.4);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 15px; color: var(--electric-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--electric-cyan);
     }
 
-    .step-text h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
-    .step-text p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+    .step-text h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+    .step-text p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
 
     /* FAQ */
     .faq-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
 
     .faq-item {
-      background: var(--glass-bg);
+      background: var(--glass-card);
       border: 1px solid var(--glass-border);
-      border-radius: 18px;
-      padding: 24px;
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      padding: 18px 20px;
     }
 
-    .faq-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 10px; color: #fff; }
-    .faq-item p { font-size: 14.5px; color: var(--text-muted); line-height: 1.6; }
+    .faq-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #fff; }
+    .faq-item p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
 
-    /* Footer & Support */
+    /* Footer */
     footer {
       border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 100px;
-      padding: 60px 0;
+      margin-top: 50px;
+      padding: 40px 0;
       text-align: center;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(20px);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(16px);
+    }
+
+    .support-box {
+      margin-bottom: 20px;
+      display: inline-block;
+      padding: 10px 22px;
+      background: rgba(0, 240, 255, 0.06);
+      border: 1px solid rgba(0, 240, 255, 0.25);
+      border-radius: 30px;
+    }
+
+    .support-box a {
+      color: var(--electric-cyan);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
     }
 
     .footer-badges {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 30px;
+      gap: 10px;
+      margin-bottom: 18px;
       flex-wrap: wrap;
     }
 
     .badge {
-      display: flex; align-items: center; gap: 8px;
-      color: var(--text-muted); font-size: 14px; font-weight: 600;
-      padding: 8px 16px; background: rgba(255,255,255,0.03);
-      border-radius: 30px; border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .support-box {
-      margin: 0 auto 30px;
-      padding: 16px 30px;
-      display: inline-block;
-      background: rgba(0, 240, 255, 0.05);
-      border: 1px solid rgba(0, 240, 255, 0.2);
-      border-radius: 12px;
-    }
-
-    .support-box a {
-      color: var(--electric-cyan);
-      font-size: 16px;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-    }
-
-    .support-box a:hover { text-decoration: underline; }
-
-    @media (max-width: 960px) {
-      .hero { grid-template-columns: 1fr; text-align: center; gap: 60px; padding: 40px 0; }
-      .hero-content p { margin: 0 auto 40px; }
-      .floating-card { left: 50%; transform: translateX(-50%); bottom: -25px; width: 85%; justify-content: center; animation: none; }
-      .btn-primary { width: 100%; justify-content: center; }
-      .faq-grid { grid-template-columns: 1fr; }
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 5px 12px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
     }
   </style>
 </head>
 <body>
 
-  <!-- Electric Ambient Glows -->
-  <div class="ambient-glows">
-    <div class="glow-cyan"></div>
-    <div class="glow-red"></div>
+  <!-- Live Moving Electric Waves -->
+  <div class="ambient-aurora">
+    <div class="aurora-sphere-1"></div>
+    <div class="aurora-sphere-2"></div>
   </div>
 
   <div class="container">
@@ -463,42 +453,40 @@
     <!-- Header -->
     <header>
       <a href="#" class="logo">
-        <span class="logo-icon">P</span> POTKO
+        <span class="logo-badge">P</span> POTKO
       </a>
       <span class="badge-stable">v1.0.0 Stable</span>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Compact Clean Hero Section -->
     <section class="hero">
-      <div class="hero-content">
-        <h1>Decentralized Reach.<br><span class="text-gradient">Instant Global Monetization.</span></h1>
-        <p>High-yield distribution and direct multi-rail international payouts—engineered securely for independent creators worldwide.</p>
-        
-        <a href="./downloads/app-debug.apk" download="Potko.apk" class="btn-primary">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Download Official APK
-        </a>
-        <div class="build-specs">
-          <span></span> Secure Cloud Build Active • AES-256 Protected
+      <div class="hero-pill">
+        <span class="pulse-dot"></span>
+        <span>Secure Cloud Build Active</span>
+      </div>
+
+      <h1>Decentralized Reach.<br><span class="text-gradient">Instant Global Monetization.</span></h1>
+      <p>High-yield distribution and direct multi-rail international payouts—engineered securely for independent creators worldwide.</p>
+
+      <!-- Real Creator Money Earning Showcase -->
+      <div class="creator-showcase">
+        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop" alt="Real creator receiving cash and rewards">
+        <div class="floating-earning-pill">
+          <span class="earning-dot"></span>
+          <span style="font-size: 13px; color: #fff; font-weight: 700;">Payout Verified: +$450.00 via Stripe</span>
         </div>
       </div>
 
-      <div class="hero-visual">
-        <div class="image-container">
-          <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop" alt="Happy creator celebrating success">
-        </div>
-        
-        <div class="floating-card">
-          <div class="card-icon">💸</div>
-          <div style="text-align: left;">
-            <div style="font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase;">Recent Payout</div>
-            <div style="font-weight: 800; color: #fff; font-size: 18px;">+$450.00 via Stripe</div>
-          </div>
-        </div>
+      <div class="cta-container">
+        <a href="./downloads/app-debug.apk" download="Potko.apk" class="btn-download-glow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download Official APK
+        </a>
+        <div class="build-specs">Verified Release • Hardware AES-256 Protected</div>
       </div>
     </section>
 
-    <!-- Privacy, Safety & Trust Section -->
+    <!-- Privacy, Safety & Trust -->
     <h2 class="section-title">Privacy, Safety & Trusted Security</h2>
     <div class="features-grid">
       
@@ -508,7 +496,7 @@
         <p>Potko never harvests contacts, SMS, or gallery data. Device permissions are strictly limited to active media recording only.</p>
       </div>
 
-      <div class="feature-card red-theme">
+      <div class="feature-card red-card">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
         <h3>Hardware Encryption</h3>
         <p>User tokens and session credentials are encrypted with hardware-backed AES-256 keys, protecting accounts against hijacking.</p>
@@ -517,10 +505,10 @@
       <div class="feature-card">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
         <h3>GDPR & CCPA Compliant</h3>
-        <p>We fully enforce global privacy frameworks, providing users with permanent account deletion and complete data export rights anytime.</p>
+        <p>We fully enforce global privacy frameworks, providing creators with permanent account deletion and complete data export rights.</p>
       </div>
 
-      <div class="feature-card red-theme">
+      <div class="feature-card red-card">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
         <h3>AI Community Guardian</h3>
         <p>Automated cloud filters neutralize spam, malicious phishing attempts, and predatory behavior in real time.</p>
@@ -549,7 +537,7 @@
         <div class="step-number">3</div>
         <div class="step-text">
           <h4>Install & Earn</h4>
-          <p>Open the APK, tap <strong>Install</strong>, reserve your username, and begin safely earning.</p>
+          <p>Open the APK, tap <strong>Install</strong>, reserve your unique username, and begin safely earning.</p>
         </div>
       </div>
     </div>
@@ -578,18 +566,18 @@
     <!-- Footer & Support -->
     <footer>
       <div class="support-box">
-        <span style="color: var(--text-muted); font-size: 14px; margin-right: 10px;">Need Help? Contact Support:</span>
-        <a href="mailto:YOUR-EMAIL@gmail.com">YOUR-EMAIL@gmail.com</a>
+        <span style="color: var(--text-muted); font-size: 13px;">Official Support: </span>
+        <a href="mailto:potkosupport@gmail.com">potkosupport@gmail.com</a>
       </div>
 
       <div class="footer-badges">
-        <span class="badge"><span style="color: #10b981; font-size: 16px;">✔</span> VirusTotal Clean</span>
-        <span class="badge"><span style="color: var(--electric-cyan); font-size: 16px;">🔒</span> SHA-256 Verified</span>
-        <span class="badge"><span style="color: var(--neon-red); font-size: 16px;">🛡️</span> Privacy First</span>
+        <span class="badge"><span style="color: #10b981;">✔</span> VirusTotal Clean</span>
+        <span class="badge"><span style="color: var(--electric-cyan);">🔒</span> SHA-256 Verified</span>
+        <span class="badge"><span style="color: var(--neon-red);">🛡️</span> Privacy First</span>
       </div>
       
-      <p style="color: var(--text-muted); font-size: 13px; line-height: 1.8;">
-        © 2026 Potko Inc. All rights reserved. <br>
+      <p style="color: #64748b; font-size: 12px; line-height: 1.6;">
+        © 2026 Potko Inc. All rights reserved.<br>
         Engineered with transparency, security, and creator prosperity.
       </p>
     </footer>
