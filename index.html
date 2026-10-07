@@ -3,40 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Potko - Global Creator Monetization</title>
-  <meta name="description" content="Download Potko APK. Global monetization for independent creators.">
+  <title>Potko - Official App Download</title>
+  <meta name="description" content="Official website of Potko. Download the latest Potko APK for Android.">
+  <link rel="canonical" href="https://potko-app.github.io/potko/">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg-pure-black: #000000;
-      --electric-cyan: #00f0ff;
-      --neon-red: #ff0055;
-      --glass-card: rgba(14, 14, 20, 0.75);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --text-main: #ffffff;
-      --text-muted: #94a3b8;
+      --bg: #000000;
+      --cyan: #00f0ff;
+      --red: #ff0055;
+      --card-bg: rgba(15, 15, 22, 0.75);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --muted: #94a3b8;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
     body {
-      background-color: var(--bg-pure-black);
-      color: var(--text-main);
+      background: var(--bg);
+      color: var(--text);
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
-    /* Ambient Electric Aurora Waves */
-    .ambient-aurora {
+    /* Background Neon Lighting */
+    .bg-lights {
       position: fixed;
       top: 0;
       left: 0;
@@ -47,541 +49,488 @@
       overflow: hidden;
     }
 
-    .aurora-sphere-1 {
+    .light-cyan {
       position: absolute;
-      top: -50px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(0, 240, 255, 0.28) 0%, rgba(0,0,0,0) 70%);
-      filter: blur(65px);
-      animation: floatA 8s infinite alternate ease-in-out;
+      top: 0;
+      left: 10%;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(0, 240, 255, 0.35) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(50px);
+      animation: floatLight 7s infinite alternate ease-in-out;
     }
 
-    .aurora-sphere-2 {
+    .light-red {
       position: absolute;
-      top: 40%;
-      right: -100px;
+      top: 35%;
+      right: 5%;
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, rgba(255, 0, 85, 0.22) 0%, rgba(0,0,0,0) 70%);
-      filter: blur(75px);
-      animation: floatB 10s infinite alternate ease-in-out;
+      background: radial-gradient(circle, rgba(255, 0, 85, 0.3) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(60px);
+      animation: floatLight 9s infinite alternate ease-in-out reverse;
     }
 
-    @keyframes floatA {
-      0% { transform: translate(-50%, 0) scale(1); }
-      100% { transform: translate(-50%, 30px) scale(1.1); }
-    }
-
-    @keyframes floatB {
+    @keyframes floatLight {
       0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(-30px) scale(1.08); }
+      100% { transform: translateY(40px) scale(1.15); }
     }
 
     .container {
-      max-width: 860px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 0 18px;
+      padding: 0 16px;
       position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
-    /* Clean Compact Header */
+    /* Header */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 16px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .logo {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 22px;
       font-weight: 800;
       color: #fff;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
-    .logo-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .brand-icon {
       width: 32px;
       height: 32px;
       background: #000;
-      border: 2.5px solid var(--electric-cyan);
+      border: 2px solid var(--cyan);
       border-radius: 8px;
-      color: var(--electric-cyan);
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-weight: 800;
       position: relative;
     }
 
-    .logo-badge::after {
+    .brand-icon::after {
       content: '';
       position: absolute;
-      bottom: -5px;
-      right: -5px;
-      width: 12px;
-      height: 12px;
+      bottom: -4px;
+      right: -4px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: var(--neon-red);
-      box-shadow: 0 0 8px var(--neon-red);
+      background: var(--red);
+      box-shadow: 0 0 8px var(--red);
     }
 
-    .badge-stable {
-      background: rgba(0, 240, 255, 0.12);
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      color: var(--electric-cyan);
+    .ver-badge {
       font-size: 11px;
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 20px;
+      background: rgba(0, 240, 255, 0.15);
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
       font-weight: 700;
     }
 
-    /* Compact Hero - No Empty Gap */
+    /* Hero Section (Compact & Visually Loaded) */
     .hero {
       text-align: center;
-      padding: 24px 8px 36px;
+      padding: 24px 0 32px;
     }
 
-    .hero-pill {
+    .status-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 5px 14px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 240, 255, 0.3);
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(0, 240, 255, 0.35);
       border-radius: 30px;
       font-size: 12px;
-      color: #e2e8f0;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
-    .pulse-dot {
+    .dot {
       width: 8px;
       height: 8px;
       background: #10b981;
       border-radius: 50%;
-      box-shadow: 0 0 10px #10b981;
+      box-shadow: 0 0 8px #10b981;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 6.5vw, 52px);
+      font-size: clamp(30px, 6vw, 48px);
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: 12px;
       letter-spacing: -1px;
     }
 
-    .text-gradient {
-      background: linear-gradient(135deg, var(--electric-cyan) 10%, var(--neon-red) 90%);
+    .animated-gradient-text {
+      background: linear-gradient(120deg, var(--cyan), var(--red), var(--cyan));
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.35));
+      animation: shine 4s linear infinite;
+    }
+
+    @keyframes shine {
+      to { background-position: 200% center; }
     }
 
     .hero p {
       font-size: 15px;
-      color: var(--text-muted);
-      margin: 0 auto 22px;
-      max-width: 560px;
+      color: var(--muted);
+      margin: 0 auto 20px;
+      max-width: 520px;
     }
 
-    /* Real Creator Money Earning Showcase */
-    .creator-showcase {
-      max-width: 480px;
-      margin: 0 auto 24px;
+    /* Real Cash & Happiness Creator Showcase */
+    .image-card {
       position: relative;
-      border-radius: 22px;
-      padding: 2px;
-      background: linear-gradient(135deg, var(--electric-cyan), var(--neon-red));
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 0 auto 22px;
+      max-width: 440px;
+      border: 1.5px solid rgba(0, 240, 255, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.25);
     }
 
-    .creator-showcase img {
+    .image-card img {
       width: 100%;
-      height: 250px;
+      height: 230px;
       object-fit: cover;
       display: block;
-      border-radius: 20px;
-      background: #000;
     }
 
-    .floating-earning-pill {
+    .payout-overlay {
       position: absolute;
-      bottom: -14px;
+      bottom: 12px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(5, 5, 10, 0.95);
-      border: 1px solid rgba(0, 240, 255, 0.4);
-      padding: 9px 20px;
-      border-radius: 30px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid var(--cyan);
+      backdrop-filter: blur(10px);
+      padding: 8px 18px;
+      border-radius: 25px;
       display: flex;
       align-items: center;
-      gap: 9px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(0, 240, 255, 0.25);
+      gap: 8px;
       white-space: nowrap;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
     }
 
-    .earning-dot {
-      width: 9px;
-      height: 9px;
-      background: #10b981;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #10b981;
+    .payout-overlay span {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
     }
 
     /* Download CTA */
-    .cta-container {
+    .cta-area {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 8px;
     }
 
-    .btn-download-glow {
+    .btn-download {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       background: #ffffff;
       color: #000000;
       font-size: 16px;
       font-weight: 800;
-      padding: 15px 34px;
+      padding: 15px 36px;
       border-radius: 14px;
       text-decoration: none;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(0, 240, 255, 0.35);
-      animation: pulseBtn 2.2s infinite ease-in-out;
-      transition: transform 0.2s ease;
+      box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
+      animation: pulseBtn 2s infinite ease-in-out;
       width: 100%;
-      max-width: 320px;
-    }
-
-    .btn-download-glow:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.5), 0 0 50px rgba(0, 240, 255, 0.55);
+      max-width: 300px;
     }
 
     @keyframes pulseBtn {
-      0%, 100% { box-shadow: 0 0 18px rgba(255, 255, 255, 0.25), 0 0 30px rgba(0, 240, 255, 0.3); }
-      50% { box-shadow: 0 0 28px rgba(255, 255, 255, 0.45), 0 0 45px rgba(255, 0, 85, 0.4); }
+      0%, 100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 30px rgba(0, 240, 255, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 0, 85, 0.5);
+      }
     }
 
-    .build-specs {
+    .specs {
       font-size: 12px;
-      color: var(--text-muted);
+      color: var(--muted);
     }
 
-    /* Headings */
-    .section-title {
-      font-size: clamp(22px, 5vw, 30px);
+    /* Titles */
+    .heading {
       text-align: center;
-      margin: 45px 0 24px;
+      font-size: 22px;
       font-weight: 800;
-      letter-spacing: -0.8px;
+      margin: 40px 0 18px;
     }
 
-    /* Features Grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 15px;
-    }
-
-    .feature-card {
-      background: var(--glass-card);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(14px);
-      padding: 22px;
-      border-radius: 18px;
-      transition: all 0.3s ease;
-    }
-
-    .feature-card:hover {
-      border-color: rgba(0, 240, 255, 0.4);
-      transform: translateY(-3px);
-    }
-
-    .feature-card.red-card:hover {
-      border-color: rgba(255, 0, 85, 0.4);
-    }
-
-    .feature-card svg {
-      width: 30px;
-      height: 30px;
-      stroke: var(--electric-cyan);
-      margin-bottom: 12px;
-      filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.4));
-    }
-
-    .feature-card.red-card svg {
-      stroke: var(--neon-red);
-      filter: drop-shadow(0 0 8px rgba(255, 0, 85, 0.4));
-    }
-
-    .feature-card h3 {
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: #ffffff;
-    }
-
-    .feature-card p {
-      color: var(--text-muted);
-      font-size: 13.5px;
-      line-height: 1.55;
-    }
-
-    /* Steps */
-    .steps-card {
+    /* Grids */
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 15px;
-    }
-
-    .step-item {
-      background: var(--glass-card);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(14px);
-      border-radius: 16px;
-      padding: 18px;
-      display: flex;
       gap: 14px;
     }
 
-    .step-number {
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .card svg {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 10px;
+    }
+
+    .card.cyan-card svg { stroke: var(--cyan); }
+    .card.red-card svg { stroke: var(--red); }
+
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Steps */
+    .step-box {
+      display: flex;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 12px;
+      backdrop-filter: blur(12px);
+    }
+
+    .step-num {
+      width: 30px;
+      height: 30px;
       background: rgba(0, 240, 255, 0.15);
-      border: 1px solid rgba(0, 240, 255, 0.4);
+      border: 1px solid var(--cyan);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 14px;
-      color: var(--electric-cyan);
+      color: var(--cyan);
+      font-size: 13px;
+      flex-shrink: 0;
     }
 
-    .step-text h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-    .step-text p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .step-box h4 { font-size: 15px; margin-bottom: 4px; }
+    .step-box p { font-size: 13px; color: var(--muted); }
 
     /* FAQ */
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
+    .faq-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 10px;
+      backdrop-filter: blur(12px);
     }
 
-    .faq-item {
-      background: var(--glass-card);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(14px);
-      border-radius: 16px;
-      padding: 18px 20px;
-    }
-
-    .faq-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; color: #fff; }
-    .faq-item p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; }
+    .faq-card h4 { font-size: 14.5px; margin-bottom: 6px; color: #fff; }
+    .faq-card p { font-size: 13px; color: var(--muted); }
 
     /* Footer */
     footer {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 50px;
-      padding: 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 40px;
+      padding: 30px 0;
       text-align: center;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(16px);
     }
 
-    .support-box {
-      margin-bottom: 20px;
+    .support-btn {
       display: inline-block;
-      padding: 10px 22px;
-      background: rgba(0, 240, 255, 0.06);
-      border: 1px solid rgba(0, 240, 255, 0.25);
-      border-radius: 30px;
-    }
-
-    .support-box a {
-      color: var(--electric-cyan);
-      font-size: 14px;
-      font-weight: 700;
+      padding: 8px 18px;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid var(--cyan);
+      border-radius: 20px;
+      color: var(--cyan);
       text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 16px;
     }
 
-    .footer-badges {
+    .badges {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-bottom: 18px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 14px;
       flex-wrap: wrap;
-    }
-
-    .badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--text-muted);
-      font-size: 12.5px;
-      font-weight: 600;
-      padding: 5px 12px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.08);
     }
   </style>
 </head>
 <body>
 
-  <!-- Live Moving Electric Waves -->
-  <div class="ambient-aurora">
-    <div class="aurora-sphere-1"></div>
-    <div class="aurora-sphere-2"></div>
+  <!-- Ambient Neon Backdrop -->
+  <div class="bg-lights">
+    <div class="light-cyan"></div>
+    <div class="light-red"></div>
   </div>
 
   <div class="container">
     
     <!-- Header -->
     <header>
-      <a href="#" class="logo">
-        <span class="logo-badge">P</span> POTKO
+      <a href="#" class="brand">
+        <span class="brand-icon">P</span> POTKO
       </a>
-      <span class="badge-stable">v1.0.0 Stable</span>
+      <span class="ver-badge">v1.0.0 Stable</span>
     </header>
 
-    <!-- Compact Clean Hero Section -->
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-pill">
-        <span class="pulse-dot"></span>
+      <div class="status-pill">
+        <span class="dot"></span>
         <span>Secure Cloud Build Active</span>
       </div>
 
-      <h1>Decentralized Reach.<br><span class="text-gradient">Instant Global Monetization.</span></h1>
-      <p>High-yield distribution and direct multi-rail international payouts—engineered securely for independent creators worldwide.</p>
+      <h1>Decentralized Reach.<br><span class="animated-gradient-text">Instant Global Monetization.</span></h1>
+      <p>High-yield distribution and direct multi-rail international payouts—engineered securely for creators worldwide.</p>
 
-      <!-- Real Creator Money Earning Showcase -->
-      <div class="creator-showcase">
-        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=1000&auto=format&fit=crop" alt="Real creator receiving cash and rewards">
-        <div class="floating-earning-pill">
-          <span class="earning-dot"></span>
-          <span style="font-size: 13px; color: #fff; font-weight: 700;">Payout Verified: +$450.00 via Stripe</span>
+      <!-- Real Cash & Success Creator Image -->
+      <div class="image-card">
+        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=1000&auto=format&fit=crop" alt="Independent creator earning cash rewards">
+        <div class="payout-overlay">
+          <span style="color: #10b981;">✔</span>
+          <span>Verified Payout: +$450.00 via Stripe</span>
         </div>
       </div>
 
-      <div class="cta-container">
-        <a href="./downloads/app-debug.apk" download="Potko.apk" class="btn-download-glow">
+      <div class="cta-area">
+        <a href="./downloads/app-debug.apk" download="Potko.apk" class="btn-download">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           Download Official APK
         </a>
-        <div class="build-specs">Verified Release • Hardware AES-256 Protected</div>
+        <span class="specs">Verified Release • Hardware AES-256 Protected</span>
       </div>
     </section>
 
     <!-- Privacy, Safety & Trust -->
-    <h2 class="section-title">Privacy, Safety & Trusted Security</h2>
-    <div class="features-grid">
-      
-      <div class="feature-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    <h2 class="heading">Privacy, Safety & Trusted Security</h2>
+    <div class="grid">
+      <div class="card cyan-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
         <h3>Zero Intrusive Permissions</h3>
-        <p>Potko never harvests contacts, SMS, or gallery data. Device permissions are strictly limited to active media recording only.</p>
+        <p>Potko does not harvest contacts, SMS, or gallery data. Permissions are strictly limited to active media recording only.</p>
       </div>
 
-      <div class="feature-card red-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      <div class="card red-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
         <h3>Hardware Encryption</h3>
-        <p>User tokens and session credentials are encrypted with hardware-backed AES-256 keys, protecting accounts against hijacking.</p>
+        <p>User tokens and credentials are protected with hardware-backed AES-256 keys against unauthorized interception.</p>
       </div>
 
-      <div class="feature-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      <div class="card cyan-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
         <h3>GDPR & CCPA Compliant</h3>
-        <p>We fully enforce global privacy frameworks, providing creators with permanent account deletion and complete data export rights.</p>
+        <p>Full support for global privacy regulations, offering complete account deletion and data export rights anytime.</p>
       </div>
 
-      <div class="feature-card red-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+      <div class="card red-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
         <h3>AI Community Guardian</h3>
-        <p>Automated cloud filters neutralize spam, malicious phishing attempts, and predatory behavior in real time.</p>
+        <p>Automated filters eliminate spam, malicious links, and predatory behavior in real time.</p>
       </div>
-
     </div>
 
-    <!-- Installation Guide -->
-    <h2 class="section-title">Verified Installation Guide</h2>
-    <div class="steps-card">
-      <div class="step-item">
-        <div class="step-number">1</div>
-        <div class="step-text">
-          <h4>Download APK</h4>
-          <p>Tap <strong>Download Official APK</strong> to securely obtain the verified build from our servers.</p>
+    <!-- Installation Steps -->
+    <h2 class="heading">Verified Installation Guide</h2>
+    <div>
+      <div class="step-box">
+        <div class="step-num">1</div>
+        <div>
+          <h4>Download Official Package</h4>
+          <p>Tap <strong>Download Official APK</strong> to obtain the verified build from our servers.</p>
         </div>
       </div>
-      <div class="step-item">
-        <div class="step-number">2</div>
-        <div class="step-text">
-          <h4>Allow Unknown Sources</h4>
-          <p>When prompted, tap <strong>Settings</strong> and enable <strong>Allow from this source</strong>.</p>
+      <div class="step-box">
+        <div class="step-num">2</div>
+        <div>
+          <h4>Authorize Unknown Sources</h4>
+          <p>When prompted by browser security, open <strong>Settings</strong> and enable <strong>Allow from this source</strong>.</p>
         </div>
       </div>
-      <div class="step-item">
-        <div class="step-number">3</div>
-        <div class="step-text">
+      <div class="step-box">
+        <div class="step-num">3</div>
+        <div>
           <h4>Install & Earn</h4>
-          <p>Open the APK, tap <strong>Install</strong>, reserve your unique username, and begin safely earning.</p>
+          <p>Open the APK, tap <strong>Install</strong>, reserve your unique username, and begin watching and earning.</p>
         </div>
       </div>
     </div>
 
     <!-- FAQ -->
-    <h2 class="section-title">Platform FAQ</h2>
-    <div class="faq-grid">
-      <div class="faq-item">
+    <h2 class="heading">Platform FAQ</h2>
+    <div>
+      <div class="faq-card">
         <h4>How does the $10 minimum payout operate?</h4>
         <p>Once your balance reaches $10.00, submit a withdrawal. Funds clear directly to your Stripe or bank account within 24 hours.</p>
       </div>
-      <div class="faq-item">
+      <div class="faq-card">
         <h4>Is this official APK safe and virus-free?</h4>
         <p>Yes. Every release is digitally signed and compiled on secure infrastructure, ensuring zero spyware or adware.</p>
       </div>
-      <div class="faq-item">
+      <div class="faq-card">
         <h4>Can independent creators monetize globally?</h4>
-        <p>Absolutely. Our algorithm measures genuine viewer retention, giving equal monetization visibility to anyone with a smartphone.</p>
+        <p>Yes. Our engagement algorithm measures viewer retention, giving equal viral reach and monetization to anyone with a smartphone.</p>
       </div>
-      <div class="faq-item">
-        <h4>How is my personal data handled?</h4>
-        <p>We are a privacy-first network. We do not sell data to brokers. You maintain full ownership and can delete your account instantly.</p>
+      <div class="faq-card">
+        <h4>How is personal data protected?</h4>
+        <p>We are a privacy-first platform. We never sell data to brokers. You maintain full ownership and can delete your account instantly.</p>
       </div>
     </div>
 
-    <!-- Footer & Support -->
+    <!-- Footer -->
     <footer>
-      <div class="support-box">
-        <span style="color: var(--text-muted); font-size: 13px;">Official Support: </span>
-        <a href="mailto:potkosupport@gmail.com">potkosupport@gmail.com</a>
+      <a href="mailto:potkosupport@gmail.com" class="support-btn">Contact: potkosupport@gmail.com</a>
+      
+      <div class="badges">
+        <span>✔ VirusTotal Clean</span>
+        <span>•</span>
+        <span>🔒 SHA-256 Verified</span>
+        <span>•</span>
+        <span>🛡️ Privacy First</span>
       </div>
 
-      <div class="footer-badges">
-        <span class="badge"><span style="color: #10b981;">✔</span> VirusTotal Clean</span>
-        <span class="badge"><span style="color: var(--electric-cyan);">🔒</span> SHA-256 Verified</span>
-        <span class="badge"><span style="color: var(--neon-red);">🛡️</span> Privacy First</span>
-      </div>
-      
-      <p style="color: #64748b; font-size: 12px; line-height: 1.6;">
-        © 2026 Potko Inc. All rights reserved.<br>
-        Engineered with transparency, security, and creator prosperity.
+      <p style="font-size: 11px; color: #64748b;">
+        © 2026 Potko Inc. All rights reserved. Built with privacy and transparency.
       </p>
     </footer>
 
   </div>
+
 </body>
 </html>
