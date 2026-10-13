@@ -1,616 +1,385 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Potko - Global Creator Monetization</title>
-  <meta name="description" content="Download Potko APK. Global decentralized video monetization network.">
-  <link rel="canonical" href="https://potko-app.github.io/potko/">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Three.js 3D WebGL Engine -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potko - Short Video Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #e6edf5;
+            --neu-flat: 12px 12px 24px #c2cddc, -12px -12px 24px #ffffff;
+            --neu-pressed: inset 6px 6px 12px #c2cddc, inset -6px -6px 12px #ffffff;
+            --neu-btn: 8px 8px 16px #c4cfde, -8px -8px 16px #ffffff;
+            --neu-btn-hover: inset 4px 4px 8px #c4cfde, inset -4px -4px 8px #ffffff;
+        }
 
-  <style>
-    :root {
-      --bg: #000000;
-      --cyan: #00f0ff;
-      --red: #ff0055;
-      --glass: rgba(10, 10, 15, 0.7);
-      --glass-border: rgba(255, 255, 255, 0.12);
-      --text: #ffffff;
-      --muted: #94a3b8;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: #445164;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 16px;
+        }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+        .container {
+            width: 100%;
+            max-width: 440px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
 
-    /* 3D WebGL Canvas Layer */
-    #webgl-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-    }
+        /* Neumorphic Navigation */
+        .neu-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            border-radius: 24px;
+            box-shadow: var(--neu-flat);
+            background: var(--bg-color);
+        }
 
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 2;
-    }
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    /* Header */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-    }
+        .logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            box-shadow: 4px 4px 10px #c2cddc, -4px -4px 10px #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+        }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 24px;
-      font-weight: 800;
-      color: #fff;
-      text-decoration: none;
-      letter-spacing: -0.5px;
-    }
+        .logo-text {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #2e384d;
+        }
 
-        .logo-cube {
-      width: 36px;
-      height: 36px;
-      background: #000000;
-      border: 2px solid var(--cyan);
-      border-radius: 10px;
-      color: var(--cyan);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 18px;
-      position: relative;
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
-      animation: logoGlowAnim 3s infinite ease-in-out;
-      transition: transform 0.3s ease;
-    }
+        .tag-pill {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            box-shadow: var(--neu-pressed);
+            color: #7c3aed;
+        }
 
-    .logo-cube:hover {
-      transform: scale(1.1) rotate(5deg);
-    }
+        /* Main Hero Card */
+        .neu-card {
+            background: var(--bg-color);
+            border-radius: 32px;
+            padding: 30px 24px;
+            box-shadow: var(--neu-flat);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    /* Red Dot Completely Disabled */
-    .logo-cube::after {
-      display: none !important;
-      content: none !important;
-    }
+        /* 3D Ring Element (हूबहू Neumorphism स्क्रीनशॉट जैसा) */
+        .dial-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            box-shadow: var(--neu-flat);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
 
-    @keyframes logoGlowAnim {
-      0%, 100% {
-        box-shadow: 0 0 12px rgba(0, 240, 255, 0.3), inset 0 0 8px rgba(0, 240, 255, 0.2);
-        border-color: #00f0ff;
-        transform: translateY(0);
-      }
-      50% {
-        box-shadow: 0 0 25px rgba(0, 240, 255, 0.8), inset 0 0 15px rgba(0, 240, 255, 0.4);
-        border-color: #ffffff;
-        transform: translateY(-2px);
-      }
-    }
-    
+        .dial-inner {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: conic-gradient(#ec4899 0% 75%, #7c3aed 75% 90%, #e0e7f1 90% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--neu-pressed);
+        }
 
-    .badge-ver {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 20px;
-      background: rgba(0, 240, 255, 0.12);
-      border: 1px solid var(--cyan);
-      color: var(--cyan);
-      font-weight: 700;
-    }
+        .dial-core {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            box-shadow: var(--neu-flat);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 40px 10px 30px;
-    }
+        .dial-core span.val {
+            font-size: 18px;
+            font-weight: 800;
+            color: #2e384d;
+        }
 
-    .pill-active {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      border-radius: 30px;
-      font-size: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
-    }
+        .dial-core span.lbl {
+            font-size: 9px;
+            font-weight: 700;
+            color: #8c9ba5;
+            text-transform: uppercase;
+        }
 
-    .dot-pulse {
-      width: 8px;
-      height: 8px;
-      background: #10b981;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #10b981;
-      animation: blink 2s infinite;
-    }
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #212b36;
+            margin-bottom: 8px;
+            line-height: 1.25;
+        }
 
-    @keyframes blink {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
-    }
+        p.desc {
+            font-size: 13px;
+            color: #637381;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
 
-    .hero h1 {
-      font-size: clamp(34px, 6.5vw, 54px);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 16px;
-      letter-spacing: -1.2px;
-    }
+        /* Neumorphic Primary Action Button */
+        .btn-neu {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background: var(--bg-color);
+            box-shadow: var(--neu-btn);
+            font-size: 15px;
+            font-weight: 700;
+            color: #2e384d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
 
-    .neon-stream-text {
-      background: linear-gradient(135deg, var(--cyan) 0%, #ffffff 50%, var(--red) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.3));
-    }
+        .btn-neu:active {
+            box-shadow: var(--neu-btn-hover);
+            transform: scale(0.98);
+        }
 
-    .hero p {
-      font-size: 16px;
-      color: var(--muted);
-      max-width: 580px;
-      margin: 0 auto 30px;
-    }
+        .btn-neu .arrow {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 2px 2px 6px #c4cfde;
+        }
 
-    /* 3D Visual Card Box */
-    .visual-3d-wrapper {
-      position: relative;
-      max-width: 480px;
-      margin: 0 auto 35px;
-      border-radius: 24px;
-      padding: 2px;
-      background: linear-gradient(135deg, var(--cyan), var(--red));
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 240, 255, 0.25);
-      transform-style: preserve-3d;
-      transition: transform 0.4s ease;
-    }
+        .badge-verified {
+            margin-top: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #10b981;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-    .visual-3d-wrapper img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      display: block;
-      border-radius: 22px;
-      background: #000;
-    }
+        /* Multi-stat Pills */
+        .stats-row {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
 
-    .floating-payout {
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(5, 5, 10, 0.9);
-      border: 1px solid var(--cyan);
-      backdrop-filter: blur(15px);
-      padding: 10px 22px;
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      white-space: nowrap;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(0, 240, 255, 0.3);
-    }
+        .stat-card {
+            flex: 1;
+            background: var(--bg-color);
+            border-radius: 22px;
+            padding: 16px 12px;
+            box-shadow: var(--neu-flat);
+            text-align: center;
+        }
 
-    /* Hypersonic Pulse Download CTA */
-    .btn-3d-download {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: #ffffff;
-      color: #000000;
-      font-size: 17px;
-      font-weight: 800;
-      padding: 16px 42px;
-      border-radius: 16px;
-      text-decoration: none;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.4), 0 0 50px rgba(0, 240, 255, 0.5);
-      animation: pulseBtn 2.2s infinite ease-in-out;
-      transition: transform 0.2s ease;
-      width: 100%;
-      max-width: 320px;
-    }
+        .stat-card .num {
+            font-size: 17px;
+            font-weight: 800;
+            color: #212b36;
+        }
 
-    .btn-3d-download:hover {
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.6), 0 0 70px rgba(0, 240, 255, 0.8);
-    }
+        .stat-card .label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #8c9ba5;
+            margin-top: 2px;
+        }
 
-    @keyframes pulseBtn {
-      0%, 100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 35px rgba(0, 240, 255, 0.3); }
-      50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 65px rgba(255, 0, 85, 0.45); }
-    }
+        /* Recessed Guide Panel */
+        .guide-panel {
+            background: var(--bg-color);
+            border-radius: 28px;
+            padding: 22px 20px;
+            box-shadow: var(--neu-pressed);
+        }
 
-    /* Section Headers */
-    .section-title {
-      font-size: clamp(24px, 5vw, 34px);
-      text-align: center;
-      margin: 60px 0 30px;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-    }
+        .guide-title {
+            font-size: 14px;
+            font-weight: 800;
+            color: #2e384d;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    /* 3D Glass Cards */
-    .grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
+        .guide-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
 
-    .card-3d {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(16px);
-      padding: 26px;
-      border-radius: 20px;
-      transition: all 0.35s ease;
-    }
+        .guide-step:last-child {
+            margin-bottom: 0;
+        }
 
-    .card-3d:hover {
-      border-color: rgba(0, 240, 255, 0.5);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 240, 255, 0.15);
-    }
+        .step-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            box-shadow: var(--neu-flat);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            color: #7c3aed;
+            flex-shrink: 0;
+        }
 
-    .card-3d.alt:hover {
-      border-color: rgba(255, 0, 85, 0.5);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 0, 85, 0.15);
-    }
+        .step-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: #4b586d;
+        }
 
-    .card-3d svg {
-      width: 32px;
-      height: 32px;
-      stroke: var(--cyan);
-      margin-bottom: 14px;
-      filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.5));
-    }
-
-    .card-3d.alt svg {
-      stroke: var(--red);
-      filter: drop-shadow(0 0 10px rgba(255, 0, 85, 0.5));
-    }
-
-    .card-3d h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .card-3d p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    /* Steps */
-    .step-item {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(16px);
-      border-radius: 18px;
-      padding: 20px;
-      display: flex;
-      gap: 16px;
-      margin-bottom: 14px;
-    }
-
-    .step-num {
-      width: 36px;
-      height: 36px;
-      background: rgba(0, 240, 255, 0.12);
-      border: 1px solid var(--cyan);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: var(--cyan);
-      font-size: 14px;
-      flex-shrink: 0;
-    }
-
-    /* FAQ */
-    .faq-item {
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(16px);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 12px;
-    }
-
-    .faq-item h4 {
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-
-    .faq-item p {
-      font-size: 13.5px;
-      color: var(--muted);
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      margin-top: 60px;
-      padding: 40px 0;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(20px);
-    }
-
-    .support-pill {
-      display: inline-block;
-      padding: 10px 22px;
-      background: rgba(0, 240, 255, 0.06);
-      border: 1px solid var(--cyan);
-      border-radius: 30px;
-      color: var(--cyan);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .badges {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-  </style>
+        footer {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: #9aa8ba;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Background WebGL 3D Canvas -->
-  <canvas id="webgl-canvas"></canvas>
+    <div class="container">
+        
+        <!-- Header -->
+        <header class="neu-nav">
+            <div class="logo-box">
+                <div class="logo-icon">P</div>
+                <div class="logo-text">POTKO</div>
+            </div>
+            <div class="tag-pill">v1.0.0 Stable</div>
+        </header>
 
-  <div class="container">
-    
-    <!-- Header -->
-    <header>
-      <a href="#" class="brand">
-        <div class="logo-cube">P</div>
-        POTKO
-      </a>
-      <span class="badge-ver">v1.0.0 Stable</span>
-    </header>
+        <!-- Main Card -->
+        <main class="neu-card">
+            
+            <!-- Dial Indicator -->
+            <div class="dial-container">
+                <div class="dial-inner">
+                    <div class="dial-core">
+                        <span class="val">100%</span>
+                        <span class="lbl">Clean</span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="pill-active">
-        <span class="dot-pulse"></span>
-        <span>Secure Cloud Build Active</span>
-      </div>
+            <h1>Watch, Create<br>& Earn Rewards</h1>
+            <p class="desc">अल्ट्रा-फास्ट रील्स स्क्रॉल करें, वीडियो पोस्ट करें और सीधे अपने अकाउंट में अर्निंग क्लेम करें।</p>
 
-      <h1>Decentralized Reach.<br><span class="neon-stream-text">Instant Global Monetization.</span></h1>
-      <p>High-yield distribution and direct multi-rail international payouts—engineered securely for creators worldwide.</p>
+            <!-- Download Button -->
+            <a href="downloads/app-debug.apk" download class="btn-neu">
+                <span>Download Official APK</span>
+                <span class="arrow">↓</span>
+            </a>
 
-      <!-- 3D Card Visual with Live Cash Proof -->
-      <div class="visual-3d-wrapper">
-        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=1000&auto=format&fit=crop" alt="Verified creator payouts">
-        <div class="floating-payout">
-          <span style="color: #10b981;">✔</span>
-          <span style="font-size: 13px; font-weight: 700;">Verified Payout: +$450.00 via Stripe</span>
+            <div class="badge-verified">
+                <span>●</span> Verified Build • Hardware AES Encrypted
+            </div>
+        </main>
+
+        <!-- Statistics Badges -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="num">0.02s</div>
+                <div class="label">Buffer Free</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">1-Tap</div>
+                <div class="label">Google Login</div>
+            </div>
+            <div class="stat-card">
+                <div class="num">Instant</div>
+                <div class="label">Payouts</div>
+            </div>
         </div>
-      </div>
 
-      <div>
-        <a href="./downloads/app-debug.apk" download="Potko.apk" class="btn-3d-download">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Download Official APK
-        </a>
-        <div style="font-size: 12px; color: var(--muted); margin-top: 12px;">Verified Release • Hardware AES-256 Protected</div>
-      </div>
-    </section>
+        <!-- 3-Step Setup Recessed Section -->
+        <section class="guide-panel">
+            <div class="guide-title">
+                <span>⚙️</span> Fast Setup Instructions
+            </div>
+            <div class="guide-step">
+                <div class="step-circle">1</div>
+                <div class="step-text">Download बटन पर टैप करके APK फाइल सेव करें।</div>
+            </div>
+            <div class="guide-step">
+                <div class="step-circle">2</div>
+                <div class="step-text">ब्राउज़र में "Allow from this source" चालू करें।</div>
+            </div>
+            <div class="guide-step">
+                <div class="step-circle">3</div>
+                <div class="step-text">ऐप खोलें और 1-Tap Google Sign-In से शुरू करें।</div>
+            </div>
+        </section>
 
-    <!-- Privacy & Security Cards -->
-    <h2 class="section-title">Privacy, Safety & Trusted Security</h2>
-    <div class="grid-cards">
-      <div class="card-3d">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        <h3>Zero Intrusive Permissions</h3>
-        <p>Potko does not harvest contacts, SMS, or gallery data. Permissions are strictly limited to active media recording only.</p>
-      </div>
+        <footer>
+            © 2026 Potko Official Platform • Pure Soft-UI Experience
+        </footer>
 
-      <div class="card-3d alt">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-        <h3>Hardware Encryption</h3>
-        <p>User tokens and session credentials are encrypted with hardware-backed AES-256 keys, protecting accounts against hijacking.</p>
-      </div>
-
-      <div class="card-3d">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-        <h3>GDPR & CCPA Compliant</h3>
-        <p>Full support for global privacy regulations, offering complete account deletion and data export rights anytime.</p>
-      </div>
-
-      <div class="card-3d alt">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
-        <h3>AI Community Guardian</h3>
-        <p>Automated filters eliminate spam, malicious links, and predatory behavior in real time.</p>
-      </div>
     </div>
-
-    <!-- Installation Steps -->
-    <h2 class="section-title">Verified Installation Guide</h2>
-    <div>
-      <div class="step-item">
-        <div class="step-num">1</div>
-        <div>
-          <h4>Download Official Package</h4>
-          <p>Tap <strong>Download Official APK</strong> to obtain the verified build from our servers.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">2</div>
-        <div>
-          <h4>Authorize Unknown Sources</h4>
-          <p>When prompted by browser security, open <strong>Settings</strong> and enable <strong>Allow from this source</strong>.</p>
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">3</div>
-        <div>
-          <h4>Install & Earn</h4>
-          <p>Open the APK, tap <strong>Install</strong>, reserve your unique username, and begin watching and earning.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <h2 class="section-title">Platform FAQ</h2>
-    <div>
-      <div class="faq-item">
-        <h4>How does the $10 minimum payout operate?</h4>
-        <p>Once your balance reaches $10.00, submit a withdrawal. Funds clear directly to your Stripe or bank account within 24 hours.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Is this official APK safe and virus-free?</h4>
-        <p>Yes. Every release is digitally signed and compiled on secure infrastructure, ensuring zero spyware or adware.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Can independent creators monetize globally?</h4>
-        <p>Yes. Our engagement algorithm measures viewer retention, giving equal viral reach and monetization to anyone with a smartphone.</p>
-      </div>
-      <div class="faq-item">
-        <h4>How is personal data protected?</h4>
-        <p>We are a privacy-first platform. We never sell data to brokers. You maintain full ownership and can delete your account instantly.</p>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <a href="mailto:potkosupport@gmail.com" class="support-pill">Contact: potkosupport@gmail.com</a>
-      
-      <div class="badges">
-        <span>✔ VirusTotal Clean</span>
-        <span>•</span>
-        <span>🔒 SHA-256 Verified</span>
-        <span>•</span>
-        <span>🛡️ Privacy First</span>
-      </div>
-
-      <p style="font-size: 12px; color: #64748b;">
-        © 2026 Potko Inc. All rights reserved. Built with privacy and transparency.
-      </p>
-    </footer>
-
-  </div>
-
-  <!-- Interactive 3D WebGL Mesh Script -->
-  <script>
-    const canvas = document.getElementById('webgl-canvas');
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    // Create 3D Torus Wireframe (Hyper Neon Mesh)
-    const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
-    const material = new THREE.MeshBasicMaterial({
-      color: 0x00f0ff,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.18
-    });
-    const torusKnot = new THREE.Mesh(geometry, material);
-    scene.add(torusKnot);
-
-    // Create 3D Floating Particles
-    const particlesCount = 180;
-    const posArray = new Float32Array(particlesCount * 3);
-    for(let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 60;
-    }
-    const particlesGeometry = new THREE.BufferGeometry();
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.25,
-      color: 0xff0055,
-      transparent: true,
-      opacity: 0.4
-    });
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
-
-    camera.position.z = 24;
-
-    // Mouse / Touch Interaction
-    let mouseX = 0, mouseY = 0;
-    window.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX / window.innerWidth) - 0.5;
-      mouseY = (e.clientY / window.innerHeight) - 0.5;
-    });
-
-    window.addEventListener('touchmove', (e) => {
-      if(e.touches.length > 0) {
-        mouseX = (e.touches[0].clientX / window.innerWidth) - 0.5;
-        mouseY = (e.touches[0].clientY / window.innerHeight) - 0.5;
-      }
-    });
-
-    // 3D Render Loop
-    function animate() {
-      requestAnimationFrame(animate);
-      torusKnot.rotation.x += 0.003;
-      torusKnot.rotation.y += 0.005;
-      particlesMesh.rotation.y -= 0.002;
-
-      torusKnot.rotation.x += mouseY * 0.02;
-      torusKnot.rotation.y += mouseX * 0.02;
-
-      renderer.render(scene, camera);
-    }
-    animate();
-
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
 
 </body>
 </html>
