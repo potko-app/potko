@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potko - Next-Gen Short Video & Creator Economy Platform</title>
-    <meta name="description" content="Watch viral short videos, discover trending reels, and earn daily rewards with instant transparent payouts on Potko.">
+    <title>Potko - Upload Short Videos, Go Viral & Earn Real Rewards</title>
+    <meta name="description" content="Upload original short videos, reach millions organically, watch trending reels, and earn transparent creator & viewer rewards on Potko.">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #e6edf8;
             --surface: #e6edf8;
-            --neu-flat: 14px 14px 28px #c2cddc, -14px -14px 28px #ffffff;
-            --neu-pressed: inset 6px 6px 12px #c2cddc, inset -6px -6px 12px #ffffff;
-            --neu-btn: 10px 10px 20px #bfcbe0, -10px -10px 20px #ffffff;
-            --neu-btn-active: inset 4px 4px 8px #c4cfde, inset -4px -4px 8px #ffffff;
+            --neu-flat: 12px 12px 24px #c0cce0, -12px -12px 24px #ffffff;
+            --neu-sm: 7px 7px 14px #c2cee0, -7px -7px 14px #ffffff;
+            --neu-pressed: inset 6px 6px 12px #c2cee0, inset -6px -6px 12px #ffffff;
+            --neu-btn: 10px 10px 22px #b5c4dc, -10px -10px 22px #ffffff;
+            --neu-btn-active: inset 5px 5px 10px #b8c6dc, inset -5px -5px 10px #ffffff;
             --primary: #7c3aed;
             --secondary: #ec4899;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
+            --accent-cyan: #06b6d4;
+            --text-main: #0f172a;
+            --text-muted: #475569;
         }
 
         * {
@@ -36,27 +38,32 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 24px 16px 60px 16px;
+            /* Side border slightly reduced as requested */
+            padding: 16px 8px 64px 8px;
             overflow-x: hidden;
         }
 
+        /* Slightly wider container to reduce side empty borders nicely */
         .container {
-            width: 100%;
-            max-width: 680px;
+            width: 96%;
+            max-width: 780px;
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 24px;
         }
 
-        /* Neumorphic Navigation */
+        /* ==========================================
+           NEUMORPHIC NAVIGATION BAR
+           ========================================== */
         .neu-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 22px;
-            border-radius: 26px;
+            padding: 14px 20px;
+            border-radius: 24px;
             background: var(--surface);
             box-shadow: var(--neu-flat);
+            border: 1px solid rgba(255, 255, 255, 0.65);
         }
 
         .brand-box {
@@ -68,9 +75,9 @@
         .brand-logo {
             width: 42px;
             height: 42px;
-            border-radius: 14px;
+            border-radius: 13px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            box-shadow: 4px 4px 10px #c2cddc, -4px -4px 10px #ffffff;
+            box-shadow: 4px 4px 10px #b8c6dc, -4px -4px 10px #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -87,8 +94,8 @@
         }
 
         .version-tag {
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10.5px;
+            font-weight: 800;
             padding: 7px 14px;
             border-radius: 20px;
             background: var(--surface);
@@ -96,49 +103,53 @@
             color: var(--primary);
         }
 
-        /* Main Hero Card */
+        /* ==========================================
+           MAIN HERO SECTION
+           ========================================== */
         .neu-hero {
             background: var(--surface);
-            border-radius: 36px;
-            padding: 36px 24px 32px 24px;
+            border-radius: 34px;
+            padding: 32px 20px 32px 20px;
             box-shadow: var(--neu-flat);
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            position: relative;
         }
 
         .badge-live {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 8px 18px;
+            border-radius: 22px;
             box-shadow: var(--neu-pressed);
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 11.5px;
+            font-weight: 800;
             color: var(--primary);
-            margin-bottom: 24px;
+            margin-bottom: 22px;
         }
 
         .dot-pulse {
-            width: 8px;
-            height: 8px;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
             background: #10b981;
             box-shadow: 0 0 10px #10b981;
-            animation: pulseAnim 2s infinite;
+            animation: pulseAnim 1.8s infinite;
         }
 
         @keyframes pulseAnim {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.3); }
+            50% { opacity: 0.4; transform: scale(1.35); }
         }
 
         /* 3D Neumorphic Conic Dial */
         .dial-wrap {
-            width: 144px;
-            height: 144px;
+            width: 148px;
+            height: 148px;
             border-radius: 50%;
             box-shadow: var(--neu-flat);
             display: flex;
@@ -148,10 +159,10 @@
         }
 
         .dial-track {
-            width: 116px;
-            height: 116px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: conic-gradient(var(--secondary) 0% 75%, var(--primary) 75% 92%, #d6e1ed 92% 100%);
+            background: conic-gradient(var(--secondary) 0% 48%, var(--primary) 48% 85%, var(--accent-cyan) 85% 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -159,8 +170,8 @@
         }
 
         .dial-inner {
-            width: 82px;
-            height: 82px;
+            width: 86px;
+            height: 86px;
             border-radius: 50%;
             background: var(--surface);
             box-shadow: var(--neu-flat);
@@ -171,84 +182,195 @@
         }
 
         .dial-inner .val {
-            font-size: 19px;
+            font-size: 18px;
             font-weight: 800;
-            color: var(--text-main);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .dial-inner .lbl {
-            font-size: 9px;
-            font-weight: 700;
+            font-size: 8.5px;
+            font-weight: 800;
             color: var(--text-muted);
             letter-spacing: 0.5px;
         }
 
         h1.hero-heading {
-            font-size: 28px;
+            font-size: 29px;
             font-weight: 800;
-            line-height: 1.25;
-            color: #0f172a;
+            line-height: 1.24;
+            color: var(--text-main);
             margin-bottom: 12px;
         }
 
-        p.hero-sub {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 500px;
-            margin-bottom: 28px;
+        h1.hero-heading span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* NEXT-LEVEL HIGHLIGHT CARD (Above Bear & Download Button) */
-        .neu-highlight-card {
+        p.hero-sub {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.65;
+            max-width: 560px;
+            margin-bottom: 26px;
+        }
+
+        /* =========================================================
+           NEXT-LEVEL HIGHLIGHT: UPLOAD -> VIRAL FEED -> EARN LOOP
+           ========================================================= */
+        .neu-ecosystem-showcase {
             width: 100%;
             background: var(--surface);
             border-radius: 28px;
-            padding: 24px;
+            padding: 22px 18px;
             box-shadow: var(--neu-pressed);
-            margin-bottom: 18px;
+            margin-bottom: 22px;
             text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.55);
         }
 
-        .hl-top {
+        .eco-top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 16px;
-            border-bottom: 1px dashed #cbd5e1;
             padding-bottom: 12px;
+            border-bottom: 1.5px dashed #cbd5e1;
         }
 
-        .hl-title {
+        .eco-badge-title {
             font-size: 12px;
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.6px;
-            color: var(--secondary);
+            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .hl-metric {
-            font-size: 11px;
-            font-weight: 700;
-            color: #10b981;
-            background: #e2f7ed;
-            padding: 4px 10px;
-            border-radius: 12px;
+        .eco-live-pill {
+            font-size: 10.5px;
+            font-weight: 800;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            padding: 5px 12px;
+            border-radius: 14px;
+            box-shadow: 2px 3px 8px #c2cee0;
         }
 
+        /* 3-Step Flywheel Cards */
+        .flywheel-loop {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .loop-step-card {
+            background: var(--surface);
+            border-radius: 18px;
+            padding: 14px 12px;
+            box-shadow: var(--neu-sm);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.75);
+        }
+
+        .loop-step-card.active-engine {
+            border: 1.5px solid rgba(236, 72, 153, 0.45);
+            background: linear-gradient(180deg, #fdf2f8 0%, var(--surface) 100%);
+        }
+
+        .loop-num {
+            display: inline-block;
+            font-size: 9.5px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 10px;
+            background: var(--surface);
+            box-shadow: var(--neu-pressed);
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .loop-icon {
+            font-size: 22px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .loop-step-card h4 {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 3px;
+        }
+
+        .loop-step-card p {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Why Upload First Callout */
+        .upload-power-banner {
+            background: var(--surface);
+            border-radius: 18px;
+            padding: 14px 16px;
+            box-shadow: var(--neu-sm);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .up-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            flex-shrink: 0;
+        }
+
+        .up-text h5 {
+            font-size: 12.5px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .up-text p {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* 4 Pillars Grid */
         .hl-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            gap: 12px;
         }
 
         .hl-box {
             display: flex;
             align-items: flex-start;
             gap: 10px;
+            padding: 12px;
+            border-radius: 16px;
+            background: var(--surface);
+            box-shadow: var(--neu-sm);
         }
 
         .hl-icon-wrap {
@@ -256,7 +378,7 @@
             height: 34px;
             border-radius: 10px;
             background: var(--surface);
-            box-shadow: var(--neu-flat);
+            box-shadow: var(--neu-pressed);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -265,8 +387,8 @@
         }
 
         .hl-text h4 {
-            font-size: 13px;
-            font-weight: 700;
+            font-size: 12.5px;
+            font-weight: 800;
             color: var(--text-main);
             margin-bottom: 2px;
         }
@@ -274,124 +396,26 @@
         .hl-text p {
             font-size: 11px;
             color: var(--text-muted);
-            line-height: 1.45;
+            line-height: 1.4;
         }
 
         /* =========================================================
-           CUTE ANIMATED WHITE BEAR SITTING ON DOWNLOAD BUTTON
+           DOWNLOAD BUTTON STAGE & TARGET LANDING PAD FOR THE BEAR
            ========================================================= */
-        .bear-download-stage {
+        .download-zone-wrapper {
             width: 100%;
-            max-width: 440px;
+            max-width: 480px;
             display: flex;
             flex-direction: column;
             align-items: center;
             position: relative;
-            margin-top: 10px;
+            padding-top: 175px; /* Reserved space where the roaming bear lands & dances */
         }
 
-        /* Speech Bubble Next to Bear */
-        .bear-speech-bubble {
-            background: #ffffff;
-            color: var(--primary);
-            font-size: 11px;
-            font-weight: 800;
-            padding: 7px 14px;
-            border-radius: 16px;
-            box-shadow: 6px 6px 14px #c2cddc, -4px -4px 10px #ffffff;
-            margin-bottom: 4px;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            animation: floatBubble 2.2s ease-in-out infinite;
-            border: 1.5px solid rgba(124, 58, 237, 0.18);
-            z-index: 4;
-        }
-
-        @keyframes floatBubble {
-            0%, 100% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-4px) scale(1.03); }
-        }
-
-        .bear-mascot-wrap {
-            width: 150px;
-            height: 118px;
-            position: relative;
-            margin-bottom: -18px; /* Makes the bear sit snugly right on the button edge */
-            z-index: 3;
-            pointer-events: none;
-            filter: drop-shadow(0px 6px 8px rgba(160, 175, 195, 0.45));
-        }
-
-        /* SVG Bear Keyframe Animations */
-        .bear-head-group {
-            transform-origin: 75px 52px;
-            animation: cuteHeadBob 2.6s ease-in-out infinite;
-        }
-
-        @keyframes cuteHeadBob {
-            0%, 100% { transform: rotate(-3deg) translateY(0px); }
-            50% { transform: rotate(4deg) translateY(2px); }
-        }
-
-        /* Left Arm: Beckoning / Waving to User */
-        .bear-arm-left {
-            transform-origin: 48px 68px;
-            animation: waveComeHere 1.2s ease-in-out infinite alternate;
-        }
-
-        @keyframes waveComeHere {
-            0% { transform: rotate(28deg) translateY(0px); }
-            50% { transform: rotate(-22deg) translateY(-3px); }
-            100% { transform: rotate(20deg) translateY(1px); }
-        }
-
-        /* Right Arm: Pointing Down at the Download Button */
-        .bear-arm-right {
-            transform-origin: 102px 68px;
-            animation: pointDownAction 0.9s ease-in-out infinite;
-        }
-
-        @keyframes pointDownAction {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(7px) rotate(8deg); }
-        }
-
-        /* Cute Blinking Eyes */
-        .bear-eyes {
-            transform-origin: 75px 46px;
-            animation: blinkEyes 4s infinite;
-        }
-
-        @keyframes blinkEyes {
-            0%, 92%, 98%, 100% { transform: scaleY(1); }
-            95% { transform: scaleY(0.08); }
-        }
-
-        /* Little Feet Wiggle */
-        .bear-foot-left {
-            transform-origin: 55px 102px;
-            animation: wiggleFootL 1.8s ease-in-out infinite;
-        }
-        .bear-foot-right {
-            transform-origin: 95px 102px;
-            animation: wiggleFootR 1.8s ease-in-out infinite;
-        }
-
-        @keyframes wiggleFootL {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(-6deg); }
-        }
-        @keyframes wiggleFootR {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(6deg); }
-        }
-
-        /* Primary Action (Download Button) */
         .btn-download {
             width: 100%;
-            padding: 20px 24px;
-            border-radius: 24px;
+            padding: 22px 26px;
+            border-radius: 26px;
             background: var(--surface);
             box-shadow: var(--neu-btn);
             display: flex;
@@ -400,17 +424,18 @@
             gap: 14px;
             text-decoration: none;
             color: var(--text-main);
-            font-size: 16px;
+            font-size: 17px;
             font-weight: 800;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             position: relative;
-            z-index: 2;
-            border: 1.5px solid rgba(255, 255, 255, 0.7);
+            z-index: 3;
+            border: 2px solid rgba(255, 255, 255, 0.9);
         }
 
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 12px 12px 24px #b8c6db, -12px -12px 24px #ffffff;
+        .btn-download.bear-pointing-glow {
+            box-shadow: 0 0 25px rgba(236, 72, 153, 0.45), var(--neu-btn);
+            border-color: rgba(236, 72, 153, 0.6);
+            transform: scale(1.02);
         }
 
         .btn-download:active {
@@ -419,87 +444,285 @@
         }
 
         .btn-download .btn-circle {
-            width: 34px;
-            height: 34px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
-            box-shadow: 2px 4px 8px rgba(124, 58, 237, 0.35);
-            animation: arrowBounce 1.4s infinite;
+            font-size: 18px;
+            box-shadow: 2px 4px 10px rgba(236, 72, 153, 0.45);
+            animation: arrowBounce 1s infinite;
         }
 
         @keyframes arrowBounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(3px); }
+            50% { transform: translateY(4px); }
         }
 
         .audit-tag {
             margin-top: 12px;
-            font-size: 11px;
-            font-weight: 600;
+            font-size: 11.5px;
+            font-weight: 700;
             color: #10b981;
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        /* Neumorphic Section Containers */
+        /* =========================================================
+           HUMANOID ROAMING, RUNNING & TALKING CUTE WHITE BEAR
+           ========================================================= */
+        #roaming-bear-actor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 195px;
+            height: 215px;
+            z-index: 9999;
+            pointer-events: auto;
+            cursor: pointer;
+            transition: transform 1.25s cubic-bezier(0.34, 1.25, 0.64, 1);
+            will-change: transform;
+            user-select: none;
+        }
+
+        /* Dynamic Speech Bubble Attached to Bear */
+        .bear-callout-bubble {
+            position: absolute;
+            top: -42px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            background: #ffffff;
+            color: var(--primary);
+            font-size: 11.5px;
+            font-weight: 800;
+            padding: 8px 14px;
+            border-radius: 18px;
+            box-shadow: 6px 8px 18px rgba(148, 163, 184, 0.45), -4px -4px 10px #ffffff;
+            border: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            animation: bubblePulse 0.9s ease-in-out infinite alternate;
+            z-index: 10;
+        }
+
+        .bear-callout-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            border-right: 2px solid var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        @keyframes bubblePulse {
+            0% { transform: translateX(-50%) translateY(0px) scale(1); }
+            100% { transform: translateX(-50%) translateY(-5px) scale(1.04); }
+        }
+
+        /* Humanoid Skeleton States:
+           1. state-running (legs stride fast, arms swing, body tilts)
+           2. state-pointing (jumps on Download button, waves & points both fingers down)
+        */
+        .bear-svg-stage {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            filter: drop-shadow(0 10px 14px rgba(100, 116, 139, 0.32));
+        }
+
+        /* Whole Body Bounce */
+        .state-pointing .bear-humanoid-body {
+            transform-origin: 100px 180px;
+            animation: happyJumpDance 0.75s ease-in-out infinite alternate;
+        }
+        .state-running .bear-humanoid-body {
+            transform-origin: 100px 180px;
+            animation: sprintBounce 0.26s ease-in-out infinite alternate;
+        }
+
+        @keyframes happyJumpDance {
+            0% { transform: translateY(0px) scaleX(1.04) scaleY(0.96); }
+            100% { transform: translateY(-18px) scaleX(0.97) scaleY(1.04); }
+        }
+        @keyframes sprintBounce {
+            0% { transform: translateY(0px) rotate(-4deg); }
+            100% { transform: translateY(-9px) rotate(4deg); }
+        }
+
+        /* Head Nod & Ears Wiggle */
+        .bear-head-rig {
+            transform-origin: 100px 72px;
+            animation: headBobHuman 1.1s ease-in-out infinite alternate;
+        }
+        @keyframes headBobHuman {
+            0% { transform: rotate(-4deg) translateY(1px); }
+            100% { transform: rotate(4deg) translateY(-2px); }
+        }
+
+        /* Talking Mouth Animation */
+        .bear-mouth-talking {
+            transform-origin: 100px 81px;
+            animation: mouthSpeak 0.32s ease-in-out infinite alternate;
+        }
+        @keyframes mouthSpeak {
+            0% { transform: scaleY(0.45); }
+            100% { transform: scaleY(1.25); }
+        }
+
+        /* Left Arm Rig (Shoulder at 64, 106) */
+        .bear-arm-left-rig {
+            transform-origin: 64px 106px;
+        }
+        .state-pointing .bear-arm-left-rig {
+            animation: waveBeckonLeft 0.7s ease-in-out infinite alternate;
+        }
+        .state-running .bear-arm-left-rig {
+            animation: runSwingLeft 0.28s ease-in-out infinite alternate;
+        }
+
+        @keyframes waveBeckonLeft {
+            0% { transform: rotate(45deg); }
+            100% { transform: rotate(-35deg); }
+        }
+        @keyframes runSwingLeft {
+            0% { transform: rotate(50deg); }
+            100% { transform: rotate(-45deg); }
+        }
+
+        /* Right Arm Rig (Shoulder at 136, 106) - Points straight down at Download button */
+        .bear-arm-right-rig {
+            transform-origin: 136px 106px;
+        }
+        .state-pointing .bear-arm-right-rig {
+            animation: pointDownVigorous 0.55s ease-in-out infinite alternate;
+        }
+        .state-running .bear-arm-right-rig {
+            animation: runSwingRight 0.28s ease-in-out infinite alternate;
+        }
+
+        @keyframes pointDownVigorous {
+            0% { transform: rotate(-15deg) translateY(0px); }
+            100% { transform: rotate(22deg) translateY(7px); }
+        }
+        @keyframes runSwingRight {
+            0% { transform: rotate(-45deg); }
+            100% { transform: rotate(50deg); }
+        }
+
+        /* Humanoid Legs Rig (Hips at 84, 148 and 116, 148) */
+        .bear-leg-left-rig {
+            transform-origin: 84px 148px;
+        }
+        .bear-leg-right-rig {
+            transform-origin: 116px 148px;
+        }
+
+        .state-running .bear-leg-left-rig {
+            animation: humanRunLegL 0.26s ease-in-out infinite alternate;
+        }
+        .state-running .bear-leg-right-rig {
+            animation: humanRunLegR 0.26s ease-in-out infinite alternate;
+        }
+        .state-pointing .bear-leg-left-rig {
+            animation: danceStepL 0.75s ease-in-out infinite alternate;
+        }
+        .state-pointing .bear-leg-right-rig {
+            animation: danceStepR 0.75s ease-in-out infinite alternate;
+        }
+
+        @keyframes humanRunLegL {
+            0% { transform: rotate(36deg) translateY(-4px); }
+            100% { transform: rotate(-32deg) translateY(2px); }
+        }
+        @keyframes humanRunLegR {
+            0% { transform: rotate(-32deg) translateY(2px); }
+            100% { transform: rotate(36deg) translateY(-4px); }
+        }
+        @keyframes danceStepL {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(12deg) translateY(-3px); }
+        }
+        @keyframes danceStepR {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-12deg) translateY(-3px); }
+        }
+
+        /* Blinking Eyes */
+        .bear-eyes-rig {
+            transform-origin: 100px 62px;
+            animation: blinkCute 3.5s infinite;
+        }
+        @keyframes blinkCute {
+            0%, 92%, 98%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.08); }
+        }
+
+        /* ==========================================
+           NEUMORPHIC CONTENT SECTIONS
+           ========================================== */
         .neu-section {
             background: var(--surface);
             border-radius: 32px;
-            padding: 30px 24px;
+            padding: 28px 22px;
             box-shadow: var(--neu-flat);
+            border: 1px solid rgba(255, 255, 255, 0.65);
         }
 
         .sec-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 18px;
         }
 
         .sec-icon-box {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 14px;
             background: var(--surface);
             box-shadow: var(--neu-pressed);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 21px;
             flex-shrink: 0;
         }
 
         .sec-headings h2 {
-            font-size: 18px;
+            font-size: 18.5px;
             font-weight: 800;
             color: var(--text-main);
         }
 
         .sec-headings span {
-            font-size: 11px;
-            font-weight: 700;
+            font-size: 10.5px;
+            font-weight: 800;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
         }
 
-        /* Comparison Grid (Fixed text wrapping) */
+        /* Comparison Grid */
         .compare-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
+            gap: 14px;
             margin-top: 14px;
         }
 
         .compare-card {
             border-radius: 22px;
-            padding: 20px 18px;
+            padding: 18px 16px;
             background: var(--surface);
         }
 
@@ -510,14 +733,14 @@
 
         .compare-card.potko {
             box-shadow: var(--neu-flat);
-            border: 1.5px solid rgba(124, 58, 237, 0.3);
-            background: linear-gradient(180deg, #f2f6fc 0%, var(--surface) 100%);
+            border: 1.5px solid rgba(124, 58, 237, 0.35);
+            background: linear-gradient(180deg, #f3f7fd 0%, var(--surface) 100%);
         }
 
         .compare-head {
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 800;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -527,30 +750,36 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .compare-list li {
             font-size: 11.5px;
-            line-height: 1.5;
+            line-height: 1.55;
             color: #475569;
             display: block;
         }
 
         .compare-list li strong {
             color: var(--text-main);
-            font-weight: 700;
+            font-weight: 800;
         }
 
         /* Step Rows */
         .step-row {
             display: flex;
             align-items: flex-start;
-            gap: 16px;
+            gap: 14px;
             padding: 16px;
             border-radius: 20px;
             box-shadow: var(--neu-pressed);
-            margin-bottom: 14px;
+            margin-bottom: 12px;
+        }
+
+        .step-row.featured-step {
+            box-shadow: var(--neu-sm);
+            border: 1.5px solid rgba(236, 72, 153, 0.4);
+            background: linear-gradient(90deg, #fdf2f8 0%, var(--surface) 100%);
         }
 
         .step-row:last-child {
@@ -573,16 +802,16 @@
         }
 
         .step-content h4 {
-            font-size: 13px;
-            font-weight: 700;
+            font-size: 13.5px;
+            font-weight: 800;
             color: var(--text-main);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .step-content p {
             font-size: 12px;
             color: var(--text-muted);
-            line-height: 1.45;
+            line-height: 1.5;
         }
 
         /* Descriptive Text */
@@ -594,25 +823,25 @@
         }
 
         .sub-header {
-            font-size: 13px;
-            font-weight: 700;
+            font-size: 13.5px;
+            font-weight: 800;
             color: var(--text-main);
-            margin: 14px 0 6px 0;
+            margin: 16px 0 8px 0;
         }
 
         .badge-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
             margin-top: 14px;
         }
 
         .neu-chip {
-            font-size: 10px;
-            font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 12px;
-            box-shadow: var(--neu-flat);
+            font-size: 10.5px;
+            font-weight: 800;
+            padding: 7px 14px;
+            border-radius: 14px;
+            box-shadow: var(--neu-sm);
             background: var(--surface);
             color: #334155;
         }
@@ -620,8 +849,8 @@
         /* Support Box */
         .neu-support {
             background: var(--surface);
-            border-radius: 26px;
-            padding: 26px;
+            border-radius: 28px;
+            padding: 26px 20px;
             box-shadow: var(--neu-pressed);
             text-align: center;
             display: flex;
@@ -634,8 +863,8 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 24px;
-            border-radius: 18px;
+            padding: 13px 24px;
+            border-radius: 20px;
             box-shadow: var(--neu-flat);
             text-decoration: none;
             color: var(--primary);
@@ -644,28 +873,164 @@
             transition: all 0.2s ease;
         }
 
-        .support-link:active {
-            box-shadow: var(--neu-btn-active);
-        }
-
         footer {
             text-align: center;
-            font-size: 11px;
-            font-weight: 600;
+            font-size: 11.5px;
+            font-weight: 700;
             color: var(--text-muted);
             margin-top: 10px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        @media (max-width: 580px) {
+        @media (max-width: 600px) {
+            body { padding: 12px 6px 56px 6px; }
+            .container { width: 97%; gap: 20px; }
+            .flywheel-loop { grid-template-columns: 1fr; }
             .hl-grid { grid-template-columns: 1fr; }
             .compare-grid { grid-template-columns: 1fr; }
             h1.hero-heading { font-size: 24px; }
-            .neu-section { padding: 24px 18px; }
+            .neu-hero { padding: 26px 14px 28px 14px; }
+            .neu-section { padding: 22px 15px; }
+            .upload-power-banner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
+
+    <!-- =========================================================
+         AUTONOMOUS ROAMING, RUNNING & SPEAKING HUMANOID WHITE BEAR
+         ========================================================= -->
+    <div id="roaming-bear-actor" class="state-pointing" onclick="triggerBearVoiceAndRunToDownload()" title="Tap me!">
+        
+        <!-- Dynamic Callout Bubble -->
+        <div class="bear-callout-bubble" id="bear-bubble-text">
+            <span>🔊 ए ए! इधर देखो इधर! 👇 Download APK!</span>
+        </div>
+
+        <!-- Full-Body Humanoid Cute Polar Bear SVG -->
+        <svg class="bear-svg-stage" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Soft 3D Polar White Fur -->
+                <radialGradient id="fur3D" cx="42%" cy="30%" r="70%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="68%" stop-color="#f5f9ff" />
+                    <stop offset="100%" stop-color="#d0dff2" />
+                </radialGradient>
+                <!-- Cute Hoodie / Scarf Gradient -->
+                <linearGradient id="scarfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ec4899" />
+                    <stop offset="100%" stop-color="#7c3aed" />
+                </linearGradient>
+                <!-- Rosy Blush -->
+                <radialGradient id="cheekBlush" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#ff6b93" stop-opacity="0.8" />
+                    <stop offset="100%" stop-color="#ff6b93" stop-opacity="0" />
+                </radialGradient>
+            </defs>
+
+            <!-- Ground Shadow under Feet -->
+            <ellipse cx="100" cy="204" rx="44" ry="8" fill="rgba(148, 163, 184, 0.45)" />
+
+            <!-- FULL HUMANOID ARTICULATED BODY -->
+            <g class="bear-humanoid-body">
+
+                <!-- LEFT LEG (Hip + Thigh + Calf + Cute Foot) -->
+                <g class="bear-leg-left-rig">
+                    <rect x="71" y="144" width="24" height="46" rx="12" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.5" />
+                    <!-- Cute Sneaker / Paw -->
+                    <ellipse cx="81" cy="192" rx="15" ry="9" fill="#ffffff" stroke="#c5d6ec" stroke-width="1.5" />
+                    <path d="M 69 193 Q 81 198 93 193" fill="none" stroke="#ec4899" stroke-width="3" stroke-linecap="round" />
+                </g>
+
+                <!-- RIGHT LEG (Hip + Thigh + Calf + Cute Foot) -->
+                <g class="bear-leg-right-rig">
+                    <rect x="105" y="144" width="24" height="46" rx="12" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.5" />
+                    <!-- Cute Sneaker / Paw -->
+                    <ellipse cx="119" cy="192" rx="15" ry="9" fill="#ffffff" stroke="#c5d6ec" stroke-width="1.5" />
+                    <path d="M 107 193 Q 119 198 131 193" fill="none" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
+                </g>
+
+                <!-- HUMANOID TORSO / BELLY -->
+                <ellipse cx="100" cy="124" rx="38" ry="34" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.6" />
+                <ellipse cx="100" cy="127" rx="25" ry="23" fill="#ffffff" />
+
+                <!-- Stylish Creator Collar / Scarf & "P" Badge -->
+                <path d="M 68 98 Q 100 112 132 98 Q 136 106 128 111 Q 100 122 72 111 Q 64 106 68 98 Z" fill="url(#scarfGrad)" />
+                <circle cx="100" cy="116" r="9.5" fill="#ffffff" stroke="#ec4899" stroke-width="2" />
+                <text x="100" y="120" font-size="10.5" font-weight="800" fill="#7c3aed" text-anchor="middle">P</text>
+
+                <!-- LEFT HUMANOID ARM (Waves at User & Calls Out) -->
+                <g class="bear-arm-left-rig">
+                    <!-- Upper & Forearm -->
+                    <path d="M 66 102 C 40 90, 22 104, 30 128 C 34 138, 48 136, 62 118 Z" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.5" />
+                    <!-- Pointing Hand & Finger -->
+                    <circle cx="32" cy="124" r="9" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.4" />
+                    <rect x="24" y="128" width="7.5" height="16" rx="3.8" transform="rotate(14 28 134)" fill="#ffffff" stroke="#c5d6ec" stroke-width="1.4" />
+                    <circle cx="32" cy="124" r="4" fill="#ffb3c6" />
+                </g>
+
+                <!-- RIGHT HUMANOID ARM (Points Straight Down at Download APK Button) -->
+                <g class="bear-arm-right-rig">
+                    <!-- Upper & Forearm -->
+                    <path d="M 134 102 C 160 90, 178 104, 170 128 C 166 138, 152 136, 138 118 Z" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.5" />
+                    <!-- Hand & Extended Index Finger Pointing Down -->
+                    <circle cx="168" cy="124" r="9" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.4" />
+                    <rect x="166" y="128" width="8" height="19" rx="4" transform="rotate(-10 170 136)" fill="#ffffff" stroke="#c5d6ec" stroke-width="1.4" />
+                    <circle cx="168" cy="124" r="4" fill="#ffb3c6" />
+                    <!-- Glowing Sparkle at Pointing Finger Tip -->
+                    <circle cx="168" cy="150" r="3.5" fill="#ec4899" />
+                </g>
+
+                <!-- BIG KAWAII EXPRESSIVE HEAD -->
+                <g class="bear-head-rig">
+                    <!-- Left Round Ear -->
+                    <circle cx="62" cy="34" r="15.5" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.6" />
+                    <circle cx="62" cy="34" r="9" fill="#ffc2d1" />
+
+                    <!-- Right Round Ear -->
+                    <circle cx="138" cy="34" r="15.5" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.6" />
+                    <circle cx="138" cy="34" r="9" fill="#ffc2d1" />
+
+                    <!-- Fluffy Head Shape -->
+                    <ellipse cx="100" cy="64" rx="45" ry="38" fill="url(#fur3D)" stroke="#c5d6ec" stroke-width="1.6" />
+
+                    <!-- Cute Pink Blushing Cheeks -->
+                    <ellipse cx="67" cy="72" rx="10" ry="6.5" fill="url(#cheekBlush)" />
+                    <ellipse cx="133" cy="72" rx="10" ry="6.5" fill="url(#cheekBlush)" />
+
+                    <!-- Big Sparkling Kawaii Eyes -->
+                    <g class="bear-eyes-rig">
+                        <!-- Left Eye -->
+                        <circle cx="80" cy="60" r="6.5" fill="#0f172a" />
+                        <circle cx="77.8" cy="57.5" r="2.5" fill="#ffffff" />
+                        <circle cx="82" cy="62" r="1.2" fill="#ffffff" />
+                        <!-- Cute Eyebrow -->
+                        <path d="M 73 49 Q 80 45 87 49" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" />
+
+                        <!-- Right Eye -->
+                        <circle cx="120" cy="60" r="6.5" fill="#0f172a" />
+                        <circle cx="117.8" cy="57.5" r="2.5" fill="#ffffff" />
+                        <circle cx="122" cy="62" r="1.2" fill="#ffffff" />
+                        <!-- Cute Eyebrow -->
+                        <path d="M 113 49 Q 120 45 127 49" fill="none" stroke="#475569" stroke-width="2" stroke-linecap="round" />
+                    </g>
+
+                    <!-- 3D Plush Snout -->
+                    <ellipse cx="100" cy="73" rx="14" ry="10.5" fill="#ffffff" stroke="#d5e2f2" stroke-width="1.2" />
+                    <!-- Velvet Nose -->
+                    <ellipse cx="100" cy="68.5" rx="5.5" ry="3.8" fill="#1e293b" />
+                    <ellipse cx="98.5" cy="67.5" rx="1.8" ry="1" fill="#ffffff" opacity="0.8" />
+
+                    <!-- Animated Calling Mouth ("Oye! Idhar Dekho!") -->
+                    <g class="bear-mouth-talking">
+                        <path d="M 92 75 Q 100 86 108 75 Z" fill="#ff5c8a" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
+                        <path d="M 95 80 Q 100 77 105 80" fill="none" stroke="#ffb3c6" stroke-width="2.2" stroke-linecap="round" />
+                    </g>
+                </g>
+
+            </g>
+        </svg>
+    </div>
 
     <div class="container">
         
@@ -697,24 +1062,56 @@
             </div>
 
             <h1 class="hero-heading">
-                Watch Short Videos.<br>
+                <span>Upload Short Videos.</span><br>
                 Empower Your Creativity.<br>
                 Earn Direct Rewards.
             </h1>
 
             <p class="hero-sub">
-                Potko is an innovative, high-performance short video platform where viewers and creators receive transparent, real-time rewards for their authentic engagement and creativity.
+                Potko is an innovative, high-performance short video platform where creators upload original reels to fuel the public feed, and both creators and viewers receive transparent, real-time rewards.
             </p>
 
-            <!-- UNIQUE NEXT-LEVEL HIGHLIGHT CARD (Above Download Button) -->
-            <div class="neu-highlight-card">
-                <div class="hl-top">
-                    <span class="hl-title">
-                        <span>⚡</span> Platform Highlights & Edge
+            <!-- NEXT-LEVEL HIGHLIGHT CARD: CREATOR UPLOAD & VIEWER REWARD ENGINE -->
+            <div class="neu-ecosystem-showcase" id="roam-waypoint-1">
+                <div class="eco-top-bar">
+                    <span class="eco-badge-title">
+                        <span>⚡</span> Platform Highlights & Creator Engine
                     </span>
-                    <span class="hl-metric">99.8% Uptime SLA</span>
+                    <span class="eco-live-pill">Upload = 3X Higher Rewards</span>
                 </div>
 
+                <!-- 3-Step Visual Flywheel -->
+                <div class="flywheel-loop">
+                    <div class="loop-step-card active-engine">
+                        <span class="loop-num">STEP 1 • CORE ENGINE</span>
+                        <span class="loop-icon">📹</span>
+                        <h4>Upload Your Videos</h4>
+                        <p>Post your original short reels! Creators supply the content that powers the entire Potko ecosystem.</p>
+                    </div>
+                    <div class="loop-step-card">
+                        <span class="loop-num">STEP 2 • PUBLIC FEED</span>
+                        <span class="loop-icon">🌍</span>
+                        <h4>100% Organic Reach</h4>
+                        <p>Every uploaded video goes straight to the public feed for all users to watch without shadow-bans.</p>
+                    </div>
+                    <div class="loop-step-card">
+                        <span class="loop-num">STEP 3 • DUAL REWARDS</span>
+                        <span class="loop-icon">💸</span>
+                        <h4>Uploaders & Viewers Earn</h4>
+                        <p>When people watch your reels, YOU earn Creator Royalties & viewers earn daily Watch Coins!</p>
+                    </div>
+                </div>
+
+                <!-- Upload Priority Callout -->
+                <div class="upload-power-banner">
+                    <div class="up-icon">🚀</div>
+                    <div class="up-text">
+                        <h5>Why Uploading Videos Unlocks the Biggest Payouts?</h5>
+                        <p>Viewers can only watch when creators upload! That is why Potko dedicates <strong>70% of the daily reward pool</strong> directly to active creators who upload videos to their profile.</p>
+                    </div>
+                </div>
+
+                <!-- 4 Architectural Pillars -->
                 <div class="hl-grid">
                     <div class="hl-box">
                         <div class="hl-icon-wrap">💎</div>
@@ -747,124 +1144,12 @@
                 </div>
             </div>
 
-            <!-- CUTE ANIMATED WHITE BEAR SITTING ON DOWNLOAD BUTTON -->
-            <div class="bear-download-stage">
-                
-                <!-- Floating Callout Bubble -->
-                <div class="bear-speech-bubble">
-                    <span>🐾 Hey! Tap Below to Download APK</span>
-                    <span>👇</span>
-                </div>
-
-                <!-- Animated Kawaii White Bear SVG -->
-                <div class="bear-mascot-wrap">
-                    <svg viewBox="0 0 150 120" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <!-- Soft 3D White Fur Gradient -->
-                            <radialGradient id="furGrad" cx="45%" cy="35%" r="65%">
-                                <stop offset="0%" stop-color="#ffffff" />
-                                <stop offset="75%" stop-color="#f5f8fc" />
-                                <stop offset="100%" stop-color="#dce5f2" />
-                            </radialGradient>
-                            <!-- Belly Patch Gradient -->
-                            <linearGradient id="bellyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" stop-color="#ffffff" />
-                                <stop offset="100%" stop-color="#edf2f9" />
-                            </linearGradient>
-                            <!-- Cute Pink Blush -->
-                            <radialGradient id="blushGrad" cx="50%" cy="50%" r="50%">
-                                <stop offset="0%" stop-color="#ff8da1" stop-opacity="0.7" />
-                                <stop offset="100%" stop-color="#ff8da1" stop-opacity="0" />
-                            </radialGradient>
-                        </defs>
-
-                        <!-- Sitting Chubby Body -->
-                        <ellipse cx="75" cy="84" rx="28" ry="25" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
-                        <ellipse cx="75" cy="86" rx="18" ry="16" fill="url(#bellyGrad)" />
-
-                        <!-- Left Waving / Beckoning Arm (Waves at user) -->
-                        <g class="bear-arm-left">
-                            <path d="M 52 68 C 32 58, 22 44, 28 34 C 33 26, 44 34, 48 48 Z" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
-                            <!-- Cute Pink Paw Pad -->
-                            <circle cx="31" cy="37" r="3.5" fill="#ffb6c1" />
-                            <circle cx="27" cy="32" r="1.5" fill="#ffb6c1" />
-                            <circle cx="31" cy="30" r="1.5" fill="#ffb6c1" />
-                            <circle cx="35" cy="32" r="1.5" fill="#ffb6c1" />
-                        </g>
-
-                        <!-- Right Pointing Arm (Points Finger Down to Download Button) -->
-                        <g class="bear-arm-right">
-                            <!-- Arm Base -->
-                            <path d="M 98 66 C 114 70, 120 84, 114 96 C 110 103, 100 98, 98 82 Z" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
-                            <!-- Pointing Finger Extended Downwards -->
-                            <rect x="109" y="92" width="6.5" height="14" rx="3.2" fill="#ffffff" stroke="#d0dceb" stroke-width="1.2" />
-                            <!-- Mini Golden Sparkle at Finger Tip -->
-                            <circle cx="112.2" cy="109" r="2.2" fill="#ec4899" />
-                        </g>
-
-                        <!-- Bear Head Group (Bobs gently) -->
-                        <g class="bear-head-group">
-                            <!-- Left Ear -->
-                            <circle cx="49" cy="24" r="11" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
-                            <circle cx="49" cy="24" r="6" fill="#ffc2d1" />
-
-                            <!-- Right Ear -->
-                            <circle cx="101" cy="24" r="11" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
-                            <circle cx="101" cy="24" r="6" fill="#ffc2d1" />
-
-                            <!-- Main Fluffy Round Head -->
-                            <ellipse cx="75" cy="44" rx="31" ry="26" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
-
-                            <!-- Rosy Blushing Cheeks -->
-                            <ellipse cx="53" cy="50" rx="7" ry="4.5" fill="url(#blushGrad)" />
-                            <ellipse cx="97" cy="50" rx="7" ry="4.5" fill="url(#blushGrad)" />
-
-                            <!-- Kawaii Glossy Eyes (Blinking) -->
-                            <g class="bear-eyes">
-                                <!-- Left Eye -->
-                                <circle cx="61" cy="43" r="4.2" fill="#1e293b" />
-                                <circle cx="59.6" cy="41.5" r="1.5" fill="#ffffff" />
-                                <circle cx="62.2" cy="44.2" r="0.7" fill="#ffffff" />
-
-                                <!-- Right Eye -->
-                                <circle cx="89" cy="43" r="4.2" fill="#1e293b" />
-                                <circle cx="87.6" cy="41.5" r="1.5" fill="#ffffff" />
-                                <circle cx="90.2" cy="44.2" r="0.7" fill="#ffffff" />
-                            </g>
-
-                            <!-- Cute Snout / Muzzle -->
-                            <ellipse cx="75" cy="50" rx="9" ry="7" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
-                            <!-- Nose -->
-                            <ellipse cx="75" cy="47.5" rx="3.8" ry="2.6" fill="#334155" />
-                            <!-- Happy Smile -->
-                            <path d="M 75 50.2 L 75 52.5 M 70.5 52.5 Q 75 56 79.5 52.5" fill="none" stroke="#334155" stroke-width="1.6" stroke-linecap="round" />
-                        </g>
-
-                        <!-- Sitting Paws Resting on Top of the Download Button -->
-                        <g class="bear-foot-left">
-                            <ellipse cx="55" cy="103" rx="11" ry="8.5" fill="url(#furGrad)" stroke="#cfdceb" stroke-width="1.2" />
-                            <ellipse cx="55" cy="104" rx="4.5" ry="3.2" fill="#ffb6c1" />
-                            <circle cx="50" cy="99" r="1.6" fill="#ffb6c1" />
-                            <circle cx="55" cy="98" r="1.6" fill="#ffb6c1" />
-                            <circle cx="60" cy="99" r="1.6" fill="#ffb6c1" />
-                        </g>
-
-                        <g class="bear-foot-right">
-                            <ellipse cx="95" cy="103" rx="11" ry="8.5" fill="url(#furGrad)" stroke="#cfdceb" stroke-width="1.2" />
-                            <ellipse cx="95" cy="104" rx="4.5" ry="3.2" fill="#ffb6c1" />
-                            <circle cx="90" cy="99" r="1.6" fill="#ffb6c1" />
-                            <circle cx="95" cy="98" r="1.6" fill="#ffb6c1" />
-                            <circle cx="100" cy="99" r="1.6" fill="#ffb6c1" />
-                        </g>
-                    </svg>
-                </div>
-
-                <!-- PRIMARY DOWNLOAD BUTTON -->
-                <a href="downloads/app-debug.apk" download class="btn-download">
+            <!-- PRIMARY DOWNLOAD BUTTON ZONE (Where Bear Runs Back & Points Down) -->
+            <div class="download-zone-wrapper" id="download-home-pad">
+                <a href="downloads/app-debug.apk" download class="btn-download bear-pointing-glow" id="main-download-btn">
                     <span>Download Official Potko APK</span>
                     <div class="btn-circle">↓</div>
                 </a>
-
                 <div class="audit-tag">
                     <span>✓</span> Verified SHA-256 Signature • 100% Safe & Clean
                 </div>
@@ -873,7 +1158,7 @@
         </main>
 
         <!-- SECTION 1: WHY IS IT BETTER THAN OTHER PLATFORMS? -->
-        <section class="neu-section">
+        <section class="neu-section" id="roam-waypoint-2">
             <div class="sec-header">
                 <div class="sec-icon-box">⚖️</div>
                 <div class="sec-headings">
@@ -906,7 +1191,7 @@
                         <span>✓</span> Potko Ecosystem
                     </div>
                     <ul class="compare-list">
-                        <li><strong>Day-1 Earning Potential:</strong> Earn activity points directly through regular video views and authentic interactions.</li>
+                        <li><strong>Day-1 Earning Potential:</strong> Upload original reels and earn activity points through genuine community views.</li>
                         <li><strong>Equal Organic Reach:</strong> Every posted video enters the public community feed without shadow-suppression.</li>
                         <li><strong>User-Centric Privacy:</strong> No contacts or background location harvesting; hardware-backed token security.</li>
                         <li><strong>Direct Payouts:</strong> Transparent, direct-to-bank/UPI redemption with fast 24–72 hour settlement.</li>
@@ -933,7 +1218,7 @@
                 <div class="step-badge">1</div>
                 <div class="step-content">
                     <h4>Download the Official Package</h4>
-                    <p>Tap the 'Download Official Potko APK' button above. Your browser will download the genuine, tamper-proof installation file.</p>
+                    <p>Tap the 'Download Official Potko APK' button where our friendly white bear is pointing. Your browser will save the verified installation file.</p>
                 </div>
             </div>
 
@@ -948,8 +1233,8 @@
             <div class="step-row">
                 <div class="step-badge">3</div>
                 <div class="step-content">
-                    <h4>Launch & 1-Tap Google Sign-In</h4>
-                    <p>Click 'Install' and launch Potko. Sign in with your Google account using 1-Tap authentication to access your personalized feed and rewards wallet.</p>
+                    <h4>Launch, Sign-In & Upload</h4>
+                    <p>Click 'Install' and sign in with your Google account using 1-Tap authentication. Upload your first short video to start earning creator rewards!</p>
                 </div>
             </div>
         </section>
@@ -965,30 +1250,30 @@
             </div>
 
             <p class="text-desc">
-                Potko provides dual earning channels designed for both passive video consumers and active content creators:
+                Potko provides dual earning channels designed to reward active creators who supply great videos as well as engaged community viewers:
             </p>
 
-            <div class="step-row">
-                <div class="step-badge">A</div>
+            <div class="step-row featured-step">
+                <div class="step-badge" style="color: var(--secondary);">A</div>
                 <div class="step-content">
-                    <h4>Viewer Engagement Rewards</h4>
-                    <p>Earn reward coins automatically simply by watching trending reels, discovering fresh talent, liking content, and maintaining daily activity streaks.</p>
+                    <h4>Creator Video Upload Earnings (70% Primary Reward Pool)</h4>
+                    <p>Publish original vertical short videos to your profile. As your content appears on the public feed and gathers real community watch-time and likes, your creator wallet accumulates high-tier royalties.</p>
                 </div>
             </div>
 
             <div class="step-row">
                 <div class="step-badge">B</div>
                 <div class="step-content">
-                    <h4>Creator Video Upload Earnings</h4>
-                    <p>Publish original vertical short videos. As your content gathers real community watch-time and public reactions, your creator wallet accumulates direct reward balances.</p>
+                    <h4>Viewer Engagement Rewards</h4>
+                    <p>Earn reward coins automatically simply by watching trending reels uploaded by creators, discovering fresh talent, liking content, and maintaining daily streaks.</p>
                 </div>
             </div>
 
             <div class="step-row">
                 <div class="step-badge">C</div>
                 <div class="step-content">
-                    <h4>Milestone & Streak Bonuses</h4>
-                    <p>Participate in weekly community engagement challenges and tiered reward opportunities to amplify your overall account earnings.</p>
+                    <h4>Milestone & Consistency Bonuses</h4>
+                    <p>Participate in daily upload streaks and weekly community engagement challenges to unlock 2X–3X wallet reward multipliers.</p>
                 </div>
             </div>
         </section>
@@ -1037,7 +1322,7 @@
                 <div class="step-badge">✓</div>
                 <div class="step-content">
                     <h4>Strict Account-Data Isolation</h4>
-                    <p>Your uploaded videos, user metrics, and wallet balances are immutably tied to your authenticated Firebase UID. No unauthorized third party can read or mutate your private data.</p>
+                    <p>Your uploaded videos, thumbnails, user metrics, and wallet balances are immutably tied to your authenticated Firebase UID. No unauthorized third party can read or mutate your private data.</p>
                 </div>
             </div>
 
@@ -1122,17 +1407,17 @@
 
         <!-- SECTION 8: OFFICIAL SUPPORT & CONTACT -->
         <section class="neu-support">
-            <div style="font-size: 32px;">✉️</div>
+            <div style="font-size: 34px;">✉️</div>
             <h3 style="font-size: 18px; font-weight: 800; color: var(--text-main);">
                 Need Help or Have Inquiries?
             </h3>
-            <p style="font-size: 12px; color: var(--text-muted); max-width: 440px;">
+            <p style="font-size: 12px; color: var(--text-muted); max-width: 460px;">
                 For technical assistance, bug reports, payout verification, or account deletion requests, our dedicated support team is available 24/7:
             </p>
             <a href="mailto:potkosupport@gmail.com" class="support-link">
                 <span>potkosupport@gmail.com</span>
             </a>
-            <span style="font-size: 11px; color: #10b981; font-weight: 700;">
+            <span style="font-size: 11px; color: #10b981; font-weight: 800;">
                 ● Guaranteed Support Response: Within 24 Hours
             </span>
         </section>
@@ -1144,6 +1429,138 @@
         </footer>
 
     </div>
+
+    <!-- =========================================================
+         HUMANOID BEAR ROAMING, RUNNING & VOICE ENGINE (JAVASCRIPT)
+         ========================================================= -->
+    <script>
+        const bearActor = document.getElementById('roaming-bear-actor');
+        const bearBubble = document.getElementById('bear-bubble-text');
+        const downloadPad = document.getElementById('download-home-pad');
+        const downloadBtn = document.getElementById('main-download-btn');
+
+        let voiceUnlocked = false;
+        let roamStep = 0;
+
+        const calloutPhrases = [
+            "🔊 ए ए! इधर देखो इधर! 👇 Download APK!",
+            "🐻‍❄️ Oye! Look Here! Tap Below to Download!",
+            "🚀 ए इधर देखो! Upload Reels & Earn Money!",
+            "👇 Tap Download Official Potko APK Now!"
+        ];
+
+        // Speak using Web Speech API ("ए ए इधर देखो इधर!")
+        function speakBearMessage(textToSpeak) {
+            if (!('speechSynthesis' in window)) return;
+            try {
+                window.speechSynthesis.cancel();
+                const msg = new SpeechSynthesisUtterance(textToSpeak);
+                msg.lang = 'hi-IN';
+                msg.pitch = 1.6; // Cute high-pitched mascot tone
+                msg.rate = 1.08;
+                msg.volume = 1.0;
+                window.speechSynthesis.speak(msg);
+            } catch (e) {}
+        }
+
+        // Calculate exact coordinates above the Download Button
+        function getDownloadHomePosition() {
+            const rect = downloadBtn.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            const x = rect.left + scrollLeft + (rect.width / 2) - 97;
+            const y = rect.top + scrollTop - 196;
+            return { x: Math.max(10, x), y: Math.max(50, y) };
+        }
+
+        // Move Bear to any (x, y) on the website with human running animation
+        function moveBearTo(targetX, targetY, isReturningToDownload = false, bubbleMsg = null) {
+            bearActor.classList.remove('state-pointing');
+            bearActor.classList.add('state-running');
+            downloadBtn.classList.remove('bear-pointing-glow');
+
+            if (bubbleMsg) {
+                bearBubble.innerHTML = `<span>${bubbleMsg}</span>`;
+            }
+
+            bearActor.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
+
+            // Once the bear finishes running to the spot, switch to pointing/jumping pose
+            setTimeout(() => {
+                bearActor.classList.remove('state-running');
+                bearActor.classList.add('state-pointing');
+                if (isReturningToDownload) {
+                    downloadBtn.classList.add('bear-pointing-glow');
+                }
+            }, 1200);
+        }
+
+        // Autonomous Roaming Loop: Roams around the page & sprints back to point at Download Button
+        function runBearAutonomousCycle() {
+            const homePos = getDownloadHomePosition();
+            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+
+            if (roamStep % 2 === 0) {
+                // Sprint directly to the Download APK Button and point down!
+                const phrase = calloutPhrases[(roamStep / 2) % calloutPhrases.length];
+                moveBearTo(homePos.x, homePos.y, true, phrase);
+            } else {
+                // Roam freely to Left, Right, or Center-Top of the website to grab user attention
+                const sideOffsets = [
+                    Math.max(12, homePos.x - Math.min(130, vw * 0.24)),
+                    Math.min(vw - 205, homePos.x + Math.min(130, vw * 0.24)),
+                    homePos.x
+                ];
+                const chosenX = sideOffsets[roamStep % sideOffsets.length];
+                const chosenY = Math.max(85, homePos.y - (roamStep % 3 === 0 ? 220 : 110));
+
+                moveBearTo(chosenX, chosenY, false, "🏃‍♂️ ए ए! इधर देखो! Follow Me to Download! 👇");
+            }
+            roamStep++;
+        }
+
+        // When user clicks/taps the bear or unlocks audio
+        function triggerBearVoiceAndRunToDownload() {
+            const homePos = getDownloadHomePosition();
+            moveBearTo(homePos.x, homePos.y, true, "🔊 ए ए! इधर देखो इधर! 👇 Tap Download APK!");
+            speakBearMessage("ए ए! इधर देखो इधर! नीचे बटन दबाकर पॉटको ऐप डाउनलोड करो!");
+            downloadBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Unlock voice automatically on first touch/scroll/click anywhere on the page
+        function unlockAudioOnce() {
+            if (!voiceUnlocked) {
+                voiceUnlocked = true;
+                speakBearMessage("ए ए! इधर देखो इधर! पॉटको ऐप यहाँ से डाउनलोड करो!");
+            }
+        }
+
+        window.addEventListener('touchstart', unlockAudioOnce, { once: true });
+        window.addEventListener('click', unlockAudioOnce, { once: true });
+
+        // Initialize Bear in the middle of the screen on load, then run to Download button
+        window.addEventListener('load', () => {
+            const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+            const startX = (vw / 2) - 97;
+            const startY = 140;
+
+            // Start right in the middle of the screen waving at the user
+            bearActor.style.transition = 'none';
+            bearActor.style.transform = `translate3d(${startX}px, ${startY}px, 0)`;
+
+            setTimeout(() => {
+                bearActor.style.transition = 'transform 1.25s cubic-bezier(0.34, 1.25, 0.64, 1)';
+                speakBearMessage("ए ए! इधर देखो इधर!");
+                runBearAutonomousCycle(); // Runs straight to Download Button!
+                setInterval(runBearAutonomousCycle, 4200); // Keeps roaming & running back to Download Button
+            }, 700);
+        });
+
+        window.addEventListener('resize', () => {
+            const homePos = getDownloadHomePosition();
+            moveBearTo(homePos.x, homePos.y, true);
+        });
+    </script>
 
 </body>
 </html>
