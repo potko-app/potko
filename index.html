@@ -13,7 +13,7 @@
             --surface: #e6edf8;
             --neu-flat: 14px 14px 28px #c2cddc, -14px -14px 28px #ffffff;
             --neu-pressed: inset 6px 6px 12px #c2cddc, inset -6px -6px 12px #ffffff;
-            --neu-btn: 8px 8px 16px #c4cfde, -8px -8px 16px #ffffff;
+            --neu-btn: 10px 10px 20px #bfcbe0, -10px -10px 20px #ffffff;
             --neu-btn-active: inset 4px 4px 8px #c4cfde, inset -4px -4px 8px #ffffff;
             --primary: #7c3aed;
             --secondary: #ec4899;
@@ -100,7 +100,7 @@
         .neu-hero {
             background: var(--surface);
             border-radius: 36px;
-            padding: 36px 24px;
+            padding: 36px 24px 32px 24px;
             box-shadow: var(--neu-flat);
             text-align: center;
             display: flex;
@@ -199,14 +199,14 @@
             margin-bottom: 28px;
         }
 
-        /* NEXT-LEVEL HIGHLIGHT CARD (Above Download Button) */
+        /* NEXT-LEVEL HIGHLIGHT CARD (Above Bear & Download Button) */
         .neu-highlight-card {
             width: 100%;
             background: var(--surface);
             border-radius: 28px;
             padding: 24px;
             box-shadow: var(--neu-pressed);
-            margin-bottom: 30px;
+            margin-bottom: 18px;
             text-align: left;
         }
 
@@ -277,20 +277,121 @@
             line-height: 1.45;
         }
 
-        /* Primary Action (Download Button) */
-        .btn-download-wrap {
+        /* =========================================================
+           CUTE ANIMATED WHITE BEAR SITTING ON DOWNLOAD BUTTON
+           ========================================================= */
+        .bear-download-stage {
             width: 100%;
             max-width: 440px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
+            position: relative;
+            margin-top: 10px;
         }
 
+        /* Speech Bubble Next to Bear */
+        .bear-speech-bubble {
+            background: #ffffff;
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 7px 14px;
+            border-radius: 16px;
+            box-shadow: 6px 6px 14px #c2cddc, -4px -4px 10px #ffffff;
+            margin-bottom: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            animation: floatBubble 2.2s ease-in-out infinite;
+            border: 1.5px solid rgba(124, 58, 237, 0.18);
+            z-index: 4;
+        }
+
+        @keyframes floatBubble {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-4px) scale(1.03); }
+        }
+
+        .bear-mascot-wrap {
+            width: 150px;
+            height: 118px;
+            position: relative;
+            margin-bottom: -18px; /* Makes the bear sit snugly right on the button edge */
+            z-index: 3;
+            pointer-events: none;
+            filter: drop-shadow(0px 6px 8px rgba(160, 175, 195, 0.45));
+        }
+
+        /* SVG Bear Keyframe Animations */
+        .bear-head-group {
+            transform-origin: 75px 52px;
+            animation: cuteHeadBob 2.6s ease-in-out infinite;
+        }
+
+        @keyframes cuteHeadBob {
+            0%, 100% { transform: rotate(-3deg) translateY(0px); }
+            50% { transform: rotate(4deg) translateY(2px); }
+        }
+
+        /* Left Arm: Beckoning / Waving to User */
+        .bear-arm-left {
+            transform-origin: 48px 68px;
+            animation: waveComeHere 1.2s ease-in-out infinite alternate;
+        }
+
+        @keyframes waveComeHere {
+            0% { transform: rotate(28deg) translateY(0px); }
+            50% { transform: rotate(-22deg) translateY(-3px); }
+            100% { transform: rotate(20deg) translateY(1px); }
+        }
+
+        /* Right Arm: Pointing Down at the Download Button */
+        .bear-arm-right {
+            transform-origin: 102px 68px;
+            animation: pointDownAction 0.9s ease-in-out infinite;
+        }
+
+        @keyframes pointDownAction {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(7px) rotate(8deg); }
+        }
+
+        /* Cute Blinking Eyes */
+        .bear-eyes {
+            transform-origin: 75px 46px;
+            animation: blinkEyes 4s infinite;
+        }
+
+        @keyframes blinkEyes {
+            0%, 92%, 98%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.08); }
+        }
+
+        /* Little Feet Wiggle */
+        .bear-foot-left {
+            transform-origin: 55px 102px;
+            animation: wiggleFootL 1.8s ease-in-out infinite;
+        }
+        .bear-foot-right {
+            transform-origin: 95px 102px;
+            animation: wiggleFootR 1.8s ease-in-out infinite;
+        }
+
+        @keyframes wiggleFootL {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-6deg); }
+        }
+        @keyframes wiggleFootR {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(6deg); }
+        }
+
+        /* Primary Action (Download Button) */
         .btn-download {
             width: 100%;
-            padding: 18px 24px;
-            border-radius: 22px;
+            padding: 20px 24px;
+            border-radius: 24px;
             background: var(--surface);
             box-shadow: var(--neu-btn);
             display: flex;
@@ -302,6 +403,14 @@
             font-size: 16px;
             font-weight: 800;
             transition: all 0.2s ease;
+            position: relative;
+            z-index: 2;
+            border: 1.5px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 12px 12px 24px #b8c6db, -12px -12px 24px #ffffff;
         }
 
         .btn-download:active {
@@ -310,19 +419,26 @@
         }
 
         .btn-download .btn-circle {
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 15px;
-            box-shadow: 2px 2px 6px #cbd5e1;
+            font-size: 16px;
+            box-shadow: 2px 4px 8px rgba(124, 58, 237, 0.35);
+            animation: arrowBounce 1.4s infinite;
+        }
+
+        @keyframes arrowBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(3px); }
         }
 
         .audit-tag {
+            margin-top: 12px;
             font-size: 11px;
             font-weight: 600;
             color: #10b981;
@@ -356,6 +472,7 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
+            flex-shrink: 0;
         }
 
         .sec-headings h2 {
@@ -372,17 +489,17 @@
             letter-spacing: 0.5px;
         }
 
-        /* Comparison Grid */
+        /* Comparison Grid (Fixed text wrapping) */
         .compare-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
+            gap: 16px;
             margin-top: 14px;
         }
 
         .compare-card {
-            border-radius: 20px;
-            padding: 18px 16px;
+            border-radius: 22px;
+            padding: 20px 18px;
             background: var(--surface);
         }
 
@@ -400,7 +517,7 @@
         .compare-head {
             font-size: 13px;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -410,15 +527,19 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .compare-list li {
-            font-size: 11px;
-            line-height: 1.45;
-            display: flex;
-            align-items: flex-start;
-            gap: 6px;
+            font-size: 11.5px;
+            line-height: 1.5;
+            color: #475569;
+            display: block;
+        }
+
+        .compare-list li strong {
+            color: var(--text-main);
+            font-weight: 700;
         }
 
         /* Step Rows */
@@ -466,7 +587,7 @@
 
         /* Descriptive Text */
         .text-desc {
-            font-size: 12px;
+            font-size: 12.5px;
             color: #475569;
             line-height: 1.7;
             margin-bottom: 14px;
@@ -626,12 +747,124 @@
                 </div>
             </div>
 
-            <!-- PRIMARY DOWNLOAD ACTION -->
-            <div class="btn-download-wrap">
+            <!-- CUTE ANIMATED WHITE BEAR SITTING ON DOWNLOAD BUTTON -->
+            <div class="bear-download-stage">
+                
+                <!-- Floating Callout Bubble -->
+                <div class="bear-speech-bubble">
+                    <span>🐾 Hey! Tap Below to Download APK</span>
+                    <span>👇</span>
+                </div>
+
+                <!-- Animated Kawaii White Bear SVG -->
+                <div class="bear-mascot-wrap">
+                    <svg viewBox="0 0 150 120" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <!-- Soft 3D White Fur Gradient -->
+                            <radialGradient id="furGrad" cx="45%" cy="35%" r="65%">
+                                <stop offset="0%" stop-color="#ffffff" />
+                                <stop offset="75%" stop-color="#f5f8fc" />
+                                <stop offset="100%" stop-color="#dce5f2" />
+                            </radialGradient>
+                            <!-- Belly Patch Gradient -->
+                            <linearGradient id="bellyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#ffffff" />
+                                <stop offset="100%" stop-color="#edf2f9" />
+                            </linearGradient>
+                            <!-- Cute Pink Blush -->
+                            <radialGradient id="blushGrad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#ff8da1" stop-opacity="0.7" />
+                                <stop offset="100%" stop-color="#ff8da1" stop-opacity="0" />
+                            </radialGradient>
+                        </defs>
+
+                        <!-- Sitting Chubby Body -->
+                        <ellipse cx="75" cy="84" rx="28" ry="25" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
+                        <ellipse cx="75" cy="86" rx="18" ry="16" fill="url(#bellyGrad)" />
+
+                        <!-- Left Waving / Beckoning Arm (Waves at user) -->
+                        <g class="bear-arm-left">
+                            <path d="M 52 68 C 32 58, 22 44, 28 34 C 33 26, 44 34, 48 48 Z" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
+                            <!-- Cute Pink Paw Pad -->
+                            <circle cx="31" cy="37" r="3.5" fill="#ffb6c1" />
+                            <circle cx="27" cy="32" r="1.5" fill="#ffb6c1" />
+                            <circle cx="31" cy="30" r="1.5" fill="#ffb6c1" />
+                            <circle cx="35" cy="32" r="1.5" fill="#ffb6c1" />
+                        </g>
+
+                        <!-- Right Pointing Arm (Points Finger Down to Download Button) -->
+                        <g class="bear-arm-right">
+                            <!-- Arm Base -->
+                            <path d="M 98 66 C 114 70, 120 84, 114 96 C 110 103, 100 98, 98 82 Z" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
+                            <!-- Pointing Finger Extended Downwards -->
+                            <rect x="109" y="92" width="6.5" height="14" rx="3.2" fill="#ffffff" stroke="#d0dceb" stroke-width="1.2" />
+                            <!-- Mini Golden Sparkle at Finger Tip -->
+                            <circle cx="112.2" cy="109" r="2.2" fill="#ec4899" />
+                        </g>
+
+                        <!-- Bear Head Group (Bobs gently) -->
+                        <g class="bear-head-group">
+                            <!-- Left Ear -->
+                            <circle cx="49" cy="24" r="11" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
+                            <circle cx="49" cy="24" r="6" fill="#ffc2d1" />
+
+                            <!-- Right Ear -->
+                            <circle cx="101" cy="24" r="11" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
+                            <circle cx="101" cy="24" r="6" fill="#ffc2d1" />
+
+                            <!-- Main Fluffy Round Head -->
+                            <ellipse cx="75" cy="44" rx="31" ry="26" fill="url(#furGrad)" stroke="#d5e0f0" stroke-width="1.2" />
+
+                            <!-- Rosy Blushing Cheeks -->
+                            <ellipse cx="53" cy="50" rx="7" ry="4.5" fill="url(#blushGrad)" />
+                            <ellipse cx="97" cy="50" rx="7" ry="4.5" fill="url(#blushGrad)" />
+
+                            <!-- Kawaii Glossy Eyes (Blinking) -->
+                            <g class="bear-eyes">
+                                <!-- Left Eye -->
+                                <circle cx="61" cy="43" r="4.2" fill="#1e293b" />
+                                <circle cx="59.6" cy="41.5" r="1.5" fill="#ffffff" />
+                                <circle cx="62.2" cy="44.2" r="0.7" fill="#ffffff" />
+
+                                <!-- Right Eye -->
+                                <circle cx="89" cy="43" r="4.2" fill="#1e293b" />
+                                <circle cx="87.6" cy="41.5" r="1.5" fill="#ffffff" />
+                                <circle cx="90.2" cy="44.2" r="0.7" fill="#ffffff" />
+                            </g>
+
+                            <!-- Cute Snout / Muzzle -->
+                            <ellipse cx="75" cy="50" rx="9" ry="7" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+                            <!-- Nose -->
+                            <ellipse cx="75" cy="47.5" rx="3.8" ry="2.6" fill="#334155" />
+                            <!-- Happy Smile -->
+                            <path d="M 75 50.2 L 75 52.5 M 70.5 52.5 Q 75 56 79.5 52.5" fill="none" stroke="#334155" stroke-width="1.6" stroke-linecap="round" />
+                        </g>
+
+                        <!-- Sitting Paws Resting on Top of the Download Button -->
+                        <g class="bear-foot-left">
+                            <ellipse cx="55" cy="103" rx="11" ry="8.5" fill="url(#furGrad)" stroke="#cfdceb" stroke-width="1.2" />
+                            <ellipse cx="55" cy="104" rx="4.5" ry="3.2" fill="#ffb6c1" />
+                            <circle cx="50" cy="99" r="1.6" fill="#ffb6c1" />
+                            <circle cx="55" cy="98" r="1.6" fill="#ffb6c1" />
+                            <circle cx="60" cy="99" r="1.6" fill="#ffb6c1" />
+                        </g>
+
+                        <g class="bear-foot-right">
+                            <ellipse cx="95" cy="103" rx="11" ry="8.5" fill="url(#furGrad)" stroke="#cfdceb" stroke-width="1.2" />
+                            <ellipse cx="95" cy="104" rx="4.5" ry="3.2" fill="#ffb6c1" />
+                            <circle cx="90" cy="99" r="1.6" fill="#ffb6c1" />
+                            <circle cx="95" cy="98" r="1.6" fill="#ffb6c1" />
+                            <circle cx="100" cy="99" r="1.6" fill="#ffb6c1" />
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- PRIMARY DOWNLOAD BUTTON -->
                 <a href="downloads/app-debug.apk" download class="btn-download">
                     <span>Download Official Potko APK</span>
                     <div class="btn-circle">↓</div>
                 </a>
+
                 <div class="audit-tag">
                     <span>✓</span> Verified SHA-256 Signature • 100% Safe & Clean
                 </div>
