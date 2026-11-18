@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POTKO — Fast, Lightweight Video Streaming &amp; Media Player for Android</title>
-    <meta name="description" content="Stream trending short and long-form public videos on Android with POTKO. Built with a clean Flat Material Design interface, custom low-latency player, and strict privacy standards.">
+    <title>POTKO — Social Video Streaming, Creator Uploads &amp; Growth Platform</title>
+    <meta name="description" content="Watch short reels and long-form videos, upload original content, grow your audience organically, and unlock creator monetization on POTKO for Android.">
     <meta name="robots" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Flat Material Design 3 Color System */
+            /* Flat Material Design 3 Tokens */
             --md-bg: #F8FAFC;
             --md-surface: #FFFFFF;
             --md-surface-variant: #F1F5F9;
@@ -19,7 +19,6 @@
             --md-primary-hover: #4338CA;
             --md-primary-container: #EEF2FF;
             --md-on-primary-container: #312E81;
-            --md-secondary: #0F172A;
             --md-text-primary: #0F172A;
             --md-text-secondary: #475569;
             --md-text-muted: #64748B;
@@ -72,7 +71,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            background-color: rgba(248, 250, 252, 0.92);
+            background-color: rgba(248, 250, 252, 0.94);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--md-outline);
         }
@@ -104,7 +103,6 @@
             justify-content: center;
             font-weight: 800;
             font-size: 20px;
-            letter-spacing: -0.5px;
         }
 
         .brand-name {
@@ -116,7 +114,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 22px;
         }
 
         .nav-links a {
@@ -149,17 +147,17 @@
         }
 
         /* ==========================================
-           HERO SECTION (FLAT MATERIAL SURFACE)
+           HERO SECTION
            ========================================== */
         .hero-section {
-            padding: 56px 0 44px 0;
+            padding: 48px 0 36px 0;
         }
 
         .hero-card {
             background-color: var(--md-surface);
             border: 1px solid var(--md-outline);
             border-radius: var(--radius-xl);
-            padding: 48px 36px;
+            padding: 44px 36px;
             display: grid;
             grid-template-columns: 1.25fr 0.75fr;
             gap: 36px;
@@ -170,7 +168,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .md-chip {
@@ -207,7 +205,7 @@
         .hero-desc {
             font-size: 15.5px;
             color: var(--md-text-secondary);
-            margin-bottom: 28px;
+            margin-bottom: 26px;
             max-width: 540px;
         }
 
@@ -275,7 +273,7 @@
             gap: 6px;
         }
 
-        /* Flat App Spec Card on Right of Hero */
+        /* App Metadata Panel */
         .app-spec-panel {
             background-color: var(--md-surface-variant);
             border: 1px solid var(--md-outline);
@@ -352,7 +350,7 @@
            SECTIONS & HEADINGS
            ========================================== */
         .section {
-            padding: 40px 0;
+            padding: 36px 0;
         }
 
         .section-header {
@@ -378,11 +376,11 @@
         .section-subtitle {
             font-size: 14.5px;
             color: var(--md-text-secondary);
-            max-width: 660px;
+            max-width: 680px;
         }
 
         /* ==========================================
-           CORE FEATURES GRID (FLAT MATERIAL CARDS)
+           CORE APP FEATURES GRID
            ========================================== */
         .features-grid {
             display: grid;
@@ -417,6 +415,53 @@
         }
 
         .md-card p {
+            font-size: 13.5px;
+            color: var(--md-text-secondary);
+            line-height: 1.55;
+        }
+
+        /* ==========================================
+           CREATOR GROWTH & MONETIZATION GUIDE
+           ========================================== */
+        .growth-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .growth-card {
+            background-color: var(--md-surface);
+            border: 1px solid var(--md-outline);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .step-badge {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background-color: var(--md-primary);
+            color: #FFFFFF;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .growth-body h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--md-text-primary);
+            margin-bottom: 6px;
+        }
+
+        .growth-body p {
             font-size: 13.5px;
             color: var(--md-text-secondary);
             line-height: 1.55;
@@ -479,7 +524,7 @@
         }
 
         /* ==========================================
-           DATA SAFETY & PERMISSIONS TABLE
+           DATA SAFETY & PERMISSIONS
            ========================================== */
         .safety-box {
             background-color: var(--md-surface);
@@ -558,7 +603,7 @@
         }
 
         /* ==========================================
-           LEGAL & POLICY TABS (PRIVACY + TERMS)
+           LEGAL & POLICY TABS
            ========================================== */
         .legal-container {
             background-color: var(--md-surface);
@@ -696,7 +741,7 @@
                 grid-template-columns: 1fr;
                 padding: 32px 22px;
             }
-            .features-grid {
+            .features-grid, .growth-grid {
                 grid-template-columns: 1fr;
             }
             .roadmap-grid {
@@ -738,10 +783,10 @@
             </a>
             <nav class="nav-links" aria-label="Primary Navigation">
                 <a href="#features">Features</a>
+                <a href="#creator-growth">Creator Growth</a>
                 <a href="#roadmap">Roadmap</a>
                 <a href="#data-safety">Data Safety</a>
-                <a href="#legal" onclick="switchLegalTab('privacy')">Privacy Policy</a>
-                <a href="#legal" onclick="switchLegalTab('terms')">Terms</a>
+                <a href="#legal" onclick="switchLegalTab('privacy')">Privacy</a>
                 <a href="#download" class="nav-cta">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                     Get App
@@ -757,34 +802,34 @@
             <div class="hero-card">
                 <div>
                     <div class="chip-row">
-                        <span class="md-chip">Android Video &amp; Media Player</span>
+                        <span class="md-chip">Social Video &amp; Creator App</span>
                         <span class="md-chip neutral">Mainstream &bull; Rated 13+</span>
                     </div>
-                    <h1 class="hero-title">Stream Short &amp; Long Videos with <span>Zero Clutter.</span></h1>
+                    <h1 class="hero-title">Watch, Upload &amp; Grow Your Audience on <span>POTKO.</span></h1>
                     <p class="hero-desc">
-                        POTKO is a lightweight, high-performance Android media player and video discovery application built with a clean Flat Material Design interface, custom adaptive streaming engine, and transparent privacy controls.
+                        POTKO is a modern social video platform for Android where viewers discover trending short reels and long-form videos, and creators upload original content, build an engaged community, and monetize their channel.
                     </p>
                     <div class="cta-group">
                         <a href="https://github.com/potko-app/potko/releases/latest" class="btn-primary" rel="noopener">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                            Download Android APK
+                            Download Android App
                         </a>
-                        <a href="#legal" onclick="switchLegalTab('privacy')" class="btn-outlined">
-                            Review Privacy &amp; Policies
+                        <a href="#creator-growth" class="btn-outlined">
+                            Creator Growth Guide
                         </a>
                     </div>
                     <div class="meta-strip">
                         <span class="meta-item">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            Android 8.0+ Compatible
+                            Android 8.0+ Supported
                         </span>
                         <span class="meta-item">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            HTTPS Encrypted Streams
+                            Original Video Uploads
                         </span>
                         <span class="meta-item">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                            No Account Required
+                            Creator Monetization Ready
                         </span>
                     </div>
                 </div>
@@ -800,22 +845,22 @@
                     <div class="spec-list">
                         <div class="spec-row">
                             <span class="spec-label">Category</span>
-                            <span class="spec-val">Video Players &amp; Entertainment</span>
+                            <span class="spec-val">Social &amp; Video Entertainment</span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-label">Content Rating</span>
-                            <span class="spec-val">13+ (General Audience)</span>
+                            <span class="spec-val">13+ (Mainstream Audience)</span>
                         </div>
                         <div class="spec-row">
-                            <span class="spec-label">UI Architecture</span>
+                            <span class="spec-label">Design System</span>
                             <span class="spec-val">Flat Material &amp; AMOLED Dark</span>
                         </div>
                         <div class="spec-row">
-                            <span class="spec-label">Monetization</span>
-                            <span class="spec-val">Standard In-App Video Ads</span>
+                            <span class="spec-label">Creator Program</span>
+                            <span class="spec-val">Original Content Monetization</span>
                         </div>
                         <div class="spec-row">
-                            <span class="spec-label">Developer Contact</span>
+                            <span class="spec-label">Support Email</span>
                             <span class="spec-val">potkoofficial98@gmail.com</span>
                         </div>
                     </div>
@@ -823,13 +868,13 @@
             </div>
         </section>
 
-        <!-- CORE FEATURES SECTION -->
+        <!-- CORE APP FEATURES -->
         <section class="section" id="features">
             <div class="section-header">
-                <div class="section-eyebrow">Core Capabilities</div>
-                <h2 class="section-title">Designed for Speed, Clarity &amp; Smooth Playback</h2>
+                <div class="section-eyebrow">Platform Capabilities</div>
+                <h2 class="section-title">Everything You Need to Watch, Create &amp; Connect</h2>
                 <p class="section-subtitle">
-                    Every screen in POTKO follows Flat Material Design principles—eliminating visual clutter while keeping video playback fast and responsive on all Android devices.
+                    Designed with a crisp Flat Material interface, POTKO keeps video playback ultra-smooth while giving creators simple tools to publish and reach new viewers.
                 </p>
             </div>
             <div class="features-grid">
@@ -837,112 +882,153 @@
                     <div class="icon-box">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                     </div>
-                    <h3>Custom Adaptive Video Player</h3>
-                    <p>Native hardware-accelerated playback supporting HLS streams, instant seeking, gesture brightness/volume controls, and smooth vertical-to-landscape transitions.</p>
+                    <h3>Short Reels &amp; Long Videos</h3>
+                    <p>Enjoy instant vertical short-form clips alongside full-length videos with adaptive streaming quality, gesture controls, and zero buffering lag.</p>
                 </article>
                 <article class="md-card">
                     <div class="icon-box">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                     </div>
-                    <h3>Short &amp; Long-Form Feeds</h3>
-                    <p>Switch seamlessly between quick vertical reels and full-length public videos curated from licensed and open-syndication media platforms.</p>
+                    <h3>Easy Creator Video Uploads</h3>
+                    <p>Publish your original tutorials, tech reviews, vlogs, and creative clips directly from your Android device with clear titles, categories, and tags.</p>
                 </article>
                 <article class="md-card">
                     <div class="icon-box">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                     </div>
-                    <h3>Pure Flat Material &amp; AMOLED UI</h3>
-                    <p>Crisp typography, zero heavy shadows, and true-black AMOLED dark mode engineered to conserve battery life during extended viewing sessions.</p>
+                    <h3>Flat Material &amp; AMOLED UI</h3>
+                    <p>Distraction-free navigation, high-contrast typography, and true-black dark mode engineered to save battery during long watch and editing sessions.</p>
                 </article>
             </div>
         </section>
 
-        <!-- PRODUCT ROADMAP SECTION -->
+        <!-- CREATOR GROWTH & MONETIZATION TIPS -->
+        <section class="section" id="creator-growth">
+            <div class="section-header">
+                <div class="section-eyebrow">Creator Playbook</div>
+                <h2 class="section-title">How to Grow &amp; Monetize on POTKO</h2>
+                <p class="section-subtitle">
+                    Follow these practical steps to build organic reach on POTKO and qualify for creator monetization through authentic audience engagement.
+                </p>
+            </div>
+            <div class="growth-grid">
+                <article class="growth-card">
+                    <div class="step-badge">1</div>
+                    <div class="growth-body">
+                        <h3>Publish 100% Original High-Retention Videos</h3>
+                        <p>Focus on clear audio, sharp visuals, and a strong hook in the first 3 seconds. Original content consistently ranks higher in POTKO's discovery feed.</p>
+                    </div>
+                </article>
+                <article class="growth-card">
+                    <div class="step-badge">2</div>
+                    <div class="growth-body">
+                        <h3>Combine Short Reels with Long-Form Episodes</h3>
+                        <p>Use quick 15–45 second vertical reels to attract new followers daily, and link them to deeper long-form videos to boost total watch time.</p>
+                    </div>
+                </article>
+                <article class="growth-card">
+                    <div class="step-badge">3</div>
+                    <div class="growth-body">
+                        <h3>Optimize Titles, Categories &amp; Posting Consistency</h3>
+                        <p>Write descriptive, honest titles without clickbait, pick accurate mainstream categories, and maintain a steady weekly upload schedule.</p>
+                    </div>
+                </article>
+                <article class="growth-card">
+                    <div class="step-badge">4</div>
+                    <div class="growth-body">
+                        <h3>Unlock Creator Monetization Cleanly</h3>
+                        <p>Once your channel meets community guidelines and organic watch-time milestones, apply for Creator Revenue Sharing directly inside your POTKO studio dashboard.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- PRODUCT ROADMAP -->
         <section class="section" id="roadmap">
             <div class="section-header">
-                <div class="section-eyebrow">Development Roadmap</div>
-                <h2 class="section-title">Product Milestones &amp; Release Schedule</h2>
+                <div class="section-eyebrow">Product Roadmap</div>
+                <h2 class="section-title">Platform Milestones &amp; Upcoming Updates</h2>
                 <p class="section-subtitle">
-                    Transparent engineering progress for POTKO across player stability, privacy compliance, and store distribution.
+                    Our step-by-step release plan focused on creator tools, playback performance, and community safety.
                 </p>
             </div>
             <div class="roadmap-grid">
                 <div class="roadmap-card">
                     <span class="status-pill status-done">Completed</span>
-                    <h4>Phase 1: Core Player &amp; UI</h4>
-                    <p>Built custom HTML5/ExoPlayer hybrid video engine, Flat Material UI, and AMOLED dark theme.</p>
+                    <h4>Phase 1: Core App &amp; Player</h4>
+                    <p>Launched fast adaptive video player, Flat Material UI, and battery-saving AMOLED dark theme.</p>
                 </div>
                 <div class="roadmap-card">
                     <span class="status-pill status-done">Completed</span>
-                    <h4>Phase 2: Multi-Source Feeds</h4>
-                    <p>Integrated public video syndication APIs for mainstream entertainment, tech, and educational clips.</p>
+                    <h4>Phase 2: Short &amp; Long Feeds</h4>
+                    <p>Enabled dual-mode streaming for vertical reels and full-length mainstream video discovery.</p>
                 </div>
                 <div class="roadmap-card">
                     <span class="status-pill status-active">In Progress</span>
-                    <h4>Phase 3: Ad SDK &amp; VAST Integration</h4>
-                    <p>Implementing standard non-intrusive pre-roll VAST and mediated mobile video ads with GDPR/CCPA consent.</p>
+                    <h4>Phase 3: Creator Studio &amp; Analytics</h4>
+                    <p>Rolling out enhanced creator upload tools, audience retention insights, and monetization eligibility tracking.</p>
                 </div>
                 <div class="roadmap-card">
                     <span class="status-pill status-upcoming">Planned</span>
-                    <h4>Phase 4: Google Play Release</h4>
-                    <p>Public rollout of <code>com.potko.app</code> on Google Play Store with automated cloud updates and watchlists.</p>
+                    <h4>Phase 4: Google Play Expansion</h4>
+                    <p>Global rollout of <code>com.potko.app</code> on Google Play with verified creator badges and playlists.</p>
                 </div>
             </div>
         </section>
 
-        <!-- DATA SAFETY & PERMISSIONS SECTION -->
+        <!-- DATA SAFETY & PERMISSIONS -->
         <section class="section" id="data-safety">
             <div class="section-header">
-                <div class="section-eyebrow">Transparency &amp; Security</div>
-                <h2 class="section-title">Data Safety &amp; Android Permissions</h2>
+                <div class="section-eyebrow">Privacy &amp; Security</div>
+                <h2 class="section-title">Data Safety &amp; App Permissions</h2>
                 <p class="section-subtitle">
-                    POTKO is built on data minimization. We do not collect contacts, SMS messages, precise GPS location, or personal files.
+                    POTKO respects user privacy by design. We never access contacts, SMS messages, call logs, or precise GPS location.
                 </p>
             </div>
             <div class="safety-box">
                 <div class="safety-highlights">
                     <div class="safety-item">
-                        <strong>No Personal Data Sold</strong>
-                        <span>We never sell user profiles, viewing history, or device identifiers to data brokers.</span>
+                        <strong>Zero Data Brokerage</strong>
+                        <span>We never sell personal user information or private viewing history to third parties.</span>
                     </div>
                     <div class="safety-item">
-                        <strong>Encrypted in Transit (TLS)</strong>
-                        <span>All video streams, API requests, and ad signals are transmitted securely over HTTPS.</span>
+                        <strong>HTTPS / TLS Encryption</strong>
+                        <span>All video uploads, streams, and account requests are encrypted in transit.</span>
                     </div>
                     <div class="safety-item">
-                        <strong>13+ Mainstream Audience</strong>
-                        <span>Strictly family-safe mainstream media; not directed toward children under 13 (COPPA compliant).</span>
+                        <strong>13+ Mainstream Community</strong>
+                        <span>Strictly family-safe content standards; not directed toward children under 13 (COPPA compliant).</span>
                     </div>
                 </div>
                 <div class="table-wrap">
                     <table class="md-table">
                         <thead>
                             <tr>
-                                <th>Android Permission / Data Type</th>
-                                <th>Purpose &amp; Usage</th>
-                                <th>Shared With Third Parties</th>
+                                <th>Permission / Data Category</th>
+                                <th>Why It Is Needed</th>
+                                <th>Data Handling</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span class="perm-code">android.permission.INTERNET</span></td>
-                                <td>Required to stream public video feeds and load standard in-app video ads.</td>
-                                <td>Video CDN &amp; Ad Mediation Partners</td>
+                                <td><span class="perm-code">INTERNET</span></td>
+                                <td>Streams videos, uploads creator content, and loads standard platform services.</td>
+                                <td>Encrypted via HTTPS</td>
                             </tr>
                             <tr>
                                 <td><span class="perm-code">ACCESS_NETWORK_STATE</span></td>
-                                <td>Detects Wi-Fi or mobile connectivity to adjust video bitrate and prevent buffering.</td>
-                                <td>Not Shared (On-Device Only)</td>
+                                <td>Checks Wi-Fi or mobile data status to adjust video quality smoothly.</td>
+                                <td>Processed on-device only</td>
                             </tr>
                             <tr>
-                                <td><span class="perm-code">Advertising ID (AAID)</span></td>
-                                <td>Used solely by certified ad SDKs for frequency capping, fraud prevention, and ad delivery.</td>
-                                <td>AppLovin MAX, Unity Ads, Start.io</td>
+                                <td><span class="perm-code">Media / Photo Picker</span></td>
+                                <td>Accessed only when you manually select a video file from your gallery to upload.</td>
+                                <td>User-initiated only</td>
                             </tr>
                             <tr>
-                                <td><strong>Contacts, Location, Camera, Mic</strong></td>
-                                <td><strong>Not Requested / Not Collected.</strong> POTKO operates without accessing personal sensors.</td>
-                                <td>None</td>
+                                <td><strong>Contacts, Location, SMS, Mic</strong></td>
+                                <td><strong>Not Requested.</strong> POTKO functions without background sensor permissions.</td>
+                                <td>Not Collected</td>
                             </tr>
                         </tbody>
                     </table>
@@ -950,13 +1036,13 @@
             </div>
         </section>
 
-        <!-- LEGAL & POLICY CENTER (PRIVACY POLICY, TERMS, DMCA) -->
+        <!-- LEGAL & POLICY CENTER -->
         <section class="section" id="legal">
             <div class="section-header">
-                <div class="section-eyebrow">Legal &amp; Compliance</div>
-                <h2 class="section-title">Privacy Policy, Terms &amp; Content Guidelines</h2>
+                <div class="section-eyebrow">Policies &amp; Governance</div>
+                <h2 class="section-title">Privacy Policy, Terms &amp; Community Guidelines</h2>
                 <p class="section-subtitle">
-                    Official governing policies for the POTKO Android application (<code>com.potko.app</code>) and web portal.
+                    Clear, transparent rules protecting viewers, creators, and copyright holders on POTKO (<code>com.potko.app</code>).
                 </p>
             </div>
 
@@ -964,116 +1050,106 @@
                 <div class="tab-bar" role="tablist">
                     <button class="tab-btn active" id="btn-privacy" role="tab" aria-selected="true" onclick="switchLegalTab('privacy')">Privacy Policy</button>
                     <button class="tab-btn" id="btn-terms" role="tab" aria-selected="false" onclick="switchLegalTab('terms')">Terms &amp; Conditions</button>
-                    <button class="tab-btn" id="btn-dmca" role="tab" aria-selected="false" onclick="switchLegalTab('dmca')">Content &amp; DMCA Policy</button>
+                    <button class="tab-btn" id="btn-dmca" role="tab" aria-selected="false" onclick="switchLegalTab('dmca')">Community &amp; DMCA Policy</button>
                 </div>
 
-                <!-- PRIVACY POLICY PANEL -->
+                <!-- PRIVACY POLICY -->
                 <div class="tab-panel active" id="panel-privacy" role="tabpanel">
-                    <span class="policy-meta">Effective Date: November 18, 2026 &bull; App Package: com.potko.app</span>
+                    <span class="policy-meta">Effective Date: November 18, 2026 &bull; Application: POTKO (com.potko.app)</span>
 
                     <div class="policy-block">
-                        <h4>1. Overview &amp; Scope</h4>
+                        <h4>1. Information We Collect</h4>
                         <p>
-                            This Privacy Policy explains how POTKO ("we," "our," or "the Application") handles information when you use the POTKO Android application and our official website (<code>https://potko-app.github.io/potko/</code>). You can browse and stream videos on POTKO without creating an account or submitting your name, phone number, or home address.
+                            You can watch public videos on POTKO without registering an account. When you create a creator profile, upload videos, or stream media on POTKO (<code>https://potko-app.github.io/potko/</code>), we process only the information necessary to operate the service:
                         </p>
-                    </div>
-
-                    <div class="policy-block">
-                        <h4>2. Information Automatically Processed</h4>
-                        <p>To ensure reliable video playback, prevent abuse, and serve standard advertisements, the Application processes limited technical signals:</p>
                         <ul>
-                            <li><strong>Device &amp; Diagnostics Data:</strong> Device model, Android OS version, screen resolution, app version, and anonymized crash logs used strictly to maintain app stability.</li>
-                            <li><strong>Network &amp; Ad Identifiers:</strong> IP address (for regional content routing and fraud prevention) and Google Advertising ID (AAID), subject to your device privacy settings.</li>
+                            <li><strong>Account &amp; Creator Details:</strong> Display name, email address, and uploaded video metadata when you voluntarily register as a creator.</li>
+                            <li><strong>Technical &amp; Diagnostics Signals:</strong> Device model, Android OS version, IP address (for security and regional delivery), crash diagnostics, and standard Advertising ID (AAID) subject to your device settings.</li>
                         </ul>
                     </div>
 
                     <div class="policy-block">
-                        <h4>3. Third-Party Advertising Partners &amp; SDKs</h4>
+                        <h4>2. How We Use Information</h4>
                         <p>
-                            POTKO is supported by standard in-app video advertisements (such as pre-roll VAST and interstitial/rewarded video placements). We do not use deceptive redirects, forced external browser popups, or incentivized click schemes. Our certified advertising partners may collect device identifiers and ad interaction metrics in accordance with their respective privacy policies:
-                        </p>
-                        <ul>
-                            <li><strong>AppLovin Corporation (AppLovin MAX):</strong> <a href="https://www.applovin.com/privacy/" target="_blank" rel="noopener">https://www.applovin.com/privacy/</a></li>
-                            <li><strong>Unity Technologies (Unity Ads):</strong> <a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener">https://unity.com/legal/privacy-policy</a></li>
-                            <li><strong>Start.io Inc. (StartApp):</strong> <a href="https://www.start.io/policy/privacy-policy/" target="_blank" rel="noopener">https://www.start.io/policy/privacy-policy/</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="policy-block">
-                        <h4>4. User Controls &amp; Opt-Out Rights</h4>
-                        <p>
-                            You may reset or delete your Android Advertising ID or opt out of personalized advertising at any time via your Android device settings (<em>Settings &rarr; Google &rarr; Ads</em>). Users in the EEA, UK, and California may also exercise GDPR/CCPA access or deletion rights by contacting us directly.
+                            We use collected data strictly to deliver smooth video playback, process creator uploads, calculate legitimate creator monetization metrics, prevent spam or fraudulent activity, and display standard non-intrusive in-app advertisements that keep POTKO free for users.
                         </p>
                     </div>
 
                     <div class="policy-block">
-                        <h4>5. Children's Privacy (COPPA Compliance)</h4>
+                        <h4>3. Third-Party Services &amp; User Controls</h4>
                         <p>
-                            POTKO is intended for a general audience aged 13 and older. We do not knowingly collect personal information from children under the age of 13. If you believe a child has provided personal data to us, contact us immediately for prompt removal.
+                            POTKO partners with certified cloud hosting, analytics, and advertising service providers that adhere to strict data protection standards. You may reset your Android Advertising ID or opt out of personalized ads anytime in your device settings (<em>Settings &rarr; Google &rarr; Ads</em>). Users in the EEA, UK, and California may request data access or deletion by contacting us.
                         </p>
                     </div>
 
                     <div class="policy-block">
-                        <h4>6. Contact Information</h4>
+                        <h4>4. Children's Privacy (COPPA Compliance)</h4>
                         <p>
-                            For privacy inquiries or data requests, contact the POTKO Developer Team at <strong>potkoofficial98@gmail.com</strong>.
+                            POTKO is designed for a general audience aged 13 and older. We do not knowingly collect personal information from children under 13. If a parent or guardian believes a child has submitted personal data, please contact us immediately for removal.
+                        </p>
+                    </div>
+
+                    <div class="policy-block">
+                        <h4>5. Contact Us</h4>
+                        <p>
+                            For privacy questions or account deletion requests, email <strong>potkoofficial98@gmail.com</strong>.
                         </p>
                     </div>
                 </div>
 
-                <!-- TERMS & CONDITIONS PANEL -->
+                <!-- TERMS & CONDITIONS -->
                 <div class="tab-panel" id="panel-terms" role="tabpanel">
-                    <span class="policy-meta">Last Updated: November 18, 2026 &bull; Governing Application: POTKO</span>
+                    <span class="policy-meta">Last Updated: November 18, 2026 &bull; POTKO Terms of Service</span>
 
                     <div class="policy-block">
                         <h4>1. Acceptance of Terms</h4>
                         <p>
-                            By downloading, installing, or using the POTKO Android application, you agree to comply with these Terms &amp; Conditions. If you do not agree with any part of these terms, please discontinue use of the Application.
+                            By installing or using the POTKO Android application, you agree to abide by these Terms &amp; Conditions and our Community Guidelines. If you do not agree, please discontinue use of the app.
                         </p>
                     </div>
 
                     <div class="policy-block">
-                        <h4>2. Permitted Use &amp; License</h4>
+                        <h4>2. Creator Uploads &amp; Content Ownership</h4>
                         <p>
-                            We grant you a personal, non-exclusive, non-transferable, revocable license to use POTKO for lawful, non-commercial video streaming on compatible Android devices. You agree not to reverse-engineer, decompile, scrape, or interfere with the Application's playback or advertising delivery systems.
+                            Creators retain ownership of the original videos they upload to POTKO. By uploading content, you grant POTKO a worldwide, non-exclusive, royalty-free license to host, stream, format, and display your videos within the platform. You represent that you own or hold all necessary rights to every video you publish.
                         </p>
                     </div>
 
                     <div class="policy-block">
-                        <h4>3. Third-Party Media &amp; Advertisements</h4>
+                        <h4>3. Creator Monetization &amp; Fair Engagement</h4>
                         <p>
-                            POTKO aggregates and plays publicly accessible video streams via compliant embed players and syndication feeds. All trademarks, video titles, and media assets remain the property of their respective creators and rights holders. Standard third-party advertisements displayed within the player are governed by the terms of the respective ad providers.
+                            Creator monetization eligibility requires compliance with our originality and community safety rules. Artificial traffic, automated view bots, self-clicking, or misleading metadata are strictly prohibited and will result in monetization suspension or account termination.
                         </p>
                     </div>
 
                     <div class="policy-block">
-                        <h4>4. Disclaimer of Warranties &amp; Limitation of Liability</h4>
+                        <h4>4. Limitation of Liability</h4>
                         <p>
-                            POTKO is provided on an "as is" and "as available" basis without warranties of uninterrupted availability. To the maximum extent permitted by applicable law, the developers of POTKO shall not be liable for indirect, incidental, or consequential damages arising from your use of third-party streams or external content.
+                            POTKO is provided on an "as is" and "as available" basis. While we work continuously to maintain uptime and content quality, POTKO is not liable for indirect or incidental damages arising from user-generated content or third-party streams.
                         </p>
                     </div>
                 </div>
 
-                <!-- CONTENT & DMCA PANEL -->
+                <!-- COMMUNITY & DMCA POLICY -->
                 <div class="tab-panel" id="panel-dmca" role="tabpanel">
-                    <span class="policy-meta">Content Standards &amp; Copyright Compliance</span>
+                    <span class="policy-meta">Community Safety &amp; Copyright Protection</span>
 
                     <div class="policy-block">
-                        <h4>1. Mainstream Content Standards</h4>
+                        <h4>1. Mainstream Community Standards</h4>
                         <p>
-                            POTKO strictly curates mainstream, clean entertainment, technology, lifestyle, and educational video content. Adult, sexually explicit, violent, or illegal material is strictly prohibited across all feeds.
+                            POTKO maintains a safe, welcoming environment for mainstream entertainment, education, tech, and lifestyle content. Sexually explicit material, graphic violence, hate speech, harassment, and illegal activities are strictly banned.
                         </p>
                     </div>
 
                     <div class="policy-block">
-                        <h4>2. Copyright &amp; DMCA Takedown Procedure</h4>
+                        <h4>2. Copyright &amp; DMCA Takedown Requests</h4>
                         <p>
-                            POTKO respects intellectual property rights and responds promptly to valid copyright notices. Because POTKO indexes and streams publicly syndicated media URLs without hosting copyrighted files on proprietary servers, rights holders may request removal of any indexed stream link by emailing <strong>potkoofficial98@gmail.com</strong> with:
+                            POTKO respects intellectual property rights and promptly removes infringing material upon valid notice. Copyright owners may submit a takedown request to <strong>potkoofficial98@gmail.com</strong> including:
                         </p>
                         <ul>
-                            <li>Identification of the copyrighted work claimed to have been infringed.</li>
-                            <li>The specific video title or URL reference within POTKO.</li>
-                            <li>Your contact information and a good-faith statement of ownership or authorization.</li>
+                            <li>Identification of the copyrighted work claimed to be infringed.</li>
+                            <li>The exact video title, creator handle, or URL within POTKO.</li>
+                            <li>Your contact details and a good-faith statement of copyright ownership or authorization.</li>
                         </ul>
                     </div>
                 </div>
@@ -1086,15 +1162,16 @@
     <footer class="site-footer">
         <div class="container footer-inner">
             <div class="footer-left">
-                <p><strong>POTKO</strong> (<code>com.potko.app</code>) &mdash; Built with Flat Material Design for Android.</p>
-                <p>Support &amp; Compliance: <a href="mailto:potkoofficial98@gmail.com" style="color: var(--md-primary); text-decoration: none;">potkoofficial98@gmail.com</a></p>
+                <p><strong>POTKO</strong> (<code>com.potko.app</code>) &mdash; Social Video &amp; Creator Platform for Android.</p>
+                <p>Contact &amp; Compliance: <a href="mailto:potkoofficial98@gmail.com" style="color: var(--md-primary); text-decoration: none;">potkoofficial98@gmail.com</a></p>
             </div>
             <div class="footer-links">
                 <a href="#features">Features</a>
+                <a href="#creator-growth">Creator Growth</a>
                 <a href="#roadmap">Roadmap</a>
                 <a href="#data-safety">Data Safety</a>
                 <a href="#legal" onclick="switchLegalTab('privacy')">Privacy Policy</a>
-                <a href="#legal" onclick="switchLegalTab('terms')">Terms &amp; Conditions</a>
+                <a href="#legal" onclick="switchLegalTab('terms')">Terms</a>
                 <a href="#legal" onclick="switchLegalTab('dmca')">DMCA</a>
             </div>
         </div>
